@@ -43,3 +43,14 @@ An accepted live AI response, a credentialed PayPal sandbox verification, public
 Cloudflare deployment `7b1231bd-be07-4f33-8ddd-5369416135c5` attached `settleproof.ajnasnb.com` to the existing Worker. Public DNS through resolver 1.1.1.1 returned Cloudflare addresses. A direct request to that observed address using curl's `--resolve` verified the normal HTTPS hostname/certificate and returned the Agreements HTML plus `{"environment":"sandbox","configured":false}`. No certificate checks were disabled. The local default resolver temporarily retained an earlier NXDOMAIN response; the workers.dev fallback returned HTTP 200 and the new title, and the actual deployed interface was inspected in Chrome. Screenshot: `artifacts/screens/agreement-deployed-review.png`.
 
 Dedicated PayPal credentials, real SDK order/approval/capture, the new film and the final entry are still pending. Domain attachment or a mocked SDK test is not provider proof.
+
+## Genuine hosted Sandbox proof — subsequent 17 October checkpoint
+
+Earlier pending statements above describe their dated checkpoints. They are superseded for provider verification by this result:
+
+- Main suite **93/93**, TypeScript and production build passed at `83a7bbd`. The real Worker regression constructs actual Requests, catching an unsupported redirect mode missed by earlier fake-fetch tests. Both PayPal transports now use manual mode and reject redirects. Receipt diagnostics retain only four revalidated safe entries; secret-bearing errors remain excluded.
+- Deployment `e1e21a37-4819-4e6e-8a8b-bef21c04ffec` completed genuine Sandbox order creation, cancellation without capture, same-order stored-link approval, fresh APPROVED/unpaid0 read, explicit capture, and fresh COMPLETED order/capture reads. USD12 was captured once; the second USD8 milestone stayed pending and unpaid. No successful v6 approval callback or live funds are claimed.
+- `artifacts/agreements-provider-proof.json` identifies the sanitized evidence. Genuine exports preserve21/23/25-event observations. The final25-event file was downloaded through the owned API and parsed from disk; native browser-download completion was not confirmed.
+- The actual UI matched the final packet to the independently retained event-5 prefix, rejected a copy with the first event changed, and revalidated the restored original. These checks do not prove identity, actual design delivery or irreversible settlement.
+- The custom domain now returns HTTP200 using the normal local resolver and loads in Chrome. No certificate validation or browser security setting was disabled.
+- The new film and final PayPal submission remain pending at this checkpoint. The historical100-second film continues to describe the older evidence desk, not this completed Sandbox rehearsal.

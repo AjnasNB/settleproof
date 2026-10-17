@@ -20,7 +20,7 @@ After configuring the bindings and encrypted secrets, a public deployment that i
 npx wrangler deploy --var AI_ENABLED:true
 ```
 
-Run that command only for the intended Cloudflare account and configured Worker. A default deployment without the override leaves AI disabled. The hosted prototype is [SettleProof](https://settleproof.ajnasnb.workers.dev); deployment alone does not prove that an explanation passed validation or that a real sandbox order was verified. Both proofs remain pending in the current release record; the PayPal walkthrough needs the operator's Developer sign-in. The hackathon entry is not submitted.
+Run that command only for the intended Cloudflare account and configured Worker. A default deployment without the override leaves AI disabled. The hosted prototype is [SettleProof](https://settleproof.ajnasnb.com). Genuine AI drafting and a USD12 Sandbox approval/capture were verified on 17 October; see [the rehearsal record](LIVE-REHEARSAL-2026-10-17.md). Deployment alone is not provider proof. The hackathon entry is not submitted.
 
 ## Create a reproducible sandbox case
 

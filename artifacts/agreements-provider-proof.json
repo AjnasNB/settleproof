@@ -1,0 +1,19 @@
+{
+  "environment": "paypal-sandbox",
+  "observedAt": "2026-10-17T15:22:24.914Z",
+  "deployment": "e1e21a37-4819-4e6e-8a8b-bef21c04ffec",
+  "codeCommit": "83a7bbd",
+  "data": "Invented service engagement and fictitious Sandbox funds; one operator exercised both roles.",
+  "order": { "id": "4DS89752FA229423E", "status": "COMPLETED", "amount": "12.00", "currency": "USD" },
+  "capture": { "id": "8KC15056HN484411T", "status": "COMPLETED", "amount": "12.00", "currency": "USD" },
+  "invoiceId": "SP-885e37691d104b45-v2-m1",
+  "originalCreateRequestIdReused": true,
+  "approvalBeforeCapture": { "status": "APPROVED", "captured": "0.00", "receipt": "agreements-video/approved-receipt.json" },
+  "approvalPath": "Official stored Sandbox approval link in a normal Chrome tab, followed by a fresh Server SDK read. No successful v6 onApprove callback is claimed.",
+  "captureAction": "Explicit human action after approval; Server SDK order and fresh capture reads established the result.",
+  "secondMilestone": { "amount": "8.00", "currency": "USD", "deliveryStatus": "pending", "paymentStatus": "not-started" },
+  "finalReceipt": { "path": "agreements-video/final-receipt.json", "eventCount": 25, "headHash": "2c4de2466c013c6eb4ad771c7607192552069d8db0da1ce8c21e0e52e4b549be", "apiDownloadAndSavedReadback": true },
+  "retainedPrefix": { "sequence": 5, "hash": "3c6f85d629f55da3d7a60895868ce2652c17bf2ebed860ff1467cbab7fae6708", "matchesFinalReceipt": true },
+  "tamperedFirstEventRejected": true,
+  "limitations": ["Sandbox only", "No verified identities or actual delivered design file", "No irreversible-settlement or production claim", "Browser-native export download was not confirmed; API download was confirmed", "No final film publication or hackathon entry at this checkpoint"]
+}
