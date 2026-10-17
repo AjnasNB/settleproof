@@ -71,20 +71,41 @@ function download(name: string, content: unknown) {
 
 function PayPalButton({ clientId, createOrder, onApprove, onCancel, onError }: { clientId: string; createOrder: () => Promise<string>; onApprove: () => Promise<void>; onCancel: () => void; onError: (message: string) => void }) {
   const container = useRef<HTMLDivElement>(null);
+  const [attempt, setAttempt] = useState(0);
+  const [status, setStatus] = useState({ phase: 'loading' as 'loading' | 'ready' | 'unavailable', message: 'Preparing PayPal Sandbox Checkout…' });
   const callbacks = useRef({ createOrder, onApprove, onCancel, onError });
   callbacks.current = { createOrder, onApprove, onCancel, onError };
   useEffect(() => {
     let active = true, cleanup: (() => void) | undefined;
-    void import("./paypal-checkout").then(({ mountPayPalCheckout }) => {
-      if (!active || !container.current) return;
+    let phaseLabel = 'loading the checkout module';
+    const controller = new AbortController();
+    setStatus({ phase: 'loading', message: 'Preparing PayPal Sandbox Checkout…' });
+    const timeout = window.setTimeout(() => {
+      if (!active) return;
+      controller.abort();
+      setStatus({ phase: 'unavailable', message: `PayPal Sandbox timed out while ${phaseLabel}. No order or capture was requested. Try loading Checkout again, or return later.` });
+    }, 20_000);
+    void import("./paypal-checkout").then(({ mountPayPalCheckout, checkoutPhaseMessage }) => {
+      if (!active || controller.signal.aborted || !container.current) return;
       return mountPayPalCheckout({ container: container.current, clientId,
+        signal: controller.signal,
+        onPhase: next => {
+          if (!active || controller.signal.aborted) return;
+          const message = checkoutPhaseMessage(next);
+          phaseLabel = next === 'loading-sdk' ? "loading PayPal's Sandbox SDK" : next === 'initializing-sdk' ? 'initializing PayPal Sandbox' : next === 'checking-eligibility' ? 'checking PayPal payment availability' : 'preparing the PayPal approval button';
+          setStatus({ phase: next === 'ready' ? 'ready' : 'loading', message });
+        },
         createOrder: () => callbacks.current.createOrder(), onApprove: () => callbacks.current.onApprove(),
         onCancel: () => callbacks.current.onCancel(), onError: (message: string) => callbacks.current.onError(message),
       });
-    }).then((value) => { if (active) cleanup = value; else value?.(); }).catch(() => { if (active) callbacks.current.onError("PayPal Checkout did not load. Refresh the page or try again later."); });
-    return () => { active = false; cleanup?.(); };
-  }, [clientId]);
-  return <div className="ag-paypal-mount" ref={container} aria-label="PayPal sandbox checkout" />;
+    }).then((value) => { if (active && !controller.signal.aborted) { cleanup = value; window.clearTimeout(timeout); } else value?.(); }).catch(cause => {
+      window.clearTimeout(timeout);
+      if (!active || controller.signal.aborted) return;
+      setStatus({ phase: 'unavailable', message: cause instanceof Error && cause.name === 'CheckoutInitializationError' ? cause.message : `PayPal Sandbox could not finish ${phaseLabel}. No order or capture was requested. Try loading Checkout again later.` });
+    });
+    return () => { active = false; controller.abort(); window.clearTimeout(timeout); cleanup?.(); };
+  }, [clientId, attempt]);
+  return <div aria-label="PayPal sandbox checkout"><p className={status.phase === 'unavailable' ? 'ag-caution' : 'ag-fine'} role="status" aria-live="polite">{status.phase === 'loading' && <CircleNotch className="ag-spin" size={16} />} {status.message}</p><div className="ag-paypal-mount" ref={container} aria-busy={status.phase === 'loading'} />{status.phase === 'unavailable' && <button type="button" className="ag-secondary" onClick={() => setAttempt(value => value + 1)}>Try loading PayPal again</button>}</div>;
 }
 
 export default function Agreements() {
