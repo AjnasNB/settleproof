@@ -16,6 +16,12 @@ New project started **17 October 2026**. This is a sandbox prototype, with no cl
 
 **Hosted preview:** [settleproof.ajnasnb.com](https://settleproof.ajnasnb.com), with [workers.dev fallback](https://settleproof.ajnasnb.workers.dev). **Not submitted.** See the [hosted rehearsal](docs/LIVE-REHEARSAL-2026-10-17.md), [sanitized Sandbox proof](artifacts/agreements-provider-proof.json) and [final receipt](artifacts/agreements-video/final-receipt.json). Real Workers AI drafting was observed on 17 October; see [drafting evidence](artifacts/agreement-ai-proof.json).
 
+## Inspect the demonstrated receipt
+
+Open **Verify an exported receipt** on the hosted homepage and paste [final-receipt.json](artifacts/agreements-video/final-receipt.json). Enter retained sequence **5** and hash `3c6f85d629f55da3d7a60895868ce2652c17bf2ebed860ff1467cbab7fae6708`. The result should report 25 valid events and a matching prefix. The earlier anchor was saved before the later actions; one operator exercised both roles. Paste [tampered-copy.json](artifacts/agreements-video/tampered-copy.json) to see the changed first event rejected. This requires no credentials or payment action.
+
+For a new interactive engagement, follow the [seven-step Sandbox walkthrough](docs/AGREEMENTS-SETUP.md). A test buyer signs into PayPal Sandbox for approval; use your own fictitious Sandbox fixture. Never enter a real payment source.
+
 ## Run locally
 
 Use Node.js 22 or later and npm. From a clean checkout:
