@@ -1,0 +1,245 @@
+{
+  "plannedDuration": 140,
+  "scaffoldDuration": 94,
+  "final": false,
+  "rendered": false,
+  "shots": [
+    {
+      "number": 1,
+      "start": 0,
+      "duration": 6,
+      "title": "Good work starts with a clear agreement.",
+      "source": "assets/01-landing.png",
+      "crop": [
+        320,
+        105,
+        1260,
+        430
+      ],
+      "src": "compositions/frames/01-scaffold.html",
+      "status": "scaffolded-not-frame-reviewed",
+      "providerProof": false
+    },
+    {
+      "number": 2,
+      "start": 6,
+      "duration": 7,
+      "title": "Two milestones. Test funds. Clear expectations.",
+      "source": "assets/05-human-edited-terms.png",
+      "crop": [
+        390,
+        1100,
+        820,
+        820
+      ],
+      "src": "compositions/frames/02-scaffold.html",
+      "status": "scaffolded-not-frame-reviewed",
+      "providerProof": false
+    },
+    {
+      "number": 3,
+      "start": 13,
+      "duration": 8,
+      "title": "Start with the brief. Keep the amounts fixed.",
+      "source": "assets/03-ai-brief.png",
+      "crop": [
+        390,
+        990,
+        810,
+        300
+      ],
+      "src": "compositions/frames/03-scaffold.html",
+      "status": "scaffolded-not-frame-reviewed",
+      "providerProof": false
+    },
+    {
+      "number": 4,
+      "start": 21,
+      "duration": 8,
+      "title": "AI proposes. People decide.",
+      "source": "assets/04-ai-proposal.png",
+      "crop": [
+        390,
+        1330,
+        810,
+        400
+      ],
+      "src": "compositions/frames/04-scaffold.html",
+      "status": "scaffolded-not-frame-reviewed",
+      "providerProof": false
+    },
+    {
+      "number": 5,
+      "start": 29,
+      "duration": 8,
+      "title": "Review every criterion before agreeing.",
+      "source": "assets/05-human-edited-terms.png",
+      "crop": [
+        390,
+        1120,
+        810,
+        710
+      ],
+      "src": "compositions/frames/05-scaffold.html",
+      "status": "scaffolded-not-frame-reviewed",
+      "providerProof": false
+    },
+    {
+      "number": 6,
+      "start": 37,
+      "duration": 8,
+      "title": "Separate access roles. No identity claim.",
+      "source": "assets/06-seller-version-one.png",
+      "crop": [
+        360,
+        565,
+        1200,
+        600
+      ],
+      "src": "compositions/frames/06-scaffold.html",
+      "status": "scaffolded-not-frame-reviewed",
+      "providerProof": false
+    },
+    {
+      "number": 7,
+      "start": 45,
+      "duration": 8,
+      "title": "Either person can propose better terms.",
+      "source": "assets/07-buyer-counteroffer.png",
+      "crop": [
+        390,
+        1480,
+        810,
+        300
+      ],
+      "src": "compositions/frames/07-scaffold.html",
+      "status": "scaffolded-not-frame-reviewed",
+      "providerProof": false
+    },
+    {
+      "number": 8,
+      "start": 53,
+      "duration": 8,
+      "title": "Same terms. Same version. Two decisions.",
+      "source": "assets/08-both-accepted.png",
+      "crop": [
+        360,
+        640,
+        1200,
+        480
+      ],
+      "src": "compositions/frames/08-scaffold.html",
+      "status": "scaffolded-not-frame-reviewed",
+      "providerProof": false
+    },
+    {
+      "number": 9,
+      "start": 61,
+      "duration": 9,
+      "title": "A handoff is a claim to review.",
+      "source": "assets/09-seller-handoff.png",
+      "crop": [
+        385,
+        20,
+        820,
+        355
+      ],
+      "src": "compositions/frames/09-scaffold.html",
+      "status": "scaffolded-not-frame-reviewed",
+      "providerProof": false
+    },
+    {
+      "number": 10,
+      "start": 70,
+      "duration": 7,
+      "title": "Request changes before accepting the work.",
+      "source": "assets/10-changes-requested.png",
+      "crop": [
+        385,
+        115,
+        820,
+        215
+      ],
+      "src": "compositions/frames/10-scaffold.html",
+      "status": "scaffolded-not-frame-reviewed",
+      "providerProof": false
+    },
+    {
+      "number": 11,
+      "start": 77,
+      "duration": 9,
+      "title": "Acceptance stays a human decision.",
+      "source": "assets/11-handoff-accepted.png",
+      "crop": [
+        385,
+        60,
+        820,
+        425
+      ],
+      "src": "compositions/frames/11-scaffold.html",
+      "status": "scaffolded-not-frame-reviewed",
+      "providerProof": false
+    },
+    {
+      "number": 12,
+      "start": 86,
+      "duration": 8,
+      "title": "SDK ready. Payment proof pending.",
+      "source": "assets/12-sdk-ready.png",
+      "crop": [
+        385,
+        320,
+        820,
+        255
+      ],
+      "src": "compositions/frames/12-scaffold.html",
+      "status": "scaffolded-not-frame-reviewed",
+      "providerProof": false
+    },
+    {
+      "number": 13,
+      "start": 94,
+      "duration": 10,
+      "claim": "Genuine approval before capture",
+      "status": "awaiting-genuine-evidence",
+      "src": null,
+      "providerProof": false
+    },
+    {
+      "number": 14,
+      "start": 104,
+      "duration": 9,
+      "claim": "Explicit human capture",
+      "status": "awaiting-genuine-evidence",
+      "src": null,
+      "providerProof": false
+    },
+    {
+      "number": 15,
+      "start": 113,
+      "duration": 9,
+      "claim": "Fresh matching provider evidence",
+      "status": "awaiting-genuine-evidence",
+      "src": null,
+      "providerProof": false
+    },
+    {
+      "number": 16,
+      "start": 122,
+      "duration": 9,
+      "claim": "Final export and retained-prefix verification",
+      "status": "awaiting-genuine-evidence",
+      "src": null,
+      "providerProof": false
+    },
+    {
+      "number": 17,
+      "start": 131,
+      "duration": 9,
+      "claim": "Real altered-copy failure and final end card",
+      "status": "awaiting-genuine-evidence",
+      "src": null,
+      "providerProof": false
+    }
+  ]
+}

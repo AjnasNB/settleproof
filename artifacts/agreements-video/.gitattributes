@@ -1,0 +1,3 @@
+# Preserve frozen third-party bytes and their SHA-256 values across checkouts.
+assets/vendor/gsap.min.js -text
+assets/fonts/LICENSE-Geist.txt -text

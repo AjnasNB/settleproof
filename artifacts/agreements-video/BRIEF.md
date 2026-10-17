@@ -12,7 +12,7 @@ length: 140s
 angle: genuine-product-workflow
 narration: no
 music: none
-status: preparation-awaiting-provider-evidence
+status: source-scaffold-provider-evidence-pending
 ---
 
 ## Intent
@@ -34,6 +34,6 @@ Root owns provider interactions and supplies sanitized captures and proof. No pr
 
 The user's explicit autonomous finish/create-video direction supplies the brief and local production scope. Root has separately authorized sandbox app setup and bounded USD20 fictitious tests and owns those actions. This preparation does not authorize financial actions by the video agent. No rooms, AI calls or payments are to be created by this agent.
 
-Composition authoring, provider scenes and rendering are on hold until root supplies genuine checkout/capture proof and safe asset paths. Before production record the actual build, UTC capture times and the exact role/version/milestone sequence. Preserve the authority of observed evidence if the planned narrative differs.
+Root subsequently authorized a source-backed technical composition scaffold for shots1–12. Slots13–17 remain unauthored until genuine checkout/capture proof arrives; final production/rendering remains on hold. Record actual build and role/version/milestone sequence; do not invent UTC capture times that were not observed. Preserve the authority of actual evidence if the planned narrative differs.
 
 Preview the complete film in Studio and inspect it before local rendering within the user's explicit authorization. Keep publication, YouTube terms and hackathon submission separate for root/user action; no entry before final. This file records preparation, not a completed/rendered film.

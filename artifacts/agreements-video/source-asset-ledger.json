@@ -306,6 +306,135 @@
       },
       "evidenceStatus": "accepted",
       "limitations": "Earlier8event image was rejected for acceptance claim. Current replacement proves human acceptance only; no SDK/order/approval/capture proof. Exact UTC capture time was not recorded; file mtime is write-time only. Accepted as source evidence, not final-film QA."
+    },
+    {
+      "id": "ui-12-sdk-ready",
+      "path": "assets/12-sdk-ready.png",
+      "sha256": "cc2e42af4de50dd7c19f535b2f20804075fdbaea00e89598b25d03823c68856b",
+      "kind": "ui-screenshot",
+      "shots": [
+        12
+      ],
+      "source": {
+        "method": "cua-capture",
+        "description": "Root-supplied hosted UI, actual JPEG bytes,1905x882. Capture build not independently pinned; no exact UTC camera time recorded.",
+        "role": "buyer",
+        "version": 2,
+        "observedState": "Nine human events; handoff accepted, official SDK readiness control visible. No confirmed order, approval or capture.",
+        "syntheticInput": true
+      },
+      "rights": "Project-supplied original SettleProof UI capture; third-party marks retain respective rights.",
+      "privacy": {
+        "reviewed": true,
+        "containsCapability": false,
+        "containsCredentials": false,
+        "containsPersonalAccountData": false,
+        "transforms": []
+      },
+      "evidenceStatus": "accepted",
+      "limitations": "Accepted as SDK-ready source state only. Configured/ready UI is not a genuine payment observation; all provider completion remains pending."
+    },
+    {
+      "id": "geist-font",
+      "path": "assets/fonts/Geist-Variable.woff2",
+      "sha256": "9ce2d97863cab59a0c7522534112d6c42a4e25c0e6b2ab37766761b0f82cfbd6",
+      "kind": "font",
+      "shots": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "source": {
+        "method": "official-package",
+        "description": "Geist1.8.1 frozen licensed font, reused byte-for-byte from this same project historical v1 source."
+      },
+      "rights": "SIL Open Font License1.1; text retained beside font.",
+      "privacy": {
+        "reviewed": true,
+        "containsCapability": false,
+        "containsCredentials": false,
+        "containsPersonalAccountData": false,
+        "transforms": []
+      },
+      "evidenceStatus": "accepted",
+      "limitations": "Local runtime/font dependency, not evidence of product/provider behavior."
+    },
+    {
+      "id": "geist-license",
+      "path": "assets/fonts/LICENSE-Geist.txt",
+      "sha256": "930853ee1daa68554d9e35c8a9175affb74f699fad9a5da6ee5ebe76379d9137",
+      "kind": "license",
+      "shots": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "source": {
+        "method": "official-package",
+        "description": "Preserved original Geist font copyright and full license."
+      },
+      "rights": "SIL Open Font License1.1 original notice.",
+      "privacy": {
+        "reviewed": true,
+        "containsCapability": false,
+        "containsCredentials": false,
+        "containsPersonalAccountData": false,
+        "transforms": []
+      },
+      "evidenceStatus": "accepted",
+      "limitations": "Local runtime/font dependency, not evidence of product/provider behavior."
+    },
+    {
+      "id": "gsap-runtime",
+      "path": "assets/vendor/gsap.min.js",
+      "sha256": "c174bfce53a729418d57a8ad8625e7247c793a22fef8e2851e3cfa3de9cd8280",
+      "kind": "runtime",
+      "shots": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "source": {
+        "method": "official-package",
+        "description": "GSAP3.14.2 frozen local runtime reused byte-for-byte from same project v1; original copyright/license header preserved."
+      },
+      "rights": "GSAP Standard License per retained original header; no relicensing claim.",
+      "privacy": {
+        "reviewed": true,
+        "containsCapability": false,
+        "containsCredentials": false,
+        "containsPersonalAccountData": false,
+        "transforms": []
+      },
+      "evidenceStatus": "accepted",
+      "limitations": "Local runtime/font dependency, not evidence of product/provider behavior."
     }
   ]
 }

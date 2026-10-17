@@ -1,6 +1,6 @@
-# Agreements capture review — first eleven shots
+# Agreements capture review — source shots 1–12
 
-17 October 2026. Inspected all eleven supplied image files at native dimensions, including the replacement shot 11. Root confirms repository capture build `2c123c0`, deployed Worker build `7b1231`; later archival/preparation commits did not change that captured application. Exact UTC capture times were not recorded; file modification times are write-time only. These are genuine source-state captures supplied by root, **not completed film frames or provider integration proof**. No composition or render was made. The ledger contains eleven verified source images and no provider shots.
+17 October 2026. Initial pass inspected all eleven supplied image files at native dimensions, including replacement shot 11. Root confirms repository capture build `2c123c0`, deployed Worker build `7b1231`; later archival/preparation commits did not change that captured application. Exact UTC capture times were not recorded; file modification times are write-time only. These are genuine source-state captures supplied by root, **not completed film frames or provider integration proof**. Later inspection of SDK-ready source12 and the authorized technical scaffold is recorded below. No render has been made.
 
 ## Findings and continuity
 
@@ -49,3 +49,9 @@ No credential-like keys were found in the readback. These checks establish consi
 - **Shots 16–17:** Still absent. Need actual final provider-linked export bytes and successful retained-prefix UI verification, then a real altered-copy failure with original preserved. Existing prepayment exports do not complete these scenes.
 
 All seventeen final-film reviews remain pending until actual composition frames exist. Root retains provider/account actions; this review performed no API call, AI request, room action or payment.
+
+## Subsequent SDK-ready source and technical scaffold
+
+Independently inspected `assets/12-sdk-ready.png`: 1905×882 JPEG bytes, no visible credentials, capability URL, browser chrome or personal account details. It shows the accepted handoff, nine human-workflow events, a blue approval control and the actual text that Sandbox is ready while approval/capture remain separate. It does **not** establish a created order, approval or capture. Root reports the real order attempt remains unconfirmed. Exact capture build/time was not supplied for this later source; the earlier build attribution above applies only to 1–11.
+
+The source ledger now has twelve genuine screenshots plus the licensed Geist font, its OFL notice and the preserved GSAP runtime. None are payment completion evidence. Root authorized the incomplete technical scaffold: only 0–94 seconds /shots1–12 are mounted. Shots13–17 have no composition source. Thirteen HTML files passed static lint with zero errors and warnings after adding stable Studio element IDs. No runtime/layout/playback review, snapshot or video encode was performed. See SCAFFOLD.md and shot-status.json; all seventeen final-film outcomes remain pending.

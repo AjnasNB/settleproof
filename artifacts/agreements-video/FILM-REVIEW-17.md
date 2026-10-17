@@ -1,6 +1,6 @@
 # Agreements film — 17 review rounds
 
-Preparation only. All outcomes are **PENDING**. These are seventeen distinct reviews, not a claim of seventeen finished revisions. For each round record actual time/frame, criticism, fix or justified no-change decision, retest and evidence path. A blocked genuine-provider requirement cannot be filled by fixture footage.
+Incomplete technical scaffold only. All final-film outcomes are **PENDING**. These are seventeen distinct reviews, not a claim of seventeen finished revisions. For each round record actual time/frame, criticism, fix or justified no-change decision, retest and evidence path. A blocked genuine-provider requirement cannot be filled by fixture footage.
 
 | Round | Review and completion evidence | Outcome |
 |---|---|---|
@@ -32,4 +32,4 @@ Around every internal cut inspect boundary minus 0.1 and plus 0.2 seconds. Inspe
 
 ## Current hold
 
-No composition or rendered output yet. Root is obtaining genuine authorized sandbox proof. The historical v1 video is a different product review and remains untouched.
+Source-backed static composition slots1–12 now exist (94seconds, not the eventual140seconds). Static lint of13HTMLfiles passed with zero errors/warnings; that is a partial technical check, not round16 completion. No Studio/layout/frame/audio/video-decode review or final output exists. Provider13–17 remain unauthored; root is obtaining genuine authorized sandbox proof. The historical v1 video remains untouched.
