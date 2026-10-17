@@ -11,7 +11,7 @@ const ORIGIN = "https://api-m.sandbox.paypal.com";
 const unavailable = () => new ApiError(502, "PAYPAL_UNAVAILABLE", "Fresh PayPal sandbox evidence is unavailable. Inspect the existing order before retrying; no payment conclusion can be made.");
 const validId = (value: unknown): value is string => typeof value === "string" && /^[A-Z0-9]{8,32}$/.test(value);
 export type PayPalDiagnosticOperation = "oauth" | "create-order" | "get-order" | "capture-order" | "get-capture" | "transport" | "read-order";
-export type PayPalDiagnosticReason = "http-response" | "http-error" | "transport-policy" | "transport-error" | "response-unreadable" | "response-validation" | "arguments-validation" | "invalid-order-response" | "sdk-error";
+export type PayPalDiagnosticReason = "http-response" | "http-error" | "transport-policy" | "transport-error" | "response-unreadable" | "response-validation" | "arguments-validation" | "invalid-order-response" | "sdk-initialization" | "sdk-error";
 export type PayPalDiagnostic = {
   event: "paypal-sandbox-diagnostic"; operation: PayPalDiagnosticOperation; reason: PayPalDiagnosticReason;
   httpStatus?: number; providerName?: string; issues?: string[]; debugId?: string;
@@ -128,8 +128,10 @@ function approvalLink(order: Order): string | undefined {
 }
 
 export async function sdkCreateOrder(env: PaypalSecrets, invoiceId: string, amount: string, requestId: string, returnOrigin: string, fetcher: typeof fetch = fetch, diagnostic: PayPalDiagnosticSink = defaultDiagnostic) {
-  const { orders } = sdkControllers(env, fetcher, diagnostic);
+  let initialized = false;
   try {
+    const { orders } = sdkControllers(env, fetcher, diagnostic);
+    initialized = true;
     const response = await orders.createOrder({
       paypalRequestId: requestId, prefer: "return=representation",
       body: {
@@ -144,7 +146,11 @@ export async function sdkCreateOrder(env: PaypalSecrets, invoiceId: string, amou
     });
     if (!validId(response.result.id)) { reportDiagnostic(diagnostic, "create-order", "invalid-order-response", response); throw unavailable(); }
     return { orderId: response.result.id, approvalUrl: approvalLink(response.result) };
-  } catch (error) { reportDiagnostic(diagnostic, "create-order", sdkReason(error), error); throw unavailable(); }
+  } catch (error) {
+    reportDiagnostic(diagnostic, "create-order", initialized ? sdkReason(error) : "sdk-initialization", error);
+    if (error instanceof ApiError && error.code === "PAYPAL_NOT_CONFIGURED") throw error;
+    throw unavailable();
+  }
 }
 
 async function readWith(controllers: ReturnType<typeof sdkControllers>, orderId: string): Promise<Observation> {
@@ -172,13 +178,16 @@ async function readWith(controllers: ReturnType<typeof sdkControllers>, orderId:
 }
 
 export async function sdkReadOrder(env: PaypalSecrets, orderId: string, fetcher: typeof fetch = fetch, diagnostic: PayPalDiagnosticSink = defaultDiagnostic) {
-  try { return await readWith(sdkControllers(env, fetcher, diagnostic), orderId); }
-  catch (error) { reportDiagnostic(diagnostic, "read-order", sdkReason(error), error); if (error instanceof ApiError && error.code === "PAYPAL_NOT_CONFIGURED") throw error; throw unavailable(); }
+  let initialized = false;
+  try { const controllers = sdkControllers(env, fetcher, diagnostic); initialized = true; return await readWith(controllers, orderId); }
+  catch (error) { reportDiagnostic(diagnostic, "read-order", initialized ? sdkReason(error) : "sdk-initialization", error); if (error instanceof ApiError && error.code === "PAYPAL_NOT_CONFIGURED") throw error; throw unavailable(); }
 }
 
 export async function sdkCaptureOrder(env: PaypalSecrets, orderId: string, requestId: string, expected: { invoiceId: string; amount: string }, fetcher: typeof fetch = fetch, diagnostic: PayPalDiagnosticSink = defaultDiagnostic) {
-  const controllers = sdkControllers(env, fetcher, diagnostic);
+  let initialized = false;
   try {
+    const controllers = sdkControllers(env, fetcher, diagnostic);
+    initialized = true;
     const before = await controllers.orders.getOrder({ id: orderId });
     const units = before.result.purchaseUnits;
     if (before.result.id !== orderId || units?.length !== 1 || units[0].invoiceId !== expected.invoiceId ||
@@ -187,5 +196,5 @@ export async function sdkCaptureOrder(env: PaypalSecrets, orderId: string, reque
     if (before.result.status !== "APPROVED") throw new ApiError(409, "APPROVAL_REQUIRED", "The buyer must approve this sandbox order in PayPal before capture.");
     await controllers.orders.captureOrder({ id: orderId, paypalRequestId: requestId, prefer: "return=representation" });
     return await readWith(controllers, orderId);
-  } catch (error) { reportDiagnostic(diagnostic, "capture-order", sdkReason(error), error); if (error instanceof ApiError && error.code === "APPROVAL_REQUIRED") throw error; throw unavailable(); }
+  } catch (error) { reportDiagnostic(diagnostic, "capture-order", initialized ? sdkReason(error) : "sdk-initialization", error); if (error instanceof ApiError && ["APPROVAL_REQUIRED", "PAYPAL_NOT_CONFIGURED"].includes(error.code)) throw error; throw unavailable(); }
 }

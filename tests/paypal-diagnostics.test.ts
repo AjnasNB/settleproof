@@ -1,6 +1,8 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { sanitizePayPalDiagnostic, sdkCreateOrder, type PayPalDiagnostic } from '../src/agreements/paypal-sdk';
+import { build } from 'esbuild';
+import { Miniflare } from 'miniflare';
 
 const env = { PAYPAL_CLIENT_ID: 'synthetic-client', PAYPAL_CLIENT_SECRET: 'PRIVATE-SYNTHETIC-SECRET' };
 const privateText = 'PRIVATE-SYNTHETIC-SECRET customer@example.invalid Alice Example Bearer secret-token';
@@ -58,4 +60,27 @@ test('a failing diagnostic sink cannot change the SDK payment result', async () 
   const fake = (async (input: RequestInfo | URL) => String(input).endsWith('/oauth2/token') ? json({ access_token: 'synthetic-token', token_type: 'Bearer', expires_in: 300 }) : json({ id: orderId, status: 'CREATED' }, 201)) as typeof fetch;
   const result = await sdkCreateOrder(env, 'SP-SYNTHETIC-v1-m1', '12.00', 'same-persisted-request', 'https://settleproof.test', fake, () => { throw new Error(privateText); });
   assert.equal(result.orderId, orderId);
+});
+test('SDK constructor failures produce a safe initialization diagnostic before any fetch', async () => {
+  const diagnostics: PayPalDiagnostic[] = []; let calls = 0;
+  const descriptor = Object.getOwnPropertyDescriptor(globalThis, 'navigator');
+  try {
+    Object.defineProperty(globalThis, 'navigator', { configurable: true, get() { throw new Error(privateText); } });
+    await assert.rejects(sdkCreateOrder(env, 'SP-SYNTHETIC-v1-m1', '12.00', 'same-persisted-request', 'https://settleproof.test', (async () => { calls++; return json({}); }) as typeof fetch, value => diagnostics.push(value)));
+  } finally {
+    if (descriptor) Object.defineProperty(globalThis, 'navigator', descriptor);
+    else Reflect.deleteProperty(globalThis, 'navigator');
+  }
+  assert.equal(calls, 0);
+  assert.deepEqual(diagnostics, [{ event: 'paypal-sandbox-diagnostic', operation: 'create-order', reason: 'sdk-initialization' }]);
+});
+test('real Worker SDK factory constructs with node compatibility without making a provider call', { timeout: 15000 }, async () => {
+  const bundle = await build({ stdin: { contents: `import {sdkControllers} from './src/agreements/paypal-sdk';
+    export default {fetch() { let calls=0; const controllers=sdkControllers({PAYPAL_CLIENT_ID:'SYNTHETIC-CLIENT',PAYPAL_CLIENT_SECRET:'SYNTHETIC-SECRET'}, async()=>{calls++; throw new Error('No provider call allowed');},()=>{}); return Response.json({constructed:!!controllers.orders && !!controllers.payments,calls,buffer:typeof Buffer,process:typeof process,navigator:typeof navigator}); }};`, resolveDir: process.cwd(), loader: 'ts' }, bundle: true, write: false, format: 'esm', platform: 'browser', logLevel: 'silent' });
+  const config = { name: 'sdk-factory-probe', compatibilityDate: '2026-10-17', compatibilityFlags: ['nodejs_compat'], manifest: { mainModule: 'index.js', modules: { 'index.js': { type: 'esm' as const, contents: bundle.outputFiles[0].text } } }, exports: { default: { type: 'worker' as const } } };
+  const mf = new Miniflare({ cf: false, workers: [{ config }] });
+  try {
+    const result = await (await mf.dispatchFetch('https://sdk-factory.test/')).json() as { constructed: boolean; calls: number };
+    assert.equal(result.constructed, true); assert.equal(result.calls, 0);
+  } finally { await mf.dispose(); }
 });
