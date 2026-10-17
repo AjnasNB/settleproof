@@ -1,0 +1,34 @@
+{
+  "input": {
+    "amounts": [
+      "12.00",
+      "8.00"
+    ],
+    "brief": "Create a two-page cafe menu. First supply a layout preview for review, then deliver editable source files matching the accepted layout. The buyer must specify the final source file format."
+  },
+  "scope": "Actual Workers AI response on an invented service brief. Not PayPal evidence, human approval, adoption or submission.",
+  "environment": "local-worker-remote-ai",
+  "response": {
+    "status": "generated",
+    "milestones": [
+      {
+        "title": "Layout Preview",
+        "criteria": "A visual representation of the two-page cafe menu layout, including font styles, image placeholders, and text arrangements, for review and acceptance.",
+        "amount": "12.00"
+      },
+      {
+        "title": "Editable Source Files",
+        "criteria": "Delivery of editable source files in the buyer-specified format, matching the accepted layout, with all design elements, text, and image placeholders, ready for final content insertion and printing.",
+        "amount": "8.00"
+      }
+    ],
+    "questions": [
+      "What is the desired orientation of the menu pages?",
+      "Are there any specific branding guidelines that need to be followed?",
+      "What is the estimated number of menu items to be included?"
+    ],
+    "message": "AI draft only. Check and edit every criterion before creating an agreement. Your amounts were preserved.",
+    "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+  },
+  "observedAt": "2026-10-17T13:59:22.3460690Z"
+}

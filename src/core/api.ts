@@ -12,6 +12,7 @@ import {
   readPaypalOrder,
   type PaypalSecrets,
 } from "./paypal";
+import { generateAgreementDraft, parseDraftInput } from '../agreement-draft';
 
 type AiBinding = {
   run(
@@ -377,6 +378,13 @@ export default {
         });
       if (request.method === "GET" && url.pathname === "/api/scenarios")
         return json({ scenarios });
+      if (url.pathname === '/api/agreement-draft') {
+        if (request.method !== 'POST') throw new ApiError(405, 'METHOD_NOT_ALLOWED', 'Use POST with JSON for an editable draft.');
+        if ((request.headers.get('content-type') || '').split(';')[0].trim().toLowerCase() !== 'application/json')
+          throw new ApiError(415, 'JSON_REQUIRED', 'Content-Type must be application/json.');
+        const input = parseDraftInput(await boundedJson(request, 4096));
+        return json(await generateAgreementDraft(input, request, env));
+      }
       if (!["/api/reconcile", "/api/explain"].includes(url.pathname))
         throw new ApiError(404, "NOT_FOUND", "API route not found.");
       if (request.method !== "POST")

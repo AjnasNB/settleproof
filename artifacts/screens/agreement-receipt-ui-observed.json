@@ -1,0 +1,159 @@
+{
+  "format": "settleproof-receipt-v1",
+  "room": {
+    "id": "b3eccee21d7948a89b81490e1eb29eae",
+    "title": "QA invented landing-page handoff",
+    "version": 3,
+    "currency": "USD",
+    "expiresAt": "2026-10-24T14:01:24.299Z"
+  },
+  "anchor": {
+    "sequence": 8,
+    "hash": "2ad601f1ed623dc93bce11837741b6910795131eeb4536101d5cc0b2666f215b"
+  },
+  "events": [
+    {
+      "sequence": 1,
+      "at": "2026-10-17T14:01:24.300Z",
+      "type": "created",
+      "actor": "system",
+      "data": {
+        "roomId": "b3eccee21d7948a89b81490e1eb29eae",
+        "version": 1,
+        "currency": "USD",
+        "expiresAt": "2026-10-24T14:01:24.299Z",
+        "terms": {
+          "title": "QA invented landing-page handoff",
+          "description": "Invented sandbox project: design a single-page website for a small independent studio. Deliver a wireframe first, then a final handoff. No real customer data.",
+          "milestones": [
+            {
+              "title": "Wireframe Delivery",
+              "amount": "12.00",
+              "acceptance": "Provide one desktop wireframe with introduction, services and contact sections. Buyer checks all three named sections."
+            },
+            {
+              "title": "Final Handoff",
+              "amount": "8.00",
+              "acceptance": "Provide desktop and mobile designs plus a handoff note listing type, colors and spacing. Buyer checks both design sizes and the note."
+            }
+          ]
+        }
+      },
+      "previousHash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "hash": "4f8b18a51bf088b6d738d036cc65b977272701f1d53fe31bda12530d19d5b9e2"
+    },
+    {
+      "sequence": 2,
+      "at": "2026-10-17T14:02:32.539Z",
+      "type": "consented",
+      "actor": "seller",
+      "data": {
+        "version": 1
+      },
+      "previousHash": "4f8b18a51bf088b6d738d036cc65b977272701f1d53fe31bda12530d19d5b9e2",
+      "hash": "d2496e02c072cb2eeaff1001b5f241d4665fe516d3c722122135c433f9171e3b"
+    },
+    {
+      "sequence": 3,
+      "at": "2026-10-17T14:03:31.987Z",
+      "type": "terms-proposed",
+      "actor": "seller",
+      "data": {
+        "version": 2,
+        "terms": {
+          "title": "QA invented landing-page handoff",
+          "description": "Invented sandbox project: design a single-page website for a small independent studio. Deliver a wireframe first, then a final handoff. No real customer data.",
+          "milestones": [
+            {
+              "title": "Wireframe Delivery",
+              "amount": "12.00",
+              "acceptance": "Version two: provide a desktop wireframe with labelled introduction, services and contact sections. Buyer checks all three labels."
+            },
+            {
+              "title": "Final Handoff",
+              "amount": "8.00",
+              "acceptance": "Provide desktop and mobile designs plus a handoff note listing type, colors and spacing. Buyer checks both design sizes and the note."
+            }
+          ]
+        }
+      },
+      "previousHash": "d2496e02c072cb2eeaff1001b5f241d4665fe516d3c722122135c433f9171e3b",
+      "hash": "7fa082c294265161047dbf90e6795a68327b56df17d71e2b40ef4534d9c5a727"
+    },
+    {
+      "sequence": 4,
+      "at": "2026-10-17T14:04:47.533Z",
+      "type": "terms-proposed",
+      "actor": "buyer",
+      "data": {
+        "version": 3,
+        "terms": {
+          "title": "QA invented landing-page handoff",
+          "description": "Invented sandbox project: design a single-page studio website. Buyer revision: include labelled introduction, services and contact sections, with desktop and mobile final designs. No real customer data.",
+          "milestones": [
+            {
+              "title": "Wireframe Delivery",
+              "amount": "12.00",
+              "acceptance": "Version two: provide a desktop wireframe with labelled introduction, services and contact sections. Buyer checks all three labels."
+            },
+            {
+              "title": "Final Handoff",
+              "amount": "8.00",
+              "acceptance": "Provide desktop and mobile designs plus a handoff note listing type, colors and spacing. Buyer checks both design sizes and the note."
+            }
+          ]
+        }
+      },
+      "previousHash": "7fa082c294265161047dbf90e6795a68327b56df17d71e2b40ef4534d9c5a727",
+      "hash": "ed4e22c5f48d87e77a9b5090ef007ee84b068d93ce92079362be8aca94ad1601"
+    },
+    {
+      "sequence": 5,
+      "at": "2026-10-17T14:06:18.569Z",
+      "type": "consented",
+      "actor": "buyer",
+      "data": {
+        "version": 3
+      },
+      "previousHash": "ed4e22c5f48d87e77a9b5090ef007ee84b068d93ce92079362be8aca94ad1601",
+      "hash": "aed77216b4e63ff957a20887e2b8d3e3b476b31e821b71f12ade3cef9670772b"
+    },
+    {
+      "sequence": 6,
+      "at": "2026-10-17T14:06:39.535Z",
+      "type": "consented",
+      "actor": "seller",
+      "data": {
+        "version": 3
+      },
+      "previousHash": "aed77216b4e63ff957a20887e2b8d3e3b476b31e821b71f12ade3cef9670772b",
+      "hash": "04e6895c175bd9066a41893a00938828141682041e3d1849e74acc1cc0a93ce4"
+    },
+    {
+      "sequence": 7,
+      "at": "2026-10-17T14:06:58.574Z",
+      "type": "delivery-submitted",
+      "actor": "seller",
+      "data": {
+        "version": 3,
+        "milestoneId": "m1",
+        "note": "Invented wireframe v1: introduction and services are labelled. The contact section label still needs the buyer review. No real document is attached."
+      },
+      "previousHash": "04e6895c175bd9066a41893a00938828141682041e3d1849e74acc1cc0a93ce4",
+      "hash": "14a6d8797cd5b01254f82680062b8eecacc9d40e08d397d67f4edad87fc60896"
+    },
+    {
+      "sequence": 8,
+      "at": "2026-10-17T14:07:09.485Z",
+      "type": "changes-requested",
+      "actor": "buyer",
+      "data": {
+        "version": 3,
+        "milestoneId": "m1",
+        "note": "Please label the contact section as agreed, then submit the revised wireframe for another review."
+      },
+      "previousHash": "14a6d8797cd5b01254f82680062b8eecacc9d40e08d397d67f4edad87fc60896",
+      "hash": "2ad601f1ed623dc93bce11837741b6910795131eeb4536101d5cc0b2666f215b"
+    }
+  ]
+}

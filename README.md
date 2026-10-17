@@ -1,12 +1,20 @@
-# SettleProof
+# SettleProof Agreements
 
-An evidence desk for answering a narrow question: **does this PayPal sandbox order support marking this invoice paid?**
+A shared record of **what two roles agreed, what a person accepted, and what PayPal actually captured**. The new Agreements workflow connects versioned service milestones, human review, official PayPal SDK Checkout and a hash-linked receipt history. The original evidence desk remains at `/evidence`.
+
+The reviewed Agreements build is deployed. Its actual AI drafting and offline role/delivery/receipt flow have been observed; genuine PayPal SDK approval/capture is pending a dedicated Sandbox application's credential setup. The 17 independent review focuses have explicit outcomes and limits; the real-provider portions remain pending. No new video or hackathon submission is claimed.
+
+Start with [Agreements setup and exact limits](docs/AGREEMENTS-SETUP.md), [17 concept revisions](docs/CONCEPT-17.md) and the [independent product review record](docs/PRODUCT-17.md). Capability links permit demo roles; they do not verify identities. SHA-256 history detects edits relative to a retained prefix anchor; it provides no consensus, immutable storage, delivery certification or guarantee of settlement.
+
+## Evidence desk
+
+The underlying reconciliation engine answers a narrow question: **does this PayPal sandbox order support marking this invoice paid?**
 
 SettleProof compares expected invoice, amount and currency with server-fetched order and capture observations. Deterministic checks own the result. AI explains that result and drafts an internal review note using cited evidence; it cannot change amounts or perform a payment action.
 
 New project started **17 October 2026**. This is a sandbox prototype, with no claimed customers, production transaction volume or automated accounting certification. All included fixture records are synthetic. Fixture demonstrations and live sandbox observations are visibly separate.
 
-**Hosted preview:** [settleproof.ajnasnb.workers.dev](https://settleproof.ajnasnb.workers.dev). **Not submitted.** A real PayPal sandbox read is pending the operator's PayPal Developer sign-in. A real Workers AI explanation on a clearly labelled synthetic partial-capture case was observed on 17 October; see [runtime evidence](artifacts/ai-ui-proof.json). This does not verify the PayPal integration.
+**Hosted preview:** [settleproof.ajnasnb.com](https://settleproof.ajnasnb.com), with [workers.dev fallback](https://settleproof.ajnasnb.workers.dev). **Not submitted.** A real PayPal sandbox read is pending the operator's PayPal Developer sign-in. Real Workers AI drafting was observed on 17 October; see [drafting evidence](artifacts/agreement-ai-proof.json). This does not verify the PayPal integration.
 
 ## Run locally
 
@@ -23,7 +31,7 @@ npm run dev
 
 Open `http://localhost:8797`. The Worker serves the built UI and `/api/*`. Rerun `npm run build` after frontend changes. Synthetic scenarios require no PayPal credentials. Without a configured AI binding, the app should report explanation availability honestly rather than display canned text as generated output.
 
-For fixture exploration with no remote bindings, run `npm run dev:offline` instead and open `http://localhost:8798`. This separate configuration has no PayPal, AI or remote storage bindings. It disables inference and real provider reads while preserving the same synthetic queue and review UI. Use the normal configuration for enabled AI and sandbox verification.
+For local agreement review with no remote bindings, run `npm run dev:offline` instead and open `http://localhost:8798`. Local SQLite storage preserves the separate role/consent/delivery/receipt flow; the object's constructor discards provider credentials as well as the outer Worker. AI and provider access remain disabled. The synthetic evidence desk is at `/evidence`. Use the normal configuration for enabled AI and sandbox verification.
 
 See [sandbox setup](docs/SETUP.md) to configure a fresh test application and produce an actual sandbox order. Do not use a live application, account, payment source or endpoint.
 
@@ -53,7 +61,7 @@ This is order/capture reconciliation, not a complete ledger: it does not discove
 
 ## Tests and reproducibility
 
-The latest recorded checks are 50 backend tests and seven separate sandbox-helper tests passing. The backend suite covers deterministic reconciliation, Worker handling and actual local SQLite quota concurrency, persistence and UTC rollover. The helper suite uses mocked requests to cover endpoint confinement, approval gating, input validation and receipt redaction. Neither a local test nor a synthetic fixture proves a real provider integration. A credentialed sandbox walkthrough and an accepted enabled AI explanation must be recorded before claiming those paths have been demonstrated.
+The latest recorded suite has 74 tests passing, plus seven separate sandbox-helper tests. Coverage includes the original deterministic reconciliation, actual local SQLite quota/state concurrency, SDK transport confinement, role/version transitions, idempotency, retry age, receipt capacity, large UTF-8 verifier inputs and retained-prefix verification. SDK tests mock provider responses. The helper suite uses mocked requests for endpoint confinement, approval gating, input validation and receipt redaction. These tests do not establish genuine PayPal success. Actual AI drafting was observed on an invented brief; a credentialed sandbox walkthrough remains pending.
 
 The [16-point release checklist](docs/RELEASE-CHECKLIST.md) distinguishes requirements from completed verification. [Validation notes](docs/VALIDATION.md) record what this documentation subtask actually checked. API shapes are in [API-CONTRACT.md](API-CONTRACT.md).
 

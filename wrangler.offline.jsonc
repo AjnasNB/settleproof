@@ -10,5 +10,8 @@
     "not_found_handling": "single-page-application",
     "run_worker_first": ["/api/*"]
   },
+  "durable_objects": { "bindings": [{ "name": "AGREEMENTS", "class_name": "OfflineAgreementStore" }] },
+  "migrations": [{ "tag": "offline-v1", "new_sqlite_classes": ["OfflineAgreementStore"] }],
+  "ratelimits": [{ "name": "API_RATE", "namespace_id": "174204", "simple": { "limit": 60, "period": 60 } }],
   "vars": { "AI_ENABLED": "false" }
 }

@@ -1,5 +1,7 @@
 # SettleProof — submission copy for review
 
+Historical reconciliation-only draft. The current product candidate is [SettleProof Agreements](AGREEMENTS-SUBMISSION-DRAFT.md). Do not use this older copy as evidence of the new shared-room or SDK journey.
+
 Do not submit this document verbatim until the live walkthrough, screenshots and video are verified. This draft describes the intended delivered product; remove or revise any capability that does not pass the release checklist.
 
 ## One-line pitch
@@ -32,7 +34,7 @@ This prototype is deliberately limited to sandbox observations, explicit synthet
 
 ## AI and tools disclosure
 
-Runtime AI: Cloudflare Workers AI, model `@cf/meta/llama-3.3-70b-instruct-fp8-fast`, used to explain sanitized deterministic evidence and draft a proposed internal review note. An unavailable or invalid result is identified rather than presented as a successful model response. An accepted live inference has not yet been recorded in the current release evidence.
+Runtime AI: Cloudflare Workers AI, model `@cf/meta/llama-3.3-70b-instruct-fp8-fast`, used to explain sanitized deterministic evidence and draft a proposed internal review note. An unavailable or invalid result is identified rather than presented as a successful model response. A genuine accepted explanation on a synthetic fixture is now recorded in `artifacts/ai-ui-proof.json`; later agreement drafting is separately recorded in `artifacts/agreement-ai-proof.json`.
 
 Development assistance: OpenAI Codex and cooperating coding agents assisted with planning, implementation, documentation and tests. Ajnas N B is the project owner and reviews the result. Do not claim the generated implementation was hand-written or that tests establish real-world adoption. The final release must name any additional model/tool actually used in its demo or development.
 

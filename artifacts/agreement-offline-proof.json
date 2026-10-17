@@ -1,0 +1,13 @@
+{
+  "injectedCredentials": "Deliberately invalid sentinel values injected at startup, never real credentials",
+  "paypalConfigured": false,
+  "checkoutError": "PAYPAL_NOT_CONFIGURED",
+  "environment": "offline-local-only",
+  "aiConfigured": false,
+  "humanFlow": "Local seller consent, buyer consent, invented delivery and buyer acceptance",
+  "scope": "No provider bindings or live provider calls. Credentials discarded inside namespace constructor as well as Worker wrapper.",
+  "receiptEvents": 5,
+  "agreementPaypalConfigured": false,
+  "receiptValid": true,
+  "checkoutStatus": 503
+}

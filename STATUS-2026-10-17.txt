@@ -1,17 +1,22 @@
 SETTLEPROOF — 17 OCTOBER 2026
 
 Built for the open PayPal AI Hackathon. This entry has NOT been submitted.
-Public app: https://settleproof.ajnasnb.workers.dev/
+Public app: https://settleproof.ajnasnb.com/ (public DNS and hostname-verified TLS checked; local resolver still caches the earlier missing name)
+Fallback: https://settleproof.ajnasnb.workers.dev/
 Public MIT source: https://github.com/AjnasNB/settleproof
 
-Verified: TypeScript check, production frontend build, 50 backend tests including actual local SQLite quota concurrency/persistence/UTC rollover, and seven separate mocked sandbox-helper tests. Desktop/mobile checks, filter/selection, sorting, source navigation, human review save and amount validation have bounded UI evidence under artifacts/.
+Historical v1 verification: TypeScript check, production frontend build, 50 backend tests including actual local SQLite quota concurrency/persistence/UTC rollover, and seven separate mocked sandbox-helper tests. Desktop/mobile checks, filter/selection, sorting, source navigation, human review save and amount validation have bounded UI evidence under artifacts/. Current Agreements checks are below.
 
-Included payment cases are explicitly synthetic. No credentialed PayPal read, order creation, capture, refund or real-money transaction has been performed for this project. PayPal Developer sign-in requires the account owner's private password entry; the existing sign-in attempt returned Required for the password.
+Included payment cases are explicitly synthetic. No credentialed PayPal read, order creation, capture, refund or real-money transaction has been performed for this project. The account owner signed into PayPal Developer and approved creating the dedicated Sandbox merchant app, ignored local/encrypted Cloudflare credential storage, and fictitious test orders up to USD20 total. Clicking Create App redirected to private sign-in again. Creation outcome is unverified; check the existing app list after sign-in before retrying. This approval remains valid.
 
 Runtime AI: Cloudflare Workers AI @cf/meta/llama-3.3-70b-instruct-fp8-fast; one call per explanation, maximum 450 requested output tokens, atomic global ceiling 20 attempts per UTC day. Accepted hosted explanation of the synthetic partial-capture case was observed and saved in artifacts/ai-ui-proof.json and artifacts/screens/final-ai-generated.png. Failed and rejected responses are not shown as generated explanations.
 
 A local review video is complete: artifacts/video/settleproof-review.mp4, 100 seconds, 1920x1080, H.264, 24 fps, silent with captions. The 15 local video checks passed; external completion is the remaining sixteenth check. Editable source and exact verification scope are under artifacts/video/. This review shows synthetic payment cases and actual AI, with PayPal explicitly not configured.
 
-Remaining: credentialed sandbox walkthrough; update the competition demo with genuine sandbox evidence and obtain a public YouTube link; applicant eligibility/rights declarations; action-time approval for the Devpost/PayPal submission contract; submit and retain the actual confirmation.
+New deployed build: SettleProof Agreements extends the evidence desk with versioned milestones, separate buyer/seller capabilities, shared human review, official browser/server SDK integration, explicit capture and a hash-linked receipt verifier. The 17 concept review rounds are complete in docs/CONCEPT-17.md. The latest release check passed TypeScript, all 74 tests, seven separate helper tests and the production build. SDK/Worker provider responses in those tests are mocked, not real PayPal observations. All 17 independent product review focuses and fixes are recorded in docs/PRODUCT-17.md with bounded outcomes; real-provider portions of rounds 10/11/17 remain pending. Cloudflare deployment 7b1231bd-be07-4f33-8ddd-5369416135c5 returned the new Agreements title and Sandbox configured=false at the workers.dev fallback.
+
+Actual AI drafting on an invented brief was accepted with original USD12/USD8 amounts preserved; artifacts/agreement-ai-proof.json records the API result. The independent reviewer also observed the new draft in the actual UI. Offline role/delivery/receipt flow was checked with invalid credential sentinels injected; PayPal and AI stayed disabled and checkout was rejected before provider access. See artifacts/agreement-offline-proof.json.
+
+The earlier local review video is historical v1 evidence, not the new Agreements demo. Remaining: complete genuine sandbox walkthrough and pending provider review checks; create and review the new competition video frame by frame, then obtain its public YouTube link; applicant eligibility/rights declarations; action-time approval for the Devpost/PayPal submission contract; submit only at the final approved endpoint and retain the actual confirmation.
 
 No Earn credit used. Last confirmed balance remains two. No award or payout is confirmed. The hackathon deadline is 13 November 2026 at 01:30 IST; judging is in December and prize delivery may take 60 days after completed required forms. This is not immediate or guaranteed income. Official rules: https://paypalaihackathon.devpost.com/rules
