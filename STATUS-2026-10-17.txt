@@ -10,6 +10,8 @@ Included payment cases are explicitly synthetic. No credentialed PayPal read, or
 
 Runtime AI: Cloudflare Workers AI @cf/meta/llama-3.3-70b-instruct-fp8-fast; one call per explanation, maximum 450 requested output tokens, atomic global ceiling 20 attempts per UTC day. Accepted hosted explanation of the synthetic partial-capture case was observed and saved in artifacts/ai-ui-proof.json and artifacts/screens/final-ai-generated.png. Failed and rejected responses are not shown as generated explanations.
 
-Remaining: credentialed sandbox walkthrough; final demo video/public YouTube link; applicant eligibility/rights declarations; action-time approval for the Devpost/PayPal submission contract; submit and retain the actual confirmation.
+A local review video is complete: artifacts/video/settleproof-review.mp4, 100 seconds, 1920x1080, H.264, 24 fps, silent with captions. The 15 local video checks passed; external completion is the remaining sixteenth check. Editable source and exact verification scope are under artifacts/video/. This review shows synthetic payment cases and actual AI, with PayPal explicitly not configured.
+
+Remaining: credentialed sandbox walkthrough; update the competition demo with genuine sandbox evidence and obtain a public YouTube link; applicant eligibility/rights declarations; action-time approval for the Devpost/PayPal submission contract; submit and retain the actual confirmation.
 
 No Earn credit used. Last confirmed balance remains two. No award or payout is confirmed. The hackathon deadline is 13 November 2026 at 01:30 IST; judging is in December and prize delivery may take 60 days after completed required forms. This is not immediate or guaranteed income. Official rules: https://paypalaihackathon.devpost.com/rules

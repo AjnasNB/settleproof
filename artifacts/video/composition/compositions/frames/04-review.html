@@ -1,0 +1,70 @@
+<template>
+  <style>
+    @font-face{font-family:Geist;src:url('assets/fonts/Geist-Variable.woff2') format('woff2');font-weight:100 900;font-style:normal;font-display:block}
+    #root{position:relative;width:100%;height:100%;container-type:size;overflow:hidden;font-family:Geist;color:#193a36}
+    #root *{box-sizing:border-box}
+    #sp04-review-ground{position:absolute;inset:0;background:#f7f8f5}
+    #sp04-review-evidence,#sp04-review-close{position:absolute;inset:0}
+    #sp04-review-eyebrow{position:absolute;left:5cqw;top:4.6cqw;margin:0;font-size:1.5625cqw;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#27654f}
+    #sp04-review-headline{position:absolute;left:5cqw;top:11.25cqw;width:39cqw;margin:0;font-size:4.16667cqw;line-height:1.08;letter-spacing:-.02em;font-weight:650}
+    #sp04-review-caption{position:absolute;left:5cqw;top:29.35cqw;width:39cqw;margin:0;font-size:2.08333cqw;line-height:1.35;font-weight:450;color:#566b63}
+    #sp04-review-panel-label{position:absolute;left:47.39583cqw;top:6.15cqw;margin:0;font-size:1.45833cqw;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#27654f}
+    #sp04-review-note-crop{position:absolute;left:47.39583cqw;top:9.375cqw;width:47.61719cqw;height:33.125cqw;overflow:hidden;border:1.5px solid rgba(39,101,79,.2);border-radius:14px;background:rgba(39,101,79,.04)}
+    #sp04-review-note-image{position:absolute;width:196.67969cqw;height:122.97656cqw;max-width:none;left:-141.7474cqw;top:-73.15104cqw;display:block}
+    #sp04-review-toast-crop{position:absolute;left:16.40625cqw;top:44.27083cqw;width:67.1875cqw;height:7.8125cqw;overflow:hidden;border-radius:14px}
+    #sp04-review-toast-image{position:absolute;width:222.65625cqw;height:139.21875cqw;max-width:none;left:-92.1875cqw;top:-128.125cqw;display:block}
+    #sp04-review-close-line{position:absolute;left:5cqw;top:6.25cqw;width:3.125cqw;height:.20833cqw;background:#27654f;border-radius:2px}
+    #sp04-review-brand{position:absolute;left:5cqw;top:8.1cqw;margin:0;font-size:2.08333cqw;font-weight:650;letter-spacing:-.02em;color:#27654f}
+    #sp04-review-close-headline{position:absolute;left:5cqw;top:14.15cqw;margin:0;font-size:5.52083cqw;line-height:1.08;font-weight:650;letter-spacing:-.02em}
+    #sp04-review-close-caption{position:absolute;left:5cqw;top:21.65cqw;margin:0;font-size:3.02083cqw;line-height:1.25;font-weight:450;letter-spacing:-.02em;color:#566b63}
+    #sp04-review-links{position:absolute;left:5cqw;top:31.25cqw;width:90cqw;color:#27654f}
+    #sp04-review-demo,#sp04-review-source{margin:0;font-size:2.8125cqw;line-height:1.4;letter-spacing:-.02em;font-weight:500}
+    #sp04-review-source{margin-top:1.25cqw}
+    #sp04-review-status{position:absolute;left:5cqw;top:45.2cqw;margin:0;font-size:1.5625cqw;line-height:1.6;font-weight:450;color:#566b63}
+    #sp04-review-progress{position:absolute;left:0;right:0;bottom:0;height:3px;background:#27654f}
+  </style>
+  <div data-hf-id="hf-r0nm" id="root" data-composition-id="04-review" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-gntd" id="sp04-review-ground" class="clip" data-start="0" data-duration="25" data-track-index="0"></div>
+    <section data-hf-id="hf-bgsh" id="sp04-review-evidence" class="clip" data-start="0" data-duration="13" data-track-index="1">
+      <p data-hf-id="hf-nd02" id="sp04-review-eyebrow">Synthetic demo</p>
+      <h1 data-hf-id="hf-2xso" id="sp04-review-headline"><span data-hf-id="hf-3vzi" style="display:block">Review it.</span><span data-hf-id="hf-7mxt" style="display:block">Record your</span><span data-hf-id="hf-1det" style="display:block">decision.</span></h1>
+      <p data-hf-id="hf-f21n" id="sp04-review-caption"><span data-hf-id="hf-nr0b" style="display:block">Saved in this browser.</span><span data-hf-id="hf-w41w" style="display:block">Payment evidence</span><span data-hf-id="hf-yr1s" style="display:block">is unchanged.</span></p>
+      <p data-hf-id="hf-0zoz" id="sp04-review-panel-label">Browser-local human review</p>
+      <div data-hf-id="hf-rqxi" id="sp04-review-note-crop" aria-label="Actual captured human review note and browser-local saved state">
+        <img data-hf-id="hf-3loi" id="sp04-review-note-image" src="assets/human-review.png" alt="Human review note in the actual SettleProof demo interface">
+      </div>
+      <div data-hf-id="hf-jhb8" id="sp04-review-toast-crop" aria-label="Actual saved-review confirmation from the captured interface">
+        <img data-hf-id="hf-emp2" id="sp04-review-toast-image" src="assets/human-review.png" alt="Review saved in this browser. Payment evidence was not changed.">
+      </div>
+    </section>
+    <section data-hf-id="hf-dqwu" id="sp04-review-close" class="clip" data-start="13" data-duration="12" data-track-index="2">
+      <div data-hf-id="hf-1lyl" id="sp04-review-close-line"></div>
+      <p data-hf-id="hf-6c9x" id="sp04-review-brand">SettleProof</p>
+      <h2 data-hf-id="hf-uphh" id="sp04-review-close-headline">Evidence first.</h2>
+      <p data-hf-id="hf-x1kc" id="sp04-review-close-caption">A human decides what's next.</p>
+      <div data-hf-id="hf-iqw5" id="sp04-review-links">
+        <p data-hf-id="hf-seqo" id="sp04-review-demo">settleproof.ajnasnb.workers.dev</p>
+        <p data-hf-id="hf-7vgs" id="sp04-review-source">github.com/AjnasNB/settleproof</p>
+      </div>
+      <p data-hf-id="hf-mko9" id="sp04-review-status"><span data-hf-id="hf-pzed" style="display:block">MIT-licensed prototype · synthetic demo + real AI</span><span data-hf-id="hf-9alu" style="display:block">PayPal setup pending</span></p>
+    </section>
+    <div data-hf-id="hf-pi8m" id="sp04-review-progress" class="clip" data-start="0" data-duration="25" data-track-index="3"></div>
+  </div>
+  <script>
+    (function(){
+      const tl=gsap.timeline({paused:true});
+      const hold={progress:0};
+      tl.to(hold,{progress:1,duration:25,ease:'none'},0);
+      tl.fromTo('#sp04-review-headline',{y:14,opacity:0},{y:0,opacity:1,duration:.45,ease:'power2.out'},0);
+      tl.fromTo('#sp04-review-note-crop',{y:12,opacity:0},{y:0,opacity:1,duration:.45,ease:'power2.out'},0);
+      tl.fromTo('#sp04-review-caption',{y:14,opacity:0},{y:0,opacity:1,duration:.5,ease:'power2.out'},3.2);
+      tl.fromTo('#sp04-review-toast-crop',{y:12,opacity:0},{y:0,opacity:1,duration:.45,ease:'power2.out'},7.0);
+      tl.set('#sp04-review-evidence',{opacity:0},13);
+      tl.fromTo('#sp04-review-close',{opacity:0},{opacity:1,duration:0},13);
+      tl.fromTo('#sp04-review-close-headline, #sp04-review-close-caption',{y:16,opacity:0},{y:0,opacity:1,duration:.5,stagger:.1,ease:'power2.out'},13);
+      tl.fromTo('#sp04-review-links, #sp04-review-status',{y:12,opacity:0},{y:0,opacity:1,duration:.5,stagger:.12,ease:'power2.out'},13.45);
+      window.__timelines=window.__timelines||{};
+      window.__timelines['04-review']=tl;
+    })();
+  </script>
+</template>

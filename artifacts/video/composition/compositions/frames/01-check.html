@@ -1,0 +1,122 @@
+<template>
+  <style>
+    @font-face {
+      font-family: "Geist";
+      src: url("assets/fonts/Geist-Variable.woff2") format("woff2");
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+    }
+    #root {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      container-type: size;
+      font-family: "Geist";
+      color: #193a36;
+    }
+    [class~="sp01-check-ground"] { position: absolute; inset: 0; background: #f7f8f5; }
+    [class~="sp01-check-scene"] { position: absolute; inset: 0; }
+    [class~="sp01-check-rule"] {
+      position: absolute; width: 3.125cqw; height: 0.208333cqw;
+      border-radius: 2px; background: #27654f;
+    }
+    [class~="sp01-check-eyebrow"] {
+      position: absolute; margin: 0; color: #27654f;
+      font-size: 1.46cqw; line-height: 1.3;
+      font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    [class~="sp01-check-title"] {
+      position: absolute; margin: 0; color: #193a36;
+      font-size: 3.541667cqw; line-height: 1.1;
+      font-weight: 650; letter-spacing: -0.02em;
+    }
+    [class~="sp01-check-copy"] {
+      position: absolute; margin: 0; color: #566b63;
+      font-size: 1.666667cqw; line-height: 1.4; font-weight: 400;
+    }
+    [class~="sp01-check-label"] {
+      position: absolute; margin: 0; color: #566b63;
+      font-size: 1.46cqw; line-height: 1.4; font-weight: 400;
+    }
+    [class~="sp01-check-surface"] {
+      position: absolute; overflow: hidden; border: 1.5px solid rgba(39,101,79,0.2);
+      border-radius: 14px; background: rgba(39,101,79,0.04);
+      box-sizing: border-box;
+    }
+    [class~="sp01-check-surface"] img { position: absolute; display: block; max-width: none; }
+    #sp01-check-overview-surface { left: 33.854167cqw; top: 6.5625cqw; width: 61.145833cqw; height: 38.232237cqw; }
+    #sp01-check-overview-surface img { inset: 0; width: 100%; height: 100%; object-fit: contain; }
+    #sp01-check-queue-surface { left: 5cqw; top: 11.197917cqw; width: 90cqw; height: 31.25cqw; }
+    #sp01-check-queue-surface img {
+      /* Actual 1425x891 capture at 1.53x. Visible source begins at x250, y320. */
+      width: 113.554688cqw; height: 71.001563cqw; left: -19.921875cqw; top: -25.5cqw;
+    }
+    #sp01-check-inspector-surface { left: 58.541667cqw; top: 5.729167cqw; width: 36.458333cqw; height: 25cqw; }
+    #sp01-check-inspector-surface img {
+      /* Actual approved inspector: source x1020..1370, y382..622, enlarged 2x. */
+      width: 148.4375cqw; height: 92.8125cqw; left: -106.25cqw; top: -39.791667cqw;
+    }
+    #sp01-check-approval-surface { left: 58.541667cqw; top: 31.770833cqw; width: 36.458333cqw; height: 9.270833cqw; }
+    #sp01-check-approval-surface img {
+      /* Separate editorial crop of the real check row; no UI is reconstructed. */
+      width: 148.4375cqw; height: 92.8125cqw; left: -106.25cqw; top: -83.541667cqw;
+    }
+  </style>
+  <div data-hf-id="hf-qs48" id="root" data-composition-id="01-check" data-width="1920" data-height="1080" data-duration="25">
+    <div data-hf-id="hf-k3vp" id="sp01-check-ground" class="clip sp01-check-ground" data-start="0" data-duration="25" data-track-index="0"></div>
+
+    <section data-hf-id="hf-t1ei" id="sp01-check-scene-0" class="clip sp01-check-scene" data-start="0" data-duration="8" data-track-index="1" aria-label="Actual SettleProof workspace overview">
+      <p data-hf-id="hf-pevg" class="sp01-check-eyebrow" style="left:5cqw;top:8.020833cqw;">SettleProof</p>
+      <div data-hf-id="hf-8077" class="sp01-check-rule" style="left:5cqw;top:11.197917cqw;"></div>
+      <h1 data-hf-id="hf-vukf" class="sp01-check-title" style="left:5cqw;top:14.0625cqw;width:26.458333cqw;font-size:3cqw;">
+        <span data-hf-id="hf-qopp" style="display:block;white-space:nowrap;">Know what’s paid.</span>
+        <span data-hf-id="hf-6ez9" id="sp01-check-proof" style="display:block;white-space:nowrap;margin-top:0.625cqw;">See the proof.</span>
+      </h1>
+      <p data-hf-id="hf-qr2p" class="sp01-check-copy" style="left:5cqw;top:25.520833cqw;width:24.479167cqw;">Seller review workspace</p>
+      <div data-hf-id="hf-rvve" id="sp01-check-overview-surface" class="sp01-check-surface">
+        <img data-hf-id="hf-8an2" src="assets/overview.png" width="1425" height="891" alt="Actual SettleProof review workspace showing its synthetic case queue and inspector">
+      </div>
+      <p data-hf-id="hf-x4yy" class="sp01-check-label" style="left:5cqw;top:38.541667cqw;width:26.458333cqw;"><span data-hf-id="hf-xy3y" style="display:block;">Actual UI screenshot</span><span data-hf-id="hf-r3hs" style="display:block;">sequence · synthetic examples</span></p>
+    </section>
+
+    <section data-hf-id="hf-ela9" id="sp01-check-scene-8" class="clip sp01-check-scene" data-start="8" data-duration="8" data-track-index="1" aria-label="Actual matched queue filtered to one result">
+      <h2 data-hf-id="hf-yll9" class="sp01-check-title" style="left:5cqw;top:3.385417cqw;">Filter the queue.</h2>
+      <p data-hf-id="hf-gfbd" id="sp01-check-evidence" class="sp01-check-copy" style="left:5cqw;top:7.447917cqw;font-size:1.875cqw;">Inspect the evidence.</p>
+      <p data-hf-id="hf-2ctj" class="sp01-check-label" style="right:5cqw;top:4.6875cqw;">Matched queue · 1 result</p>
+      <div data-hf-id="hf-ey50" id="sp01-check-queue-surface" class="sp01-check-surface">
+        <img data-hf-id="hf-6yhm" src="assets/matched.png" width="1425" height="891" alt="Actual Matched filter with one captured-in-full synthetic case and its expected120, net captured120 inspector">
+      </div>
+      <p data-hf-id="hf-etnj" class="sp01-check-label" style="left:5cqw;top:44.010417cqw;">AG Grid Community · filter · sort · inspect</p>
+      <p data-hf-id="hf-7ei2" class="sp01-check-label" style="right:5cqw;top:44.010417cqw;">Actual UI · synthetic case</p>
+    </section>
+
+    <section data-hf-id="hf-if42" id="sp01-check-scene-16" class="clip sp01-check-scene" data-start="16" data-duration="9" data-track-index="1" aria-label="Actual approved but not captured synthetic case">
+      <p data-hf-id="hf-eqlq" class="sp01-check-eyebrow" style="left:5cqw;top:8.020833cqw;">Check the capture</p>
+      <div data-hf-id="hf-1x8j" class="sp01-check-rule" style="left:5cqw;top:11.197917cqw;"></div>
+      <h2 data-hf-id="hf-n0tg" class="sp01-check-title" style="left:5cqw;top:14.0625cqw;width:48.958333cqw;font-size:4.2cqw;"><span data-hf-id="hf-dmwb" style="display:block;">Approved does not</span><span data-hf-id="hf-dg2r" style="display:block;">mean captured.</span></h2>
+      <p data-hf-id="hf-q0ja" id="sp01-check-amount-note" class="sp01-check-copy" style="left:5cqw;top:26.5625cqw;font-size:1.875cqw;">Expected USD 120. Net USD 0.</p>
+      <div data-hf-id="hf-zpcy" id="sp01-check-inspector-surface" class="sp01-check-surface">
+        <img data-hf-id="hf-60xw" src="assets/unpaid.png" width="1425" height="891" alt="Actual approved-is-not-paid inspector, synthetic fixture, expected120 dollars and net captured zero dollars">
+      </div>
+      <div data-hf-id="hf-rhny" id="sp01-check-approval-surface" class="sp01-check-surface">
+        <img data-hf-id="hf-7hcx" src="assets/unpaid.png" width="1425" height="891" alt="Actual inspector check stating Approval is not capture and buyer approval alone does not establish that money was captured">
+      </div>
+      <p data-hf-id="hf-w9kc" class="sp01-check-copy" style="left:5cqw;top:38.541667cqw;width:48.958333cqw;"><span data-hf-id="hf-anpf" style="display:block;">Synthetic case</span><span data-hf-id="hf-1c8q" style="display:block;">Not a live payment observation</span></p>
+      <p data-hf-id="hf-vcy6" class="sp01-check-label" style="left:58.541667cqw;top:43.229167cqw;">Enlarged crops from the actual inspector</p>
+    </section>
+  </div>
+  <script>
+    (function () {
+      const timeline = gsap.timeline({ paused: true });
+      timeline.fromTo('#sp01-check-proof', { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.3, ease: 'power2.out' }, 2.8);
+      timeline.fromTo('#sp01-check-evidence', { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.3, ease: 'power2.out' }, 10.3);
+      timeline.fromTo('#sp01-check-amount-note', { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.3, ease: 'power2.out' }, 18.6);
+      timeline.fromTo('#sp01-check-approval-surface', { opacity: 0 }, { opacity: 1, duration: 0.01 }, 21.0);
+      timeline.to({}, { duration: 25 }, 0);
+      window.__timelines = window.__timelines || {};
+      window.__timelines['01-check'] = timeline;
+    })();
+  </script>
+</template>

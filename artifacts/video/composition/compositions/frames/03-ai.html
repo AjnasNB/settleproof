@@ -1,0 +1,183 @@
+<template>
+  <style>
+    @font-face {
+      font-family: "Geist";
+      src: url("assets/fonts/Geist-Variable.woff2") format("woff2");
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+    }
+    #root {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      container-type: size;
+      font-family: "Geist";
+      color: #193a36;
+    }
+    [class~="sp03-ai-ground"] {
+      position: absolute;
+      inset: 0;
+      background: #f7f8f5;
+    }
+    [class~="sp03-ai-scene"] { position: absolute; inset: 0; }
+    [class~="sp03-ai-eyebrow"] {
+      position: absolute;
+      top: 3.33cqw;
+      left: 5cqw;
+      margin: 0;
+      color: #27654f;
+      font-size: 1.46cqw;
+      font-weight: 600;
+      letter-spacing: .08em;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+    [class~="sp03-ai-title"] {
+      position: absolute;
+      top: 6.04cqw;
+      left: 5cqw;
+      width: 90cqw;
+      margin: 0;
+      font-size: 3.44cqw;
+      line-height: 1.1;
+      letter-spacing: -.02em;
+      font-weight: 650;
+      color: #193a36;
+    }
+    [class~="sp03-ai-surface"] {
+      position: absolute;
+      overflow: hidden;
+      border: 1.5px solid rgba(39,101,79,.2);
+      border-radius: 14px;
+      background: rgba(39,101,79,.04);
+      box-sizing: border-box;
+    }
+    [class~="sp03-ai-surface"] img {
+      display: block;
+      position: absolute;
+      max-width: none;
+    }
+    #sp03-ai-dialog { left: 96px; top: 240px; width: 585px; height: 722px; }
+    #sp03-ai-dialog img { width: 1425px; height: 891px; left: -413px; top: -85px; }
+    #sp03-ai-status-label {
+      position: absolute;
+      left: 730px;
+      top: 316px;
+      margin: 0;
+      font-size: 30px;
+      line-height: 1.3;
+      font-weight: 500;
+      color: #566b63;
+    }
+    /* A literal1.6x crop, with a separate editorial caption for readability. */
+    #sp03-ai-status { left: 730px; top: 389px; width: 826px; height: 112px; }
+    #sp03-ai-status img { width: 2280px; height: 1425.6px; left: -716.8px; top: -961.6px; }
+    #sp03-ai-status-caption { position:absolute;left:730px;top:535px;margin:0;font-size:30px;line-height:1.4;font-weight:500;color:#193a36; }
+    #sp03-ai-limitation {
+      position: absolute;
+      left: 730px;
+      top: 621px;
+      width: 1068px;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 24px 30px;
+      border-left: 4px solid #27654f;
+      border-radius: 12px;
+      background: rgba(39,101,79,.08);
+      color: #193a36;
+      font-size: 38px;
+      line-height: 1.4;
+      font-weight: 500;
+    }
+    /* Source:1905x882. Crop x1455..1855,y226..580 at1.5x.
+       Every response sentence, citation and draft character remains captured pixels. */
+    #sp03-ai-response-crop { left:1224px;top:330px;width:600px;height:531px; }
+    #sp03-ai-response-crop img {
+      width:2857.5px;
+      height:1323px;
+      left:-2182.5px;
+      top:-339px;
+    }
+    [class~="sp03-ai-point"] {
+      position: absolute;
+      left: 5cqw;
+      width: 36.5cqw;
+      margin: 0;
+      color: #193a36;
+      font-size: 2.3cqw;
+      line-height: 1.25;
+      letter-spacing: -.02em;
+      font-weight: 550;
+    }
+    #sp03-ai-output-label {position:absolute;left:96px;top:260px;margin:0;font-size:28px;line-height:1.4;font-weight:500;color:#27654f;}
+    #sp03-ai-output-caption {position:absolute;left:96px;top:315px;width:1000px;margin:0;font-size:36px;line-height:1.4;font-weight:450;color:#193a36;}
+    #sp03-ai-point-records { top:520px; }
+    #sp03-ai-point-facts { top:650px; }
+    #sp03-ai-fixture-caption {
+      position: absolute;
+      left: 96px;
+      top:830px;
+      width: 704px;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 25px 28px;
+      border: 1.5px solid rgba(39,101,79,.2);
+      border-radius: 14px;
+      background: rgba(39,101,79,.04);
+      font-size: 32px;
+      line-height: 1.45;
+      font-weight: 450;
+      color: #566b63;
+    }
+  </style>
+  <div data-hf-id="hf-f45u" id="root" data-composition-id="03-ai" data-width="1920" data-height="1080" data-duration="25">
+    <div data-hf-id="hf-rhhd" id="sp03-ai-ground" class="clip sp03-ai-ground" data-start="0" data-duration="25" data-track-index="0"></div>
+    <section data-hf-id="hf-r26r" id="sp03-ai-pending" class="clip sp03-ai-scene" data-start="0" data-duration="10" data-track-index="1">
+      <p data-hf-id="hf-d8ys" class="sp03-ai-eyebrow">Transparent scope</p>
+      <h2 data-hf-id="hf-o2l3" class="sp03-ai-title">PayPal sandbox: setup pending.</h2>
+      <div data-hf-id="hf-0blj" id="sp03-ai-dialog" class="sp03-ai-surface">
+        <img data-hf-id="hf-rtgl" src="assets/sandbox-pending.png" alt="Actual server configuration dialog showing PayPal sandbox Not configured and AI explanations Configured." width="1425" height="891">
+      </div>
+      <p data-hf-id="hf-mlbl" id="sp03-ai-status-label">Actual configuration status</p>
+      <div data-hf-id="hf-yekx" id="sp03-ai-status" class="sp03-ai-surface">
+        <img data-hf-id="hf-xphh" src="assets/sandbox-pending.png" alt="Enlarged captured status: PayPal sandbox Not configured; AI explanations Configured." width="1425" height="891">
+      </div>
+      <p data-hf-id="hf-lgh4" id="sp03-ai-status-caption">Status caption: PayPal — Not configured · AI — Configured</p>
+      <p data-hf-id="hf-8o39" id="sp03-ai-limitation">No credentialed PayPal API read is shown in this demo.</p>
+    </section>
+    <section data-hf-id="hf-mxxv" id="sp03-ai-response" class="clip sp03-ai-scene" data-start="10" data-duration="15" data-track-index="1">
+      <p data-hf-id="hf-1f87" class="sp03-ai-eyebrow">AI explains; evidence decides</p>
+      <h2 data-hf-id="hf-0dhu" class="sp03-ai-title">Real AI. Cited evidence. Editable draft.</h2>
+      <div data-hf-id="hf-3qhh" id="sp03-ai-response-crop" class="sp03-ai-surface">
+        <img data-hf-id="hf-w1k2" src="assets/ai-generated.png" alt="Actual generated response on a synthetic fixture: partially captured, $45.00 paid and $75.00 remaining, with source references and the editable internal review draft." width="1905" height="882">
+      </div>
+      <p data-hf-id="hf-le1q" id="sp03-ai-output-label">Observed AI output (caption)</p>
+      <p data-hf-id="hf-uhlr" id="sp03-ai-output-caption">“The invoice is partially captured with $45.00 paid. The remaining amount is $75.00.”</p>
+      <p data-hf-id="hf-62cp" id="sp03-ai-point-records" class="sp03-ai-point">AI explains cited records.</p>
+      <p data-hf-id="hf-jhi3" id="sp03-ai-point-facts" class="sp03-ai-point">It does not change payment facts.</p>
+      <p data-hf-id="hf-52zj" id="sp03-ai-fixture-caption">Workers AI response on a synthetic fixture · check its sources</p>
+    </section>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+
+
+      tl.fromTo('#sp03-ai-dialog', { y: 8, opacity: 0 }, { y: 0, opacity: 1, duration: .4, ease: 'power2.out' }, 0);
+      tl.fromTo('#sp03-ai-limitation', { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: .4, ease: 'power2.out' }, .1);
+      tl.fromTo('#sp03-ai-status-label', { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: .45, ease: 'power2.out' }, 3.0);
+      tl.fromTo('#sp03-ai-status', { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: .5, ease: 'power2.out' }, 3.2);
+      tl.fromTo('#sp03-ai-status-caption', { opacity: 0 }, { opacity: 1, duration: .3 }, 3.2);
+
+
+      tl.fromTo('#sp03-ai-fixture-caption', { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: .4, ease: 'power2.out' }, 10.05);
+      tl.fromTo('#sp03-ai-point-records', { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: .5, ease: 'power2.out' }, 14);
+      tl.fromTo('#sp03-ai-point-facts', { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: .5, ease: 'power2.out' }, 19.5);
+      tl.set({}, {}, 25);
+      window.__timelines = window.__timelines || {};
+      window.__timelines['03-ai'] = tl;
+    })();
+  </script>
+</template>

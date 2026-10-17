@@ -57,6 +57,8 @@ The latest recorded checks are 50 backend tests and seven separate sandbox-helpe
 
 The [16-point release checklist](docs/RELEASE-CHECKLIST.md) distinguishes requirements from completed verification. [Validation notes](docs/VALIDATION.md) record what this documentation subtask actually checked. API shapes are in [API-CONTRACT.md](API-CONTRACT.md).
 
+The [review-video source and QA record](artifacts/video/README.md) document a completed 100-second local export. It shows synthetic payment cases and an actual Workers AI explanation, with PayPal configuration explicitly pending. The MP4 is a separate local deliverable; no public video or hackathon submission is claimed.
+
 ## License and provenance
 
 Project source is [MIT licensed](LICENSE). Retain [third-party notices](THIRD-PARTY-NOTICES.md); regenerate them after dependency changes with `node scripts/licenses.mjs`. Product concepts from the author's earlier work informed the problem selection; their private source, customer data and assets were not copied into this project.

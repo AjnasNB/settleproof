@@ -1,0 +1,169 @@
+<template>
+  <style>
+    @font-face {
+      font-family: "Geist";
+      src: url("assets/fonts/Geist-Variable.woff2") format("woff2");
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+    }
+    #root {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      container-type: size;
+      font-family: "Geist";
+      color: #193a36;
+    }
+    #root * { box-sizing: border-box; }
+    #sp02-source-ground {
+      position: absolute;
+      inset: 0;
+      background: #f7f8f5;
+    }
+    #sp02-source-partial,
+    #sp02-source-proof,
+    #sp02-source-unknown {
+      position: absolute;
+      inset: 0;
+    }
+    #sp02-source-partial-copy,
+    #sp02-source-proof-copy,
+    #sp02-source-unknown-copy {
+      position: absolute;
+      left: 5cqw;
+      top: 10cqh;
+      width: 37.5cqw;
+    }
+    #sp02-source-partial-label,
+    #sp02-source-proof-label,
+    #sp02-source-unknown-label {
+      display: inline-block;
+      padding: 0.6cqw 1.05cqw;
+      border-radius: 100px;
+      background: rgba(39, 101, 79, 0.08);
+      color: #27654f;
+      font-size: 1.458333cqw;
+      line-height: 1.25;
+      font-weight: 600;
+    }
+    #sp02-source-partial-title,
+    #sp02-source-proof-title,
+    #sp02-source-unknown-title {
+      margin: 5.6cqw 0 0;
+      font-size: 3.333333cqw;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      font-weight: 600;
+      color: #193a36;
+    }
+    #sp02-source-proof-note,
+    #sp02-source-unknown-note {
+      margin: 3.3cqw 0 0;
+      max-width: 33.5cqw;
+      color: #566b63;
+      font-size: 1.770833cqw;
+      line-height: 1.4;
+      font-weight: 400;
+    }
+    #sp02-source-proof-context {
+      margin: 2.6cqw 0 0;
+      color: #27654f;
+      font-size: 1.458333cqw;
+      line-height: 1.3;
+      font-weight: 600;
+    }
+    #sp02-source-partial-crop,
+    #sp02-source-proof-crop,
+    #sp02-source-unknown-crop {
+      position: absolute;
+      left: 48.75cqw;
+      width: 45.833333cqw;
+      overflow: hidden;
+      border: 1.5px solid rgba(39, 101, 79, 0.2);
+      border-radius: 14px;
+      background: rgba(39, 101, 79, 0.04);
+    }
+    #sp02-source-partial-crop {
+      top: 22.222222cqh;
+      height: 47.222222cqh;
+    }
+    #sp02-source-proof-crop {
+      top: 14.814815cqh;
+      height: 65.740741cqh;
+    }
+    #sp02-source-unknown-crop {
+      top: 18.518519cqh;
+      height: 60.185185cqh;
+    }
+    #sp02-source-partial-image,
+    #sp02-source-unknown-image {
+      position: absolute;
+      display: block;
+      max-width: none;
+      width: 185.546875cqw;
+      height: 116.015625cqw;
+      left: -132.8125cqw;
+      top: 0;
+    }
+    #sp02-source-proof-image {
+      position: absolute;
+      display: block;
+      max-width: none;
+      width: 192.96875cqw;
+      height: 120.65625cqw;
+      left: -138.125cqw;
+      top: -37.916667cqw;
+    }
+  </style>
+  <div data-hf-id="hf-4d30" id="root" data-composition-id="02-source" data-width="1920" data-height="1080" data-duration="25">
+    <div data-hf-id="hf-36iu" id="sp02-source-ground" class="clip" data-start="0" data-duration="25" data-track-index="0"></div>
+
+    <section data-hf-id="hf-n36n" id="sp02-source-partial" class="clip" data-start="0" data-duration="9" data-track-index="1">
+      <div data-hf-id="hf-1lgu" id="sp02-source-partial-copy">
+        <div data-hf-id="hf-ktk5" id="sp02-source-partial-label">Synthetic fixture</div>
+        <h2 data-hf-id="hf-4cp6" id="sp02-source-partial-title"><span data-hf-id="hf-nxxx" style="display:block">A partial capture</span><span data-hf-id="hf-hj70" style="display:block">needs a closer look.</span></h2>
+      </div>
+      <!-- Actual screenshot, 2.5×: original crop x=1020, y=0, w=352, h=204. -->
+      <div data-hf-id="hf-i74j" id="sp02-source-partial-crop">
+        <img data-hf-id="hf-lq10" id="sp02-source-partial-image" src="assets/partial.png" alt="Synthetic partial capture inspector: expected USD 120.00 and net captured USD 45.00.">
+      </div>
+    </section>
+
+    <section data-hf-id="hf-fi2i" id="sp02-source-proof" class="clip" data-start="9" data-duration="9" data-track-index="2">
+      <div data-hf-id="hf-dtqx" id="sp02-source-proof-copy">
+        <div data-hf-id="hf-f40q" id="sp02-source-proof-label">Synthetic fixture</div>
+        <h2 data-hf-id="hf-zzf7" id="sp02-source-proof-title"><span data-hf-id="hf-bda8" style="display:block">Follow a finding</span><span data-hf-id="hf-47e5" style="display:block">to its source.</span></h2>
+        <div data-hf-id="hf-y6oc" id="sp02-source-proof-context">Source records</div>
+        <p data-hf-id="hf-impr" id="sp02-source-proof-note"><span data-hf-id="hf-ed7l" style="display:block">The deterministic result</span><span data-hf-id="hf-k5d6" style="display:block">stays authoritative.</span></p>
+      </div>
+      <!-- Actual screenshot, 2.6×: original crop x=1020, y=280, w≈338, h≈273.
+           This retains the real result.net, analysis.totals.net and 45.00 USD. -->
+      <div data-hf-id="hf-22ow" id="sp02-source-proof-crop">
+        <img data-hf-id="hf-2y2z" id="sp02-source-proof-image" src="assets/source-evidence.png" alt="Actual synthetic source records: result.net, analysis.totals.net, verified amount 45.00 USD.">
+      </div>
+    </section>
+
+    <section data-hf-id="hf-scij" id="sp02-source-unknown" class="clip" data-start="18" data-duration="7" data-track-index="3">
+      <div data-hf-id="hf-dkxt" id="sp02-source-unknown-copy">
+        <div data-hf-id="hf-o3z6" id="sp02-source-unknown-label">Synthetic fixture</div>
+        <h2 data-hf-id="hf-gwjr" id="sp02-source-unknown-title"><span data-hf-id="hf-w4rb" style="display:block">Unavailable</span><span data-hf-id="hf-inuh" style="display:block">stays unknown.</span></h2>
+        <p data-hf-id="hf-artu" id="sp02-source-unknown-note">Source: synthetic fixture</p>
+      </div>
+      <!-- Actual screenshot, 2.5×: original crop x=1020, y=0, w=352, h=260. -->
+      <div data-hf-id="hf-x4yg" id="sp02-source-unknown-crop">
+        <img data-hf-id="hf-w8mr" id="sp02-source-unknown-image" src="assets/unknown.png" alt="Synthetic unavailable fixture showing net captured Unknown and Payment data unavailable. A failed read is not evidence of non-payment.">
+      </div>
+    </section>
+  </div>
+  <script>
+    (() => {
+      const timeline = gsap.timeline({ paused: true });
+      // Framework clip timing owns the three clean cuts and visibility.
+      timeline.to({}, { duration: 25 }, 0);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["02-source"] = timeline;
+    })();
+  </script>
+</template>

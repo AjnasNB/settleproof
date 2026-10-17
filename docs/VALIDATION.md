@@ -25,3 +25,5 @@ An accepted live AI response, a credentialed PayPal sandbox verification, public
 - This is a hosted review build, not a submitted hackathon entry. Final competition materials, real sandbox proof, applicant declarations and the submission contract still require completion.
 
 - Offline judge access: `npm run dev:offline` started on port8798 with only local assets. The offline entry discards all environment values other than assets. Actual HTTP checks returned PayPal/AI configured=false, partial fixture net45.00/remaining75.00, and an explicit unavailable AI response. It requires no remote provider binding; this is fixture access, not an integration proof.
+
+- Local review-video delivery: `artifacts/video/settleproof-review.mp4` completed at 100.000 seconds, 1920x1080, H.264/yuv420p, 24 fps, 2,400 frames, 2,860,866 bytes and no audio. The video reviewer inspected decoded frames at 4, 55, 67 and 94 seconds, following the composition checks and 28 midpoint/cut snapshots. Fifteen scoped local video checks passed; PayPal verification, public YouTube publication and final entry submission remain open. See `artifacts/video/VIDEO-QA-16.md`.
