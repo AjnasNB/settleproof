@@ -1,0 +1,9 @@
+{
+  "environment": "sandbox",
+  "endpoint": "https://api-m.sandbox.paypal.com/v1/oauth2/token",
+  "httpStatus": 200,
+  "authenticated": true,
+  "credentialValuesRecorded": false,
+  "ordersCreatedAtThisCheckpoint": 0,
+  "scope": "Actual dedicated app OAuth authentication. This does not prove checkout, approval, capture, SDK compatibility or payment."
+}

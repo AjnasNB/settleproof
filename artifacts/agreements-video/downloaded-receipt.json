@@ -1,0 +1,145 @@
+{
+  "format": "settleproof-receipt-v1",
+  "room": {
+    "id": "885e37691d104b458faf8631e1c03038",
+    "title": "Invented studio website handoff",
+    "version": 2,
+    "currency": "USD",
+    "expiresAt": "2026-10-24T14:43:49.240Z"
+  },
+  "anchor": {
+    "sequence": 8,
+    "hash": "6458412d1663a1dbbe27d55ba0cbc20f2bf04943b680c943f2a3efdf2b6a3121"
+  },
+  "events": [
+    {
+      "sequence": 1,
+      "at": "2026-10-17T14:43:49.240Z",
+      "type": "created",
+      "actor": "system",
+      "data": {
+        "roomId": "885e37691d104b458faf8631e1c03038",
+        "version": 1,
+        "currency": "USD",
+        "expiresAt": "2026-10-24T14:43:49.240Z",
+        "terms": {
+          "title": "Invented studio website handoff",
+          "description": "Invented sandbox project: design a single-page website for a small independent studio. Deliver a wireframe first, then a final handoff. No real customer data.",
+          "milestones": [
+            {
+              "title": "Wireframe Review",
+              "amount": "12.00",
+              "acceptance": "Desktop wireframe includes labelled introduction, services and contact sections. Buyer checks all three sections before accepting."
+            },
+            {
+              "title": "Design Delivery",
+              "amount": "8.00",
+              "acceptance": "Desktop and 390px mobile layouts, an editable design file, and a handoff note listing type, colors and spacing. Buyer checks each named item."
+            }
+          ]
+        }
+      },
+      "previousHash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "hash": "13f5223dbe35ee70ebd56a74a4a786818b8416ff2a33de0609370f5507eb7b28"
+    },
+    {
+      "sequence": 2,
+      "at": "2026-10-17T14:44:37.630Z",
+      "type": "consented",
+      "actor": "seller",
+      "data": {
+        "version": 1
+      },
+      "previousHash": "13f5223dbe35ee70ebd56a74a4a786818b8416ff2a33de0609370f5507eb7b28",
+      "hash": "f1f790c5eafe019bd067569abb04b67001ca2ac0222c99acd3b109403b511fb2"
+    },
+    {
+      "sequence": 3,
+      "at": "2026-10-17T14:44:53.391Z",
+      "type": "terms-proposed",
+      "actor": "buyer",
+      "data": {
+        "version": 2,
+        "terms": {
+          "title": "Invented studio website handoff",
+          "description": "Invented sandbox project: design a single-page website for a small independent studio. Deliver a wireframe first, then a final handoff. No real customer data.",
+          "milestones": [
+            {
+              "title": "Wireframe Review",
+              "amount": "12.00",
+              "acceptance": "Desktop wireframe includes labelled introduction, services and contact sections. The contact section must include a clearly labelled Contact call to action. Buyer checks all named items before accepting."
+            },
+            {
+              "title": "Design Delivery",
+              "amount": "8.00",
+              "acceptance": "Desktop and 390px mobile layouts, an editable design file, and a handoff note listing type, colors and spacing. Buyer checks each named item."
+            }
+          ]
+        }
+      },
+      "previousHash": "f1f790c5eafe019bd067569abb04b67001ca2ac0222c99acd3b109403b511fb2",
+      "hash": "e66d58c65615b96a96a5492e6610e8a76bf74f0b5f62ce39dc918c3ea5beb83b"
+    },
+    {
+      "sequence": 4,
+      "at": "2026-10-17T14:45:09.815Z",
+      "type": "consented",
+      "actor": "buyer",
+      "data": {
+        "version": 2
+      },
+      "previousHash": "e66d58c65615b96a96a5492e6610e8a76bf74f0b5f62ce39dc918c3ea5beb83b",
+      "hash": "63f441d7e67acbfedc7664dab6d28b669bb86837985273f5506c54678f0a1bc0"
+    },
+    {
+      "sequence": 5,
+      "at": "2026-10-17T14:45:40.196Z",
+      "type": "consented",
+      "actor": "seller",
+      "data": {
+        "version": 2
+      },
+      "previousHash": "63f441d7e67acbfedc7664dab6d28b669bb86837985273f5506c54678f0a1bc0",
+      "hash": "3c6f85d629f55da3d7a60895868ce2652c17bf2ebed860ff1467cbab7fae6708"
+    },
+    {
+      "sequence": 6,
+      "at": "2026-10-17T14:46:33.047Z",
+      "type": "delivery-submitted",
+      "actor": "seller",
+      "data": {
+        "version": 2,
+        "milestoneId": "m1",
+        "note": "Invented workflow demonstration: desktop wireframe includes introduction and services sections. The contact call to action is deliberately missing for this review. This is a human assertion, not an attached design."
+      },
+      "previousHash": "3c6f85d629f55da3d7a60895868ce2652c17bf2ebed860ff1467cbab7fae6708",
+      "hash": "9ebc726eccb1ff96558d24116c5b453205ac55b26df3f00955bd974e8c31115b"
+    },
+    {
+      "sequence": 7,
+      "at": "2026-10-17T14:47:30.362Z",
+      "type": "changes-requested",
+      "actor": "buyer",
+      "data": {
+        "version": 2,
+        "milestoneId": "m1",
+        "note": "Please add the clearly labelled Contact call to action required in version 2 before resubmitting."
+      },
+      "previousHash": "9ebc726eccb1ff96558d24116c5b453205ac55b26df3f00955bd974e8c31115b",
+      "hash": "5d887ca1687a684cbede32b9395d3a6f90d61ab74053f0336232964c2e33690d"
+    },
+    {
+      "sequence": 8,
+      "at": "2026-10-17T14:47:44.308Z",
+      "type": "delivery-submitted",
+      "actor": "seller",
+      "data": {
+        "version": 2,
+        "milestoneId": "m1",
+        "note": "Revised invented workflow demonstration: the desktop wireframe has introduction, services and contact sections, including a clearly labelled Contact call to action. This is a human assertion for testing; no real design file is attached."
+      },
+      "previousHash": "5d887ca1687a684cbede32b9395d3a6f90d61ab74053f0336232964c2e33690d",
+      "hash": "6458412d1663a1dbbe27d55ba0cbc20f2bf04943b680c943f2a3efdf2b6a3121"
+    }
+  ]
+}

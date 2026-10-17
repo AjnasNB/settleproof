@@ -1,0 +1,9 @@
+# Hosted Agreements rehearsal — 17 October 2026
+
+The hosted workers.dev fallback reports Sandbox configured after the dedicated app's encrypted secrets were installed. Actual Sandbox OAuth returned HTTP 200 and a token; no token or credential value was logged or retained in this evidence. No order had been created at this checkpoint.
+
+One invented room was created with USD12/USD8 milestones. A genuine hosted AI draft preserved both amounts; its criteria were explicitly adopted and manually improved. Seller acceptance of version 1 preceded a buyer counteroffer. Version 2 reset both consents; buyer and seller each accepted version 2. The seller submitted an intentionally incomplete handoff, the buyer requested the missing Contact call to action, the seller resubmitted and the buyer accepted milestone 1. Milestone 2 remains pending and unpaid. One operator exercised both roles; role possession is not identity verification. Delivery notes are test assertions, not actual attached design files.
+
+`artifacts/agreements-video/early-receipt.json` is the five-event export read from the visible UI and saved as a retained prefix. The browser download event could not be confirmed. Separately, the authenticated export endpoint was downloaded through the app's API and the saved file parsed back successfully as `downloaded-receipt.json` (eight events, before milestone acceptance). Both exports are genuine sanitized app data; neither includes a PayPal observation.
+
+The official Sandbox v6 core and paypal-payments scripts loaded in Chrome, but initialization remained pending and the mounted checkout panel stayed empty. Compilation and OAuth success do not establish that SDK approval works. A bounded initialization fix and genuine order/approval/capture checks remain necessary. No final film, YouTube upload, event registration or submission is claimed.
