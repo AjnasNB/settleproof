@@ -12,3 +12,4 @@ artifacts/screens/paypal-*.png
 *.mp4
 artifacts/video/composition/node_modules/
 artifacts/video/composition/.hyperframes/
+*.tgz

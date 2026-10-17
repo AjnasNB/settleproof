@@ -23,3 +23,5 @@ An accepted live AI response, a credentialed PayPal sandbox verification, public
 - Responsive/keyboard, filter-selected-case consistency, sorting, citation navigation, local review save and fractional-cent form rejection have bounded UI observations in `artifacts/QUALITY-16.md`. Native browser download contents remain unverified in this automated environment.
 - PayPal sign-in still requires the account owner's private password entry. No credentialed PayPal order/capture read or sandbox seed operation has been executed. Do not present the synthetic examples as PayPal API observations.
 - This is a hosted review build, not a submitted hackathon entry. Final competition materials, real sandbox proof, applicant declarations and the submission contract still require completion.
+
+- Offline judge access: `npm run dev:offline` started on port8798 with only local assets. The offline entry discards all environment values other than assets. Actual HTTP checks returned PayPal/AI configured=false, partial fixture net45.00/remaining75.00, and an explicit unavailable AI response. It requires no remote provider binding; this is fixture access, not an integration proof.

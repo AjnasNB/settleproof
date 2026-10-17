@@ -23,6 +23,8 @@ npm run dev
 
 Open `http://localhost:8797`. The Worker serves the built UI and `/api/*`. Rerun `npm run build` after frontend changes. Synthetic scenarios require no PayPal credentials. Without a configured AI binding, the app should report explanation availability honestly rather than display canned text as generated output.
 
+For fixture exploration with no remote bindings, run `npm run dev:offline` instead and open `http://localhost:8798`. This separate configuration has no PayPal, AI or remote storage bindings. It disables inference and real provider reads while preserving the same synthetic queue and review UI. Use the normal configuration for enabled AI and sandbox verification.
+
 See [sandbox setup](docs/SETUP.md) to configure a fresh test application and produce an actual sandbox order. Do not use a live application, account, payment source or endpoint.
 
 ## How it works

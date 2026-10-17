@@ -1,0 +1,16 @@
+TITLE
+SettleProof — Payment Evidence + Cited AI | Prototype Walkthrough
+
+DESCRIPTION
+SettleProof is a new open-source payment-evidence desk by Ajnas N B, built from 17 October 2026.
+
+This walkthrough shows explicitly synthetic payment cases and an actual Cloudflare Workers AI explanation. PayPal sandbox credentials are not yet configured in this review build; credentialed PayPal API verification remains pending. No real funds were moved.
+
+Try the hosted prototype: https://settleproof.ajnasnb.workers.dev/
+MIT source and setup: https://github.com/AjnasNB/settleproof
+
+The app checks invoice references, currency, unique completed captures and refund uncertainty. A cited AI explanation stays separate from the deterministic payment result. A person can record a local review note; the app cannot charge, capture, refund or contact a buyer.
+
+Built with React, TypeScript, AG Grid Community, Cloudflare Workers, SQLite Durable Objects and Workers AI. Development assistance: OpenAI Codex and cooperating coding agents. The silent video uses real UI captures assembled with HyperFrames.
+
+This is a current-build review, not a confirmation of hackathon submission, an award, production usage or a completed PayPal integration.
