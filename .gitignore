@@ -13,3 +13,12 @@ artifacts/screens/paypal-*.png
 artifacts/video/composition/node_modules/
 artifacts/video/composition/.hyperframes/
 *.tgz
+
+# Local account lookup and tool-generated working material.
+/artifacts/domain-check.json
+/artifacts/video/composition/.media/
+/artifacts/video/composition/.thumbnails/
+/artifacts/video/composition/capture/
+/artifacts/video/composition/vendor-font/
+/artifacts/video/composition/AGENTS.md
+/artifacts/video/composition/CLAUDE.md
