@@ -2,7 +2,7 @@
 
 A shared record of **what two roles agreed, what a person accepted, and what PayPal actually captured**. The new Agreements workflow connects versioned service milestones, human review, official PayPal SDK Checkout and a hash-linked receipt history. The original evidence desk remains at `/evidence`.
 
-The reviewed Agreements build is deployed. Its actual AI drafting and offline role/delivery/receipt flow have been observed; genuine PayPal SDK approval/capture is pending a dedicated Sandbox application's credential setup. The 17 independent review focuses have explicit outcomes and limits; the real-provider portions remain pending. No new video or hackathon submission is claimed.
+The reviewed Agreements build is deployed. Actual AI drafting and role/delivery/receipt flows have been observed. The dedicated PayPal Sandbox app is configured and real OAuth authentication succeeded; the browser v6 SDK timed out during initialization before any order was created. Genuine order/approval/capture remains pending. The 17 independent review focuses have explicit outcomes and limits; real-provider portions remain pending. No new final video or hackathon submission is claimed.
 
 Start with [Agreements setup and exact limits](docs/AGREEMENTS-SETUP.md), [17 concept revisions](docs/CONCEPT-17.md) and the [independent product review record](docs/PRODUCT-17.md). Capability links permit demo roles; they do not verify identities. SHA-256 history detects edits relative to a retained prefix anchor; it provides no consensus, immutable storage, delivery certification or guarantee of settlement.
 
@@ -14,7 +14,7 @@ SettleProof compares expected invoice, amount and currency with server-fetched o
 
 New project started **17 October 2026**. This is a sandbox prototype, with no claimed customers, production transaction volume or automated accounting certification. All included fixture records are synthetic. Fixture demonstrations and live sandbox observations are visibly separate.
 
-**Hosted preview:** [settleproof.ajnasnb.com](https://settleproof.ajnasnb.com), with [workers.dev fallback](https://settleproof.ajnasnb.workers.dev). **Not submitted.** A real PayPal sandbox read is pending the operator's PayPal Developer sign-in. Real Workers AI drafting was observed on 17 October; see [drafting evidence](artifacts/agreement-ai-proof.json). This does not verify the PayPal integration.
+**Hosted preview:** [settleproof.ajnasnb.com](https://settleproof.ajnasnb.com), with [workers.dev fallback](https://settleproof.ajnasnb.workers.dev). **Not submitted.** See [current hosted rehearsal](docs/LIVE-REHEARSAL-2026-10-17.md) and [actual Sandbox OAuth evidence](artifacts/paypal-sandbox-auth-proof.json). OAuth success alone does not verify checkout. Real Workers AI drafting was observed on 17 October; see [drafting evidence](artifacts/agreement-ai-proof.json).
 
 ## Run locally
 

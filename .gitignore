@@ -22,3 +22,8 @@ artifacts/video/composition/.hyperframes/
 /artifacts/video/composition/vendor-font/
 /artifacts/video/composition/AGENTS.md
 /artifacts/video/composition/CLAUDE.md
+
+# Generated media tooling caches in any video project.
+.media/
+.thumbnails/
+.hyperframes/
