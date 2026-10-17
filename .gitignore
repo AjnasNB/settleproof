@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.wrangler/
+.qarinah/
+.dev.vars*
+.env*
+!.env.example
+!.dev.vars.example
+artifacts/private/
+artifacts/screens/paypal-*.png
+*.log
+*.mp4
+artifacts/video/composition/node_modules/
+artifacts/video/composition/.hyperframes/

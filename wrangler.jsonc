@@ -1,0 +1,18 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "settleproof",
+  "main": "src/worker.ts",
+  "compatibility_date": "2026-10-17",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": { "directory": "./dist", "binding": "ASSETS", "not_found_handling": "single-page-application", "run_worker_first": ["/api/*"] },
+  "ai": { "binding": "AI" },
+  "durable_objects": { "bindings": [{ "name": "AI_BUDGET", "class_name": "AiBudget" }] },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["AiBudget"] }],
+  "ratelimits": [
+    { "name": "API_RATE", "namespace_id": "174201", "simple": { "limit": 60, "period": 60 } },
+    { "name": "AI_RATE", "namespace_id": "174202", "simple": { "limit": 5, "period": 60 } },
+    { "name": "AI_SHARED_RATE", "namespace_id": "174203", "simple": { "limit": 20, "period": 60 } }
+  ],
+  "vars": { "AI_ENABLED": "false", "AI_DAILY_LIMIT": "20" },
+  "observability": { "enabled": true, "head_sampling_rate": 0.1 }
+}
