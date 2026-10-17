@@ -2,7 +2,7 @@
 
 A shared record of **what two roles agreed, what a person accepted, and what PayPal actually captured**. The new Agreements workflow connects versioned service milestones, human review, official PayPal SDK Checkout and a hash-linked receipt history. The original evidence desk remains at `/evidence`.
 
-The Agreements build is deployed at [settleproof.ajnasnb.com](https://settleproof.ajnasnb.com). A genuine Sandbox rehearsal completed versioned consent, a change request, human acceptance, PayPal approval and a separate USD12 capture. Fresh order and capture reads reported COMPLETED; the second USD8 milestone remained pending and unpaid. The final 25-event export matched the independently retained event-5 prefix, and an altered copy failed verification. All project details and payment funds were fictitious; one operator exercised both roles. The new video and final hackathon submission are still being completed.
+The Agreements build is deployed at [settleproof.ajnasnb.com](https://settleproof.ajnasnb.com). A genuine Sandbox rehearsal completed versioned consent, a change request, human acceptance, PayPal approval and a separate USD12 capture. Fresh order and capture reads reported COMPLETED; the second USD8 milestone remained pending and unpaid. The final 25-event export matched the independently retained event-5 prefix, and an altered copy failed verification. All project details and payment funds were fictitious; one operator exercised both roles. The reviewed 140-second demo is complete locally; public video publication and final hackathon submission await entrant confirmation.
 
 Start with [Agreements setup and exact limits](docs/AGREEMENTS-SETUP.md), [17 concept revisions](docs/CONCEPT-17.md) and the [independent product review record](docs/PRODUCT-17.md). Capability links permit demo roles; they do not verify identities. SHA-256 history detects edits relative to a retained prefix anchor; it provides no consensus, immutable storage, delivery certification or guarantee of settlement.
 
@@ -71,7 +71,7 @@ The latest main suite has **93 tests passing**, with TypeScript and production b
 
 The [16-point release checklist](docs/RELEASE-CHECKLIST.md) distinguishes requirements from completed verification. [Validation notes](docs/VALIDATION.md) record what this documentation subtask actually checked. API shapes are in [API-CONTRACT.md](API-CONTRACT.md).
 
-The [review-video source and QA record](artifacts/video/README.md) document a completed 100-second local export. It shows synthetic payment cases and an actual Workers AI explanation, with PayPal configuration explicitly pending. The MP4 is a separate local deliverable; no public video or hackathon submission is claimed.
+The [new Agreements film](artifacts/agreements-video/REPRODUCE.md) has 17 genuine-capture shots, 140 seconds, 1920×1080 at 24fps and English captions without audio. [Delivery metadata](artifacts/agreements-video/DELIVERY.json) and [17 scoped review outcomes](artifacts/agreements-video/FILM-REVIEW-17.md) record the frozen hash, full decode and frame checks. MP4 exports remain outside Git; source, assets and reproduction instructions are committed. The [older review film](artifacts/video/README.md) is historical evidence-desk work and is not the new demo. Public upload and final entry remain pending at this checkpoint.
 
 ## License and provenance
 

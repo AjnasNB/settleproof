@@ -54,3 +54,7 @@ Earlier pending statements above describe their dated checkpoints. They are supe
 - The actual UI matched the final packet to the independently retained event-5 prefix, rejected a copy with the first event changed, and revalidated the restored original. These checks do not prove identity, actual design delivery or irreversible settlement.
 - The custom domain now returns HTTP200 using the normal local resolver and loads in Chrome. No certificate validation or browser security setting was disabled.
 - The new film and final PayPal submission remain pending at this checkpoint. The historical100-second film continues to describe the older evidence desk, not this completed Sandbox rehearsal.
+
+## Completed local Agreements film — subsequent checkpoint
+
+Film source and QA commit `65ea8d6` records the 140.000-second, 1920×1080 H.264/yuv420p export at 24fps: 3360 frames, 7,139,871 bytes, no audio. Full FFmpeg decoding passed. Review covered all 17 scene midpoints and cuts, 56 snapshots plus 4 crop retests, 20 decoded samples, and 17 scoped outcomes. Root independently inspected encoded capture/end frames and confirmed SHA256 `e847c2b7e7dc0171c7b4549472f876f2196cb3ea56e240195d493bfe581dca0a`. Studio playback advanced and scene/endcard positions were checked; later Studio screenshots timed out, which is documented rather than claimed as a continuous playback pass. New public YouTube playback and final Devpost entry are still pending entrant approval.

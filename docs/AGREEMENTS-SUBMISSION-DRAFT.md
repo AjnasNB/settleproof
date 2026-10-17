@@ -40,6 +40,6 @@ The prototype uses one controlled Sandbox merchant, invented data and capability
 
 New work began on 17 October 2026. Earlier context/evidence projects informed the problem selection; unrelated private source, customer records and assets were not copied. Project source is MIT; dependency notices retain their respective licenses.
 
-Development assistance: OpenAI Codex and cooperating coding agents for concept review, implementation, documentation and tests. Runtime AI: Cloudflare Workers AI model named above. Video assembly: HyperFrames with genuine application captures; final render/review and public URL are still pending. Ajnas N B is the project owner.
+Development assistance: OpenAI Codex and cooperating coding agents for concept review, implementation, documentation and tests. Runtime AI: Cloudflare Workers AI model named above. Video assembly: HyperFrames with genuine application captures. The reviewed final local export is 140 seconds, 1080p, 24fps, with English captions and no audio; public publication is pending. Ajnas N B is the project owner. Exact prepared form copy is in `devpost-prepared-entry.json`.
 
 At the final endpoint attach the reviewed public source, runnable instructions or hosted build, and a public YouTube demo under three minutes showing genuine Sandbox functioning. Verify entrant eligibility and obtain the required action-time contract approval. Do not submit this unfinished draft or duplicate an earlier grant application.
