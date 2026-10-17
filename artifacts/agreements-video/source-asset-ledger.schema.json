@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SettleProof Agreements sanitized video asset ledger",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "assets"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "path", "sha256", "kind", "shots", "source", "rights", "privacy", "evidenceStatus"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "path": { "type": "string", "pattern": "^(assets|proof)/[^:]+$" },
+          "sha256": { "type": "string", "pattern": "^[a-fA-F0-9]{64}$" },
+          "kind": { "enum": ["ui-screenshot", "ui-recording", "sanitized-proof", "font", "runtime", "license"] },
+          "shots": { "type": "array", "uniqueItems": true, "items": { "type": "integer", "minimum": 1, "maximum": 17 } },
+          "source": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["method", "description"],
+            "properties": {
+              "method": { "enum": ["cua-capture", "sanitized-provider-proof", "local-export", "official-package"] },
+              "description": { "type": "string", "minLength": 1 },
+              "capturedAtUTC": { "type": "string", "format": "date-time" },
+              "buildCommit": { "type": "string", "pattern": "^[a-fA-F0-9]{7,40}$" },
+              "version": { "type": "integer", "minimum": 1 },
+              "role": { "enum": ["buyer", "seller", "none"] },
+              "milestone": { "type": "string", "pattern": "^m[1-3]$" },
+              "amountUSD": { "type": "string", "pattern": "^[0-9]+\\.[0-9]{2}$" },
+              "observedState": { "type": "string" },
+              "syntheticInput": { "type": "boolean" }
+            }
+          },
+          "rights": { "type": "string", "minLength": 1 },
+          "privacy": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["reviewed", "containsCapability", "containsCredentials", "containsPersonalAccountData"],
+            "properties": {
+              "reviewed": { "type": "boolean" },
+              "containsCapability": { "const": false },
+              "containsCredentials": { "const": false },
+              "containsPersonalAccountData": { "const": false },
+              "transforms": { "type": "array", "items": { "type": "string" } }
+            }
+          },
+          "evidenceStatus": { "enum": ["pending-review", "accepted", "rejected"] },
+          "limitations": { "type": "string" }
+        }
+      }
+    }
+  }
+}
