@@ -6,7 +6,7 @@ SettleProof compares expected invoice, amount and currency with server-fetched o
 
 New project started **17 October 2026**. This is a sandbox prototype, with no claimed customers, production transaction volume or automated accounting certification. All included fixture records are synthetic. Fixture demonstrations and live sandbox observations are visibly separate.
 
-**Hosted preview:** [settleproof.ajnasnb.workers.dev](https://settleproof.ajnasnb.workers.dev). **Not submitted.** A real PayPal sandbox read is pending the operator's PayPal Developer sign-in. An accepted live AI explanation is also still pending in the release record.
+**Hosted preview:** [settleproof.ajnasnb.workers.dev](https://settleproof.ajnasnb.workers.dev). **Not submitted.** A real PayPal sandbox read is pending the operator's PayPal Developer sign-in. A real Workers AI explanation on a clearly labelled synthetic partial-capture case was observed on 17 October; see [runtime evidence](artifacts/ai-ui-proof.json). This does not verify the PayPal integration.
 
 ## Run locally
 

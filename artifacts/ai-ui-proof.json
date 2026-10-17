@@ -1,0 +1,16 @@
+{
+  "observedOn": "2026-10-17",
+  "source": "Visible hosted UI after a real Workers AI request",
+  "url": "https://settleproof.ajnasnb.workers.dev/",
+  "environment": "Synthetic partial-capture fixture; NOT a credentialed PayPal observation",
+  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+  "draft": "Review the capture details to determine the next steps.",
+  "evidenceIds": [
+    "expected.amount",
+    "result.net",
+    "result.outcome",
+    "capture.0.amount",
+    "result.remaining"
+  ],
+  "text": "The invoice is partially captured with $45.00 paid. The remaining amount is $75.00."
+}
