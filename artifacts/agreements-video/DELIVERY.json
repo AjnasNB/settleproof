@@ -1,0 +1,131 @@
+{
+  "file": "settleproof-agreements.mp4",
+  "bytes": 7139871,
+  "sha256": "e847c2b7e7dc0171c7b4549472f876f2196cb3ea56e240195d493bfe581dca0a",
+  "durationSeconds": 140,
+  "width": 1920,
+  "height": 1080,
+  "codec": "h264",
+  "pixelFormat": "yuv420p",
+  "frameRate": "24/1",
+  "decodedFrames": 3360,
+  "audioStreams": 0,
+  "fullDecode": {
+    "exitCode": 0,
+    "errorOutput": false
+  },
+  "decodedSampleFrames": [
+    {
+      "file": ".hyperframes/decoded/frame-01.png",
+      "frame": 0,
+      "timeSeconds": 0
+    },
+    {
+      "file": ".hyperframes/decoded/frame-02.png",
+      "frame": 72,
+      "timeSeconds": 3
+    },
+    {
+      "file": ".hyperframes/decoded/frame-03.png",
+      "frame": 228,
+      "timeSeconds": 9.5
+    },
+    {
+      "file": ".hyperframes/decoded/frame-04.png",
+      "frame": 408,
+      "timeSeconds": 17
+    },
+    {
+      "file": ".hyperframes/decoded/frame-05.png",
+      "frame": 600,
+      "timeSeconds": 25
+    },
+    {
+      "file": ".hyperframes/decoded/frame-06.png",
+      "frame": 792,
+      "timeSeconds": 33
+    },
+    {
+      "file": ".hyperframes/decoded/frame-07.png",
+      "frame": 984,
+      "timeSeconds": 41
+    },
+    {
+      "file": ".hyperframes/decoded/frame-08.png",
+      "frame": 1176,
+      "timeSeconds": 49
+    },
+    {
+      "file": ".hyperframes/decoded/frame-09.png",
+      "frame": 1368,
+      "timeSeconds": 57
+    },
+    {
+      "file": ".hyperframes/decoded/frame-10.png",
+      "frame": 1572,
+      "timeSeconds": 65.5
+    },
+    {
+      "file": ".hyperframes/decoded/frame-11.png",
+      "frame": 1764,
+      "timeSeconds": 73.5
+    },
+    {
+      "file": ".hyperframes/decoded/frame-12.png",
+      "frame": 1956,
+      "timeSeconds": 81.5
+    },
+    {
+      "file": ".hyperframes/decoded/frame-13.png",
+      "frame": 2160,
+      "timeSeconds": 90
+    },
+    {
+      "file": ".hyperframes/decoded/frame-14.png",
+      "frame": 2376,
+      "timeSeconds": 99
+    },
+    {
+      "file": ".hyperframes/decoded/frame-15.png",
+      "frame": 2604,
+      "timeSeconds": 108.5
+    },
+    {
+      "file": ".hyperframes/decoded/frame-16.png",
+      "frame": 2820,
+      "timeSeconds": 117.5
+    },
+    {
+      "file": ".hyperframes/decoded/frame-17.png",
+      "frame": 3036,
+      "timeSeconds": 126.5
+    },
+    {
+      "file": ".hyperframes/decoded/frame-18.png",
+      "frame": 3252,
+      "timeSeconds": 135.5
+    },
+    {
+      "file": ".hyperframes/decoded/frame-19.png",
+      "frame": 3312,
+      "timeSeconds": 138
+    },
+    {
+      "file": ".hyperframes/decoded/frame-20.png",
+      "frame": 3359,
+      "timeSeconds": 139.95833333333334
+    }
+  ],
+  "visualReview": "Inspected all20 extracted MP4 samples: opening, all17 shot midpoints, endcard and final frame. Three contact sheets plus full-resolution completed capture, tamper rejection and last frame inspected. Expected genuine source states/captions/crops retained; no material discrepancy found. Full continuous motion playback not observed.",
+  "studioReview": {
+    "url": "http://localhost:3004/#project/agreements-video",
+    "durationObserved": "02:20",
+    "playbackAdvanced": true,
+    "selectedTimesSeconds": [
+      100.326,
+      136.069
+    ],
+    "limit": "Opening canvas screenshot observed; later Studio screenshots timed out. Live AX confirmed scenes and endcard; full continuous motion playback was not observed."
+  },
+  "publication": "Pending root/user YouTube upload, public playback verification and hackathon entry."
+}

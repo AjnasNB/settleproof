@@ -23,9 +23,9 @@ typography:
 spacing:
   safe_horizontal: 96
   safe_vertical: 54
-  caption_bottom: 216
-  evidence_top: 246
-  evidence_bottom: 968
+  caption_top: 924
+  evidence_top: 290
+  evidence_bottom: 890
 components:
   radius: 12
   border_px: 2
@@ -40,7 +40,7 @@ This is an evidence-led product demonstration. Match the current application's e
 
 ## Readability and framing
 
-Keep the caption in the top band and the genuine screen in the evidence band; neither can overlap the other. Captions are sharp vector text outside the screenshot and must not resemble recreated UI. A wide screenshot establishes location, then a native-resolution close crop establishes the relevant amount, role, version or provider status. Never enlarge soft UI to fill space merely because space exists. Prefer a fresh capture when pixels are inadequate.
+Keep the headline in the top band, genuine screen in the middle evidence band and annotation in the bottom caption band; none can overlap. Captions are sharp vector text outside the screenshot and must not resemble recreated UI. A wide screenshot establishes location, then a native-resolution close crop establishes the relevant amount, role, version or provider status. Evidence magnification is capped at1.35x. Never enlarge soft UI to fill space merely because space exists. Prefer a fresh capture when pixels are inadequate.
 
 Critical screenshot text must be readable at a normal 1080p playback size. If an authentic screen cannot support that, retain its context at a sane scale and add a clearly separate caption quoting the exact observed value/state; do not redraw a fake UI component. Keep role/version and sandbox labels in context. Avoid long raw hashes in the headline; inspect the real verifier and retain the full proof in the artifact.
 

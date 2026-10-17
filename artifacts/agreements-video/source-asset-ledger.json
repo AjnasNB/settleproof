@@ -3,7 +3,7 @@
   "assets": [
     {
       "id": "ui-01-landing",
-      "path": "assets/01-landing.png",
+      "path": "assets/frozen/01-landing.jpg",
       "sha256": "72a269923d20cb57cbac601e1fcaa0094d5212b756a2afcfafb261ca89d26ae3",
       "kind": "ui-screenshot",
       "shots": [
@@ -11,7 +11,7 @@
       ],
       "source": {
         "method": "cua-capture",
-        "description": "Root-supplied hosted SettleProof UI. Actual JPEG bytes, 1905x882; .png filename is a suffix mismatch only. Root confirms capture repository build 2c123c0 / deployed Worker build 7b1231, 17 October 2026.",
+        "description": "Root-supplied hosted SettleProof UI. Actual JPEG bytes, 1905x882; .png filename is a suffix mismatch only. Root confirms capture repository build 2c123c0 / deployed Worker build 7b1231, 17 October 2026. Original capture: assets/01-landing.png; SHA-256 72a269923d20cb57cbac601e1fcaa0094d5212b756a2afcfafb261ca89d26ae3.",
         "role": "none",
         "observedState": "Loaded landing, headline and three stages; default example title is not the later room identity.",
         "syntheticInput": true,
@@ -23,69 +23,16 @@
         "containsCapability": false,
         "containsCredentials": false,
         "containsPersonalAccountData": false,
-        "transforms": []
+        "transforms": [
+          "Byte-identical copy to accurate .jpg extension; no recompression. Composition crops are documented in shot-status.json; no UI content is recreated."
+        ]
       },
       "evidenceStatus": "accepted",
       "limitations": "Use header/stages; no opening placeholder. Does not show both milestone amounts. Exact UTC capture time was not recorded; file mtime is write-time only. Accepted as source evidence, not final-film QA."
     },
     {
-      "id": "ui-03-ai-brief",
-      "path": "assets/03-ai-brief.png",
-      "sha256": "cfe08527de5dcdfe4864dd9f948980fc7c01a68123033861418a062ce29286eb",
-      "kind": "ui-screenshot",
-      "shots": [
-        2,
-        3
-      ],
-      "source": {
-        "method": "cua-capture",
-        "description": "Root-supplied hosted SettleProof UI. Actual JPEG bytes, 1905x2522; .png filename is a suffix mismatch only. Root confirms capture repository build 2c123c0 / deployed Worker build 7b1231, 17 October 2026.",
-        "role": "none",
-        "observedState": "Invented studio brief before request; original manual amounts 12.00 and 8.00; total 20.00 USD.",
-        "syntheticInput": true,
-        "buildCommit": "2c123c0"
-      },
-      "rights": "Project-supplied original SettleProof UI capture; third-party marks retain their respective rights.",
-      "privacy": {
-        "reviewed": true,
-        "containsCapability": false,
-        "containsCredentials": false,
-        "containsPersonalAccountData": false,
-        "transforms": []
-      },
-      "evidenceStatus": "accepted",
-      "limitations": "Full-page2522px high; crop brief and amount fields separately. Focused skip-link at far left can be excluded. Exact UTC capture time was not recorded; file mtime is write-time only. Accepted as source evidence, not final-film QA."
-    },
-    {
-      "id": "ui-04-ai-proposal",
-      "path": "assets/04-ai-proposal.png",
-      "sha256": "3034dabaa518b9a044299656a4be68293da399c9d945f1ee07b32bcc7d236bb7",
-      "kind": "ui-screenshot",
-      "shots": [
-        4
-      ],
-      "source": {
-        "method": "cua-capture",
-        "description": "Root-supplied hosted SettleProof UI. Actual JPEG bytes, 1905x2980; .png filename is a suffix mismatch only. Root confirms capture repository build 2c123c0 / deployed Worker build 7b1231, 17 October 2026.",
-        "role": "none",
-        "observedState": "Actual generated proposal visible with two unchanged 12/8 amounts and three questions; nothing saved/accepted.",
-        "syntheticInput": true,
-        "buildCommit": "2c123c0"
-      },
-      "rights": "Project-supplied original SettleProof UI capture; third-party marks retain their respective rights.",
-      "privacy": {
-        "reviewed": true,
-        "containsCapability": false,
-        "containsCredentials": false,
-        "containsPersonalAccountData": false,
-        "transforms": []
-      },
-      "evidenceStatus": "accepted",
-      "limitations": "Root reports one real AI call. Image proves proposal state, not model internals; crop generated panel instead of fitting entire page. Exact UTC capture time was not recorded; file mtime is write-time only. Accepted as source evidence, not final-film QA."
-    },
-    {
       "id": "ui-05-human-edited-terms",
-      "path": "assets/05-human-edited-terms.png",
+      "path": "assets/frozen/05-human-edited-terms.jpg",
       "sha256": "c4e8a58d9e0f75149ea773e4e1dde863a48d62ac992ecd22efca756dcf7eaf83",
       "kind": "ui-screenshot",
       "shots": [
@@ -94,7 +41,7 @@
       ],
       "source": {
         "method": "cua-capture",
-        "description": "Root-supplied hosted SettleProof UI. Actual JPEG bytes, 1905x2356; .png filename is a suffix mismatch only. Root confirms capture repository build 2c123c0 / deployed Worker build 7b1231, 17 October 2026.",
+        "description": "Root-supplied hosted SettleProof UI. Actual JPEG bytes, 1905x2356; .png filename is a suffix mismatch only. Root confirms capture repository build 2c123c0 / deployed Worker build 7b1231, 17 October 2026. Original capture: assets/05-human-edited-terms.png; SHA-256 c4e8a58d9e0f75149ea773e4e1dde863a48d62ac992ecd22efca756dcf7eaf83.",
         "role": "none",
         "observedState": "Applied proposal and manual criteria: labelled sections plus desktop/390px mobile/editable file/handoff note;12 + 8 = 20 USD.",
         "syntheticInput": true,
@@ -106,14 +53,74 @@
         "containsCapability": false,
         "containsCredentials": false,
         "containsPersonalAccountData": false,
-        "transforms": []
+        "transforms": [
+          "Byte-identical copy to accurate .jpg extension; no recompression. Composition crops are documented in shot-status.json; no UI content is recreated."
+        ]
       },
       "evidenceStatus": "accepted",
       "limitations": "Shows resulting edited terms, not a recorded typing action. Crop milestone fields and total. Exact UTC capture time was not recorded; file mtime is write-time only. Accepted as source evidence, not final-film QA."
     },
     {
+      "id": "ui-03-ai-brief",
+      "path": "assets/frozen/03-ai-brief.jpg",
+      "sha256": "cfe08527de5dcdfe4864dd9f948980fc7c01a68123033861418a062ce29286eb",
+      "kind": "ui-screenshot",
+      "shots": [
+        3
+      ],
+      "source": {
+        "method": "cua-capture",
+        "description": "Root-supplied hosted SettleProof UI. Actual JPEG bytes, 1905x2522; .png filename is a suffix mismatch only. Root confirms capture repository build 2c123c0 / deployed Worker build 7b1231, 17 October 2026. Original capture: assets/03-ai-brief.png; SHA-256 cfe08527de5dcdfe4864dd9f948980fc7c01a68123033861418a062ce29286eb.",
+        "role": "none",
+        "observedState": "Invented studio brief before request; original manual amounts 12.00 and 8.00; total 20.00 USD.",
+        "syntheticInput": true,
+        "buildCommit": "2c123c0"
+      },
+      "rights": "Project-supplied original SettleProof UI capture; third-party marks retain their respective rights.",
+      "privacy": {
+        "reviewed": true,
+        "containsCapability": false,
+        "containsCredentials": false,
+        "containsPersonalAccountData": false,
+        "transforms": [
+          "Byte-identical copy to accurate .jpg extension; no recompression. Composition crops are documented in shot-status.json; no UI content is recreated."
+        ]
+      },
+      "evidenceStatus": "accepted",
+      "limitations": "Full-page2522px high; crop brief and amount fields separately. Focused skip-link at far left can be excluded. Exact UTC capture time was not recorded; file mtime is write-time only. Accepted as source evidence, not final-film QA."
+    },
+    {
+      "id": "ui-04-ai-proposal",
+      "path": "assets/frozen/04-ai-proposal.jpg",
+      "sha256": "3034dabaa518b9a044299656a4be68293da399c9d945f1ee07b32bcc7d236bb7",
+      "kind": "ui-screenshot",
+      "shots": [
+        4
+      ],
+      "source": {
+        "method": "cua-capture",
+        "description": "Root-supplied hosted SettleProof UI. Actual JPEG bytes, 1905x2980; .png filename is a suffix mismatch only. Root confirms capture repository build 2c123c0 / deployed Worker build 7b1231, 17 October 2026. Original capture: assets/04-ai-proposal.png; SHA-256 3034dabaa518b9a044299656a4be68293da399c9d945f1ee07b32bcc7d236bb7.",
+        "role": "none",
+        "observedState": "Actual generated proposal visible with two unchanged 12/8 amounts and three questions; nothing saved/accepted.",
+        "syntheticInput": true,
+        "buildCommit": "2c123c0"
+      },
+      "rights": "Project-supplied original SettleProof UI capture; third-party marks retain their respective rights.",
+      "privacy": {
+        "reviewed": true,
+        "containsCapability": false,
+        "containsCredentials": false,
+        "containsPersonalAccountData": false,
+        "transforms": [
+          "Byte-identical copy to accurate .jpg extension; no recompression. Composition crops are documented in shot-status.json; no UI content is recreated."
+        ]
+      },
+      "evidenceStatus": "accepted",
+      "limitations": "Root reports one real AI call. Image proves proposal state, not model internals; crop generated panel instead of fitting entire page. Exact UTC capture time was not recorded; file mtime is write-time only. Accepted as source evidence, not final-film QA."
+    },
+    {
       "id": "ui-06-seller-version-one",
-      "path": "assets/06-seller-version-one.png",
+      "path": "assets/frozen/06-seller-version-one.jpg",
       "sha256": "ea36f7ca8850f15dd3dc2e99172656b6b8029d0c4198c93ceb0ec34a6377a59d",
       "kind": "ui-screenshot",
       "shots": [
@@ -121,7 +128,7 @@
       ],
       "source": {
         "method": "cua-capture",
-        "description": "Root-supplied hosted SettleProof UI. Actual JPEG bytes, 1905x2597; .png filename is a suffix mismatch only. Root confirms capture repository build 2c123c0 / deployed Worker build 7b1231, 17 October 2026.",
+        "description": "Root-supplied hosted SettleProof UI. Actual JPEG bytes, 1905x2597; .png filename is a suffix mismatch only. Root confirms capture repository build 2c123c0 / deployed Worker build 7b1231, 17 October 2026. Original capture: assets/06-seller-version-one.png; SHA-256 ea36f7ca8850f15dd3dc2e99172656b6b8029d0c4198c93ceb0ec34a6377a59d.",
         "role": "seller",
         "observedState": "Created version 1, seller role, neither party accepted; two 12/8 milestones; no invite fields visible.",
         "syntheticInput": true,
@@ -134,14 +141,16 @@
         "containsCapability": false,
         "containsCredentials": false,
         "containsPersonalAccountData": false,
-        "transforms": []
+        "transforms": [
+          "Byte-identical copy to accurate .jpg extension; no recompression. Composition crops are documented in shot-status.json; no UI content is recreated."
+        ]
       },
       "evidenceStatus": "accepted",
       "limitations": "Full-page source; crop room identity/role and consent panel. Configured footer does not prove SDK success. Exact UTC capture time was not recorded; file mtime is write-time only. Accepted as source evidence, not final-film QA."
     },
     {
       "id": "ui-07-buyer-counteroffer",
-      "path": "assets/07-buyer-counteroffer.png",
+      "path": "assets/frozen/07-buyer-counteroffer.jpg",
       "sha256": "f247eb4d7cf81d3896bcfec2fba7ded8339facb29bb122189017f8bd9fd5d395",
       "kind": "ui-screenshot",
       "shots": [
@@ -149,7 +158,7 @@
       ],
       "source": {
         "method": "cua-capture",
-        "description": "Root-supplied hosted SettleProof UI. Actual JPEG bytes, 1905x3950; .png filename is a suffix mismatch only. Root confirms capture repository build 2c123c0 / deployed Worker build 7b1231, 17 October 2026.",
+        "description": "Root-supplied hosted SettleProof UI. Actual JPEG bytes, 1905x3950; .png filename is a suffix mismatch only. Root confirms capture repository build 2c123c0 / deployed Worker build 7b1231, 17 October 2026. Original capture: assets/07-buyer-counteroffer.png; SHA-256 f247eb4d7cf81d3896bcfec2fba7ded8339facb29bb122189017f8bd9fd5d395.",
         "role": "buyer",
         "observedState": "Buyer edits version 1 to require labelled Contact call to action; seller had accepted v1; Save as a new version is visible.",
         "syntheticInput": true,
@@ -162,42 +171,16 @@
         "containsCapability": false,
         "containsCredentials": false,
         "containsPersonalAccountData": false,
-        "transforms": []
+        "transforms": [
+          "Byte-identical copy to accurate .jpg extension; no recompression. Composition crops are documented in shot-status.json; no UI content is recreated."
+        ]
       },
       "evidenceStatus": "accepted",
       "limitations": "Pre-save editor, not yetv2. Pair with consents-reset source for actual savedv2 outcome. Exact UTC capture time was not recorded; file mtime is write-time only. Accepted as source evidence, not final-film QA."
     },
     {
-      "id": "ui-08-consents-reset",
-      "path": "assets/08-consents-reset.png",
-      "sha256": "302473f62ed09f71a5161c4c9a55d628b130c44be646761d2843c15c28c59d1a",
-      "kind": "ui-screenshot",
-      "shots": [
-        8
-      ],
-      "source": {
-        "method": "cua-capture",
-        "description": "Root-supplied hosted SettleProof UI. Actual JPEG bytes, 1905x2932; .png filename is a suffix mismatch only. Root confirms capture repository build 2c123c0 / deployed Worker build 7b1231, 17 October 2026.",
-        "role": "buyer",
-        "observedState": "Saved version 2 with both consents reset, revised Contact criterion, history 3 events.",
-        "syntheticInput": true,
-        "version": 2,
-        "buildCommit": "2c123c0"
-      },
-      "rights": "Project-supplied original SettleProof UI capture; third-party marks retain their respective rights.",
-      "privacy": {
-        "reviewed": true,
-        "containsCapability": false,
-        "containsCredentials": false,
-        "containsPersonalAccountData": false,
-        "transforms": []
-      },
-      "evidenceStatus": "accepted",
-      "limitations": "Pair with both-accepted source; earlier acceptedv1 must not carry over. Exact UTC capture time was not recorded; file mtime is write-time only. Accepted as source evidence, not final-film QA."
-    },
-    {
       "id": "ui-08-both-accepted",
-      "path": "assets/08-both-accepted.png",
+      "path": "assets/frozen/08-both-accepted.jpg",
       "sha256": "2fbf53b0b7f656a7033f264a13e3362d3340d98d106f7917b4ef9068b798d26d",
       "kind": "ui-screenshot",
       "shots": [
@@ -205,7 +188,7 @@
       ],
       "source": {
         "method": "cua-capture",
-        "description": "Root-supplied hosted SettleProof UI. Actual JPEG bytes, 1905x3450; .png filename is a suffix mismatch only. Root confirms capture repository build 2c123c0 / deployed Worker build 7b1231, 17 October 2026.",
+        "description": "Root-supplied hosted SettleProof UI. Actual JPEG bytes, 1905x3450; .png filename is a suffix mismatch only. Root confirms capture repository build 2c123c0 / deployed Worker build 7b1231, 17 October 2026. Original capture: assets/08-both-accepted.png; SHA-256 2fbf53b0b7f656a7033f264a13e3362d3340d98d106f7917b4ef9068b798d26d.",
         "role": "seller",
         "observedState": "Both roles accepted version 2; history 5 events, first 12 USD / second 8 USD both pending delivery.",
         "syntheticInput": true,
@@ -218,14 +201,16 @@
         "containsCapability": false,
         "containsCredentials": false,
         "containsPersonalAccountData": false,
-        "transforms": []
+        "transforms": [
+          "Byte-identical copy to accurate .jpg extension; no recompression. Composition crops are documented in shot-status.json; no UI content is recreated."
+        ]
       },
       "evidenceStatus": "accepted",
       "limitations": "One operator demonstrates separate roles; not two verified identities. Full page must be cropped. Exact UTC capture time was not recorded; file mtime is write-time only. Accepted as source evidence, not final-film QA."
     },
     {
       "id": "ui-09-seller-handoff",
-      "path": "assets/09-seller-handoff.png",
+      "path": "assets/frozen/09-seller-handoff.jpg",
       "sha256": "b9ef6df9b69b186139a42a0c0be1ae57cc1a647e462bd75dc486273b91525bfe",
       "kind": "ui-screenshot",
       "shots": [
@@ -233,7 +218,7 @@
       ],
       "source": {
         "method": "cua-capture",
-        "description": "Root-supplied hosted SettleProof UI. Actual JPEG bytes, 1920x889; .png filename is a suffix mismatch only. Root confirms capture repository build 2c123c0 / deployed Worker build 7b1231, 17 October 2026.",
+        "description": "Root-supplied hosted SettleProof UI. Actual JPEG bytes, 1920x889; .png filename is a suffix mismatch only. Root confirms capture repository build 2c123c0 / deployed Worker build 7b1231, 17 October 2026. Original capture: assets/09-seller-handoff.png; SHA-256 b9ef6df9b69b186139a42a0c0be1ae57cc1a647e462bd75dc486273b91525bfe.",
         "role": "seller",
         "observedState": "Milestone1 DELIVERED, incomplete invented assertion explicitly missing Contact call to action; history 6 events.",
         "syntheticInput": true,
@@ -246,14 +231,16 @@
         "containsCapability": false,
         "containsCredentials": false,
         "containsPersonalAccountData": false,
-        "transforms": []
+        "transforms": [
+          "Byte-identical copy to accurate .jpg extension; no recompression. Composition crops are documented in shot-status.json; no UI content is recreated."
+        ]
       },
       "evidenceStatus": "accepted",
       "limitations": "Static delivered state, not screen recording of the click. Seller role comes from root flow; crop preserves criteria and assertion. Exact UTC capture time was not recorded; file mtime is write-time only. Accepted as source evidence, not final-film QA."
     },
     {
       "id": "ui-10-changes-requested",
-      "path": "assets/10-changes-requested.png",
+      "path": "assets/frozen/10-changes-requested.jpg",
       "sha256": "785ea81935114d8c11be1eb5847a87ff249d0513f6b9123b1bbe04cafb15d07d",
       "kind": "ui-screenshot",
       "shots": [
@@ -261,7 +248,7 @@
       ],
       "source": {
         "method": "cua-capture",
-        "description": "Root-supplied hosted SettleProof UI. Actual JPEG bytes, 1905x882; .png filename is a suffix mismatch only. Root confirms capture repository build 2c123c0 / deployed Worker build 7b1231, 17 October 2026.",
+        "description": "Root-supplied hosted SettleProof UI. Actual JPEG bytes, 1905x882; .png filename is a suffix mismatch only. Root confirms capture repository build 2c123c0 / deployed Worker build 7b1231, 17 October 2026. Original capture: assets/10-changes-requested.png; SHA-256 785ea81935114d8c11be1eb5847a87ff249d0513f6b9123b1bbe04cafb15d07d.",
         "role": "buyer",
         "observedState": "Buyer request explicitly names Contact call to action; waiting for revised seller handoff; history 7 events; second 8 USD pending.",
         "syntheticInput": true,
@@ -274,14 +261,16 @@
         "containsCapability": false,
         "containsCredentials": false,
         "containsPersonalAccountData": false,
-        "transforms": []
+        "transforms": [
+          "Byte-identical copy to accurate .jpg extension; no recompression. Composition crops are documented in shot-status.json; no UI content is recreated."
+        ]
       },
       "evidenceStatus": "accepted",
       "limitations": "Top excludes first milestone title/status; request and waiting message are visible. Crop focuses this change request, not room header. Exact UTC capture time was not recorded; file mtime is write-time only. Accepted as source evidence, not final-film QA."
     },
     {
       "id": "ui-11-handoff-accepted",
-      "path": "assets/11-handoff-accepted.png",
+      "path": "assets/frozen/11-handoff-accepted.jpg",
       "sha256": "c2b78f1f26ccae8a55ed407b0d22240bd836c7ad7edffedbbeed7f18b1b72b39",
       "kind": "ui-screenshot",
       "shots": [
@@ -289,7 +278,7 @@
       ],
       "source": {
         "method": "cua-capture",
-        "description": "Root-supplied hosted SettleProof UI. Actual JPEG bytes, 1905x882; .png filename is a suffix mismatch only. Root confirms capture repository build 2c123c0 / deployed Worker build 7b1231, 17 October 2026.",
+        "description": "Root-supplied hosted SettleProof UI. Actual JPEG bytes, 1905x882; .png filename is a suffix mismatch only. Root confirms capture repository build 2c123c0 / deployed Worker build 7b1231, 17 October 2026. Original capture: assets/11-handoff-accepted.png; SHA-256 c2b78f1f26ccae8a55ed407b0d22240bd836c7ad7edffedbbeed7f18b1b72b39.",
         "role": "buyer",
         "observedState": "Replacement image: revised assertion, Handoff accepted by the buyer, Pay with PayPal Sandbox button; history 9 events; second 8 USD pending.",
         "syntheticInput": true,
@@ -302,37 +291,199 @@
         "containsCapability": false,
         "containsCredentials": false,
         "containsPersonalAccountData": false,
-        "transforms": []
+        "transforms": [
+          "Byte-identical copy to accurate .jpg extension; no recompression. Composition crops are documented in shot-status.json; no UI content is recreated."
+        ]
       },
       "evidenceStatus": "accepted",
       "limitations": "Earlier8event image was rejected for acceptance claim. Current replacement proves human acceptance only; no SDK/order/approval/capture proof. Exact UTC capture time was not recorded; file mtime is write-time only. Accepted as source evidence, not final-film QA."
     },
     {
-      "id": "ui-12-sdk-ready",
-      "path": "assets/12-sdk-ready.png",
-      "sha256": "cc2e42af4de50dd7c19f535b2f20804075fdbaea00e89598b25d03823c68856b",
+      "id": "provider-order-unpaid",
+      "path": "assets/frozen/12-order-unpaid.jpg",
+      "sha256": "b8798586f63201a06849a0af96665f4c52955e7cad1f917a9cfb0ef316eeb697",
       "kind": "ui-screenshot",
       "shots": [
         12
       ],
       "source": {
         "method": "cua-capture",
-        "description": "Root-supplied hosted UI, actual JPEG bytes,1905x882. Capture build not independently pinned; no exact UTC camera time recorded.",
+        "description": "Actual JPEG bytes,1905x882. Root-owned genuine PayPal Sandbox rehearsal; deployed e1e21a37, repository83a7bbd. No exact UTC camera timestamp recorded. Original capture: assets/12-order-unpaid.png; SHA-256 b8798586f63201a06849a0af96665f4c52955e7cad1f917a9cfb0ef316eeb697.",
+        "buildCommit": "83a7bbd",
         "role": "buyer",
         "version": 2,
-        "observedState": "Nine human events; handoff accepted, official SDK readiness control visible. No confirmed order, approval or capture.",
+        "milestone": "m1",
+        "amountUSD": "12.00",
+        "observedState": "PAYER_ACTION_REQUIRED; unpaid; captured0.00USD; remaining12.00USD;21events.",
         "syntheticInput": true
       },
-      "rights": "Project-supplied original SettleProof UI capture; third-party marks retain respective rights.",
+      "rights": "Project-supplied original UI capture; third-party marks retain respective rights.",
       "privacy": {
         "reviewed": true,
         "containsCapability": false,
         "containsCredentials": false,
         "containsPersonalAccountData": false,
-        "transforms": []
+        "transforms": [
+          "Byte-identical copy to accurate .jpg extension; no recompression. Composition crops are documented in shot-status.json; no UI content is recreated."
+        ]
       },
       "evidenceStatus": "accepted",
-      "limitations": "Accepted as SDK-ready source state only. Configured/ready UI is not a genuine payment observation; all provider completion remains pending."
+      "limitations": "Provider actions performed and verified by root, not video agent. Official server SDK order; popup closed without capture; approval then used stored sandbox link and fresh server read. No v6 onApprove callback claim. Actual screenshots are edited state sequences, not continuous footage."
+    },
+    {
+      "id": "provider-approved-unpaid",
+      "path": "assets/frozen/13-approved-not-captured.jpg",
+      "sha256": "0c110a35f24e9a48d877fd06fab35837ca3103504c97a51bd4ed3fa6e954d63b",
+      "kind": "ui-screenshot",
+      "shots": [
+        13,
+        14
+      ],
+      "source": {
+        "method": "cua-capture",
+        "description": "Actual JPEG bytes,1905x882. Root-owned genuine PayPal Sandbox rehearsal; deployed e1e21a37, repository83a7bbd. No exact UTC camera timestamp recorded. Original capture: assets/13-approved-not-captured.png; SHA-256 0c110a35f24e9a48d877fd06fab35837ca3103504c97a51bd4ed3fa6e954d63b.",
+        "buildCommit": "83a7bbd",
+        "role": "buyer",
+        "version": 2,
+        "milestone": "m1",
+        "amountUSD": "12.00",
+        "observedState": "APPROVED; still unpaid; captured0.00USD; remaining12.00USD;23events; explicit capture control.",
+        "syntheticInput": true
+      },
+      "rights": "Project-supplied original UI capture; third-party marks retain respective rights.",
+      "privacy": {
+        "reviewed": true,
+        "containsCapability": false,
+        "containsCredentials": false,
+        "containsPersonalAccountData": false,
+        "transforms": [
+          "Byte-identical copy to accurate .jpg extension; no recompression. Composition crops are documented in shot-status.json; no UI content is recreated."
+        ]
+      },
+      "evidenceStatus": "accepted",
+      "limitations": "Provider actions performed and verified by root, not video agent. Official server SDK order; popup closed without capture; approval then used stored sandbox link and fresh server read. No v6 onApprove callback claim. Actual screenshots are edited state sequences, not continuous footage."
+    },
+    {
+      "id": "provider-capture-completed",
+      "path": "assets/frozen/15-capture-verified.jpg",
+      "sha256": "c09e82de1f8a112923f68f5869e7f73726d1deb688cbef6a890544b357429252",
+      "kind": "ui-screenshot",
+      "shots": [
+        15
+      ],
+      "source": {
+        "method": "cua-capture",
+        "description": "Actual JPEG bytes,1905x882. Root-owned genuine PayPal Sandbox rehearsal; deployed e1e21a37, repository83a7bbd. No exact UTC camera timestamp recorded. Original capture: assets/15-capture-verified.png; SHA-256 c09e82de1f8a112923f68f5869e7f73726d1deb688cbef6a890544b357429252.",
+        "buildCommit": "83a7bbd",
+        "role": "buyer",
+        "version": 2,
+        "milestone": "m1",
+        "amountUSD": "12.00",
+        "observedState": "COMPLETED; paid; captured12.00USD; remaining0.00USD for first milestone; second8.00USD still pending;25events.",
+        "syntheticInput": true
+      },
+      "rights": "Project-supplied original UI capture; third-party marks retain respective rights.",
+      "privacy": {
+        "reviewed": true,
+        "containsCapability": false,
+        "containsCredentials": false,
+        "containsPersonalAccountData": false,
+        "transforms": [
+          "Byte-identical copy to accurate .jpg extension; no recompression. Composition crops are documented in shot-status.json; no UI content is recreated."
+        ]
+      },
+      "evidenceStatus": "accepted",
+      "limitations": "Provider actions performed and verified by root, not video agent. Official server SDK order; popup closed without capture; approval then used stored sandbox link and fresh server read. No v6 onApprove callback claim. Actual screenshots are edited state sequences, not continuous footage."
+    },
+    {
+      "id": "receipt-prefix-ui",
+      "path": "assets/frozen/16-retained-prefix-verified.jpg",
+      "kind": "ui-screenshot",
+      "shots": [
+        16
+      ],
+      "source": {
+        "method": "cua-capture",
+        "description": "Root-supplied hosted UI, actual JPEG 1905x882. Genuine rehearsal repository83a7bbd / deployed e1e21a37, 17 October2026. No exact UTC camera time recorded. Original capture: assets/16-retained-prefix-verified.png; SHA-256 20abe65cdf3662439fc1d548e82346277c7fb6da293ada733b6fa5081a762fe2.",
+        "buildCommit": "83a7bbd",
+        "version": 2,
+        "role": "buyer",
+        "observedState": "Internal chain valid; 25 events checked; retained event 5 matches. Later legitimate events are allowed.",
+        "syntheticInput": true
+      },
+      "rights": "Project-supplied original UI capture; third-party marks retain respective rights.",
+      "privacy": {
+        "reviewed": true,
+        "containsCapability": false,
+        "containsCredentials": false,
+        "containsPersonalAccountData": false,
+        "transforms": [
+          "Byte-identical copy to accurate .jpg extension; no recompression. Composition crops are documented in shot-status.json; no UI content is recreated."
+        ]
+      },
+      "evidenceStatus": "accepted",
+      "limitations": "Edited genuine state sequence, not continuous screen recording. Hash integrity does not establish identity, signatures, truth, latest completeness, immutable storage or settlement.",
+      "sha256": "20abe65cdf3662439fc1d548e82346277c7fb6da293ada733b6fa5081a762fe2"
+    },
+    {
+      "id": "receipt-tamper-ui",
+      "path": "assets/frozen/17-tamper-rejected.jpg",
+      "kind": "ui-screenshot",
+      "shots": [
+        17
+      ],
+      "source": {
+        "method": "cua-capture",
+        "description": "Root-supplied hosted UI, actual JPEG 1905x882. Genuine rehearsal repository83a7bbd / deployed e1e21a37, 17 October2026. No exact UTC camera time recorded. Original capture: assets/17-tamper-rejected.png; SHA-256 ac3d0030b178838e57a0343bf793d68084f7dd9843326d43b8aa247e583cfd43.",
+        "buildCommit": "83a7bbd",
+        "version": 2,
+        "role": "buyer",
+        "observedState": "Receipt failed integrity checks; changed or invalid event hash; zero events checked. Only the first event title was altered in a separate copy.",
+        "syntheticInput": true
+      },
+      "rights": "Project-supplied original UI capture; third-party marks retain respective rights.",
+      "privacy": {
+        "reviewed": true,
+        "containsCapability": false,
+        "containsCredentials": false,
+        "containsPersonalAccountData": false,
+        "transforms": [
+          "Byte-identical copy to accurate .jpg extension; no recompression. Composition crops are documented in shot-status.json; no UI content is recreated."
+        ]
+      },
+      "evidenceStatus": "accepted",
+      "limitations": "Edited genuine state sequence, not continuous screen recording. Hash integrity does not establish identity, signatures, truth, latest completeness, immutable storage or settlement.",
+      "sha256": "ac3d0030b178838e57a0343bf793d68084f7dd9843326d43b8aa247e583cfd43"
+    },
+    {
+      "id": "ui-08-consents-reset",
+      "path": "assets/frozen/08-consents-reset.jpg",
+      "sha256": "302473f62ed09f71a5161c4c9a55d628b130c44be646761d2843c15c28c59d1a",
+      "kind": "ui-screenshot",
+      "shots": [
+        8
+      ],
+      "source": {
+        "method": "cua-capture",
+        "description": "Root-supplied hosted SettleProof UI. Actual JPEG bytes, 1905x2932; .png filename is a suffix mismatch only. Root confirms capture repository build 2c123c0 / deployed Worker build 7b1231, 17 October 2026. Original capture: assets/08-consents-reset.png; SHA-256 302473f62ed09f71a5161c4c9a55d628b130c44be646761d2843c15c28c59d1a.",
+        "role": "buyer",
+        "observedState": "Saved version 2 with both consents reset, revised Contact criterion, history 3 events.",
+        "syntheticInput": true,
+        "version": 2,
+        "buildCommit": "2c123c0"
+      },
+      "rights": "Project-supplied original SettleProof UI capture; third-party marks retain their respective rights.",
+      "privacy": {
+        "reviewed": true,
+        "containsCapability": false,
+        "containsCredentials": false,
+        "containsPersonalAccountData": false,
+        "transforms": [
+          "Byte-identical copy to accurate .jpg extension; no recompression. Composition crops are documented in shot-status.json; no UI content is recreated."
+        ]
+      },
+      "evidenceStatus": "accepted",
+      "limitations": "Pair with both-accepted source; earlier acceptedv1 must not carry over. Exact UTC capture time was not recorded; file mtime is write-time only. Accepted as source evidence, not final-film QA."
     },
     {
       "id": "geist-font",
@@ -351,7 +502,12 @@
         9,
         10,
         11,
-        12
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
       ],
       "source": {
         "method": "official-package",
@@ -385,7 +541,12 @@
         9,
         10,
         11,
-        12
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
       ],
       "source": {
         "method": "official-package",
@@ -419,7 +580,12 @@
         9,
         10,
         11,
-        12
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
       ],
       "source": {
         "method": "official-package",

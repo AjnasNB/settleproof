@@ -1,4 +1,30 @@
-# Agreements capture review — source shots 1–12
+# Agreements capture review — final source
+
+## Final source review — 17 October 2026
+
+All17 required source states are now supplied and independently inspected, including the actual valid retained-prefix panel and rejected altered-copy panel. Earlier pending-provider paragraphs below are historical. The final film references16 active screenshot files in assets/frozen with accurate .jpg suffixes, copied byte-for-byte from original captures without recompression. audit-assets.mjs checked19 active ledger records and every frozen hash against its original. Full schema-library validation is not claimed; no validator library was available.
+
+Provider/receipt sources12–17 were captured by root from repository83a7bbd /deployment e1e21a37. Root owns the actual provider interactions. The reviewer inspected actual source pixels and recomputed local receipt hashes independently. No credentials, private capability URL, address bar or payer/account details were visible in any adopted source. Exact UTC camera times were not recorded.
+
+Actual final-receipt.json contains25 events. Its first5 events exactly match the earlier saved receipt and anchor. verify-receipts.mjs recomputed all5 genuine exports and the separate altered copy: originals valid, altered first-event title fails at event1. The actual UI screenshots show both positive retained-prefix and negative tamper verdicts. RECEIPT-VERIFICATION.json records file hashes/results. API export/readback was observed by root; browser download-event confirmation is not claimed. Integrity does not establish identities, signatures, truth, latest completeness, immutable storage or irreversible settlement.
+
+Film review found and fixed unreadable full-page editor crops (shots2/5), premature accepted caption while reset state showed (shot8), a clipped provider limitation (shot12) and a sliced tamper limitation (shot17). Final crops2/5/12/17 were reinspected. Caption/UI separation, payment limits,16 scene-cut pairs and2 internal-cut pairs are documented in FILM-REVIEW-17.md and independent REVIEW-A.md /REVIEW-B.md. Final video encode/Studio status is recorded there rather than inferred from asset filenames.
+
+## Historical inspection notes
+
+## Genuine provider states — subsequent root rehearsal
+
+Root reports the authorized rehearsal succeeded on deployed build `e1e21a37` /repository `83a7bbd`: the persisted request created sandbox order `4DS89752FA229423E`; closing the SDK popup caused no capture. Approval then used the stored official sandbox link in a normal tab because CUA input was unsupported inside the popup. A fresh server read observed APPROVED before the explicit human capture. Capture `8KC15056HN484411T` completed for USD12.00; the second USD8.00 milestone stayed pending/unpaid. **Do not claim a successful v6 onApprove callback.** Provider actions were root-owned; the video reviewer made none.
+
+Independently inspected three source files, all 1905×882 JPEG bytes, with no visible capability URL, credentials, payer/account data or browser chrome:
+
+- `12-order-unpaid.png`: PAYER_ACTION_REQUIRED, unpaid, captured USD0.00, remaining USD12.00; 21 events.
+- `13-approved-not-captured.png`: APPROVED, still unpaid, captured USD0.00, remaining USD12.00; 23 events. Its genuine capture control can also support shot14, without a fabricated cursor/click.
+- `15-capture-verified.png`: COMPLETED, paid, captured USD12.00, remaining USD0.00 for milestone1; second USD8.00 pending; 25 events.
+
+The authored range now ends at122seconds/shot15. These source states support order → approval-without-capture → explicit capture/result. Runtime/frame/layout checks are still pending. Slots16–17 await actual final provider-linked export/prefix verification and altered-copy failure; no final render is authorized by these source inspections alone.
+
+## Earlier source review and preparation history
 
 17 October 2026. Initial pass inspected all eleven supplied image files at native dimensions, including replacement shot 11. Root confirms repository capture build `2c123c0`, deployed Worker build `7b1231`; later archival/preparation commits did not change that captured application. Exact UTC capture times were not recorded; file modification times are write-time only. These are genuine source-state captures supplied by root, **not completed film frames or provider integration proof**. Later inspection of SDK-ready source12 and the authorized technical scaffold is recorded below. No render has been made.
 

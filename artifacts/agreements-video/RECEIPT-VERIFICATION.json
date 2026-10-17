@@ -1,0 +1,66 @@
+{
+  "checks": [
+    {
+      "file": "early-receipt.json",
+      "bytes": 3988,
+      "sha256": "945c22191b5ce4b0934b8131741804d777b6e8702c92830f5efc88c286f07a07",
+      "events": 5,
+      "chainValid": true,
+      "firstInvalidEvent": null,
+      "anchorMatches": true
+    },
+    {
+      "file": "downloaded-receipt.json",
+      "bytes": 5736,
+      "sha256": "32f04d67c6a8d1236da4a10d33d9fa07543d01ada62959eb535ed0c9d38ef75c",
+      "events": 8,
+      "chainValid": true,
+      "firstInvalidEvent": null,
+      "anchorMatches": true
+    },
+    {
+      "file": "pre-approval-receipt.json",
+      "bytes": 17264,
+      "sha256": "bc36485906256feb830f868017b649c03037bde41698c2e621348c4e4142d38f",
+      "events": 21,
+      "chainValid": true,
+      "firstInvalidEvent": null,
+      "anchorMatches": true
+    },
+    {
+      "file": "approved-receipt.json",
+      "bytes": 22756,
+      "sha256": "76bfa541962d2270e47e7f8641cb13bd838cfd89825ec6eda30e5535a785e4f3",
+      "events": 23,
+      "chainValid": true,
+      "firstInvalidEvent": null,
+      "anchorMatches": true
+    },
+    {
+      "file": "final-receipt.json",
+      "bytes": 28834,
+      "sha256": "45e6752c4e9797817344de4f7f0df9b4991cc205fbd458647c7a1792002699fd",
+      "events": 25,
+      "chainValid": true,
+      "firstInvalidEvent": null,
+      "anchorMatches": true
+    },
+    {
+      "file": "tampered-copy.json",
+      "bytes": 28835,
+      "sha256": "3c4f1aac81928afc75b9a0c444e9292684b9b271fa72fb3dbc53060dd4bcd9ca",
+      "events": 25,
+      "chainValid": false,
+      "firstInvalidEvent": 1,
+      "anchorMatches": false
+    }
+  ],
+  "retainedPrefix": {
+    "sequence": 5,
+    "hash": "3c6f85d629f55da3d7a60895868ce2652c17bf2ebed860ff1467cbab7fae6708",
+    "exactEventsMatch": true,
+    "finalEventMatches": true
+  },
+  "scope": "Independent local file/hash readback only. Provider browser actions owned by root. UI positive and altered-copy negative verdicts separately inspected in frozen screenshots. No browser-download event confirmation claimed.",
+  "limitations": "Integrity and retained-prefix consistency do not establish identity, signatures, truth, latest completeness, immutable storage or irreversible settlement."
+}

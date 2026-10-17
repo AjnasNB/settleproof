@@ -2,10 +2,13 @@
   "name": "settleproof-agreements-video",
   "private": true,
   "type": "module",
-  "description": "Preparation only; composition awaits genuine sanitized provider evidence.",
+  "description": "Genuine SettleProof Agreements Sandbox demonstration, 17 shots / 140 seconds.",
   "scripts": {
+    "build": "node build-video.mjs",
+    "audit:assets": "node audit-assets.mjs",
+    "audit:receipts": "node verify-receipts.mjs",
     "preview": "npx --yes hyperframes@0.8.168 preview",
     "check": "npx --yes hyperframes@0.8.168 check",
-    "render": "npx --yes hyperframes@0.8.168 render"
+    "render": "npx --yes hyperframes@0.8.168 render --fps 24 --quality delivery"
   }
 }

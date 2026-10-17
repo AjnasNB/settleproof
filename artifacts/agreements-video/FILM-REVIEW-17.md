@@ -1,35 +1,33 @@
-# Agreements film — 17 review rounds
+# Agreements film — 17 substantive reviews
 
-Incomplete technical scaffold only. All final-film outcomes are **PENDING**. These are seventeen distinct reviews, not a claim of seventeen finished revisions. For each round record actual time/frame, criticism, fix or justified no-change decision, retest and evidence path. A blocked genuine-provider requirement cannot be filled by fixture footage.
+17 October 2026. These are distinct observed reviews, with bounded fixes where warranted. They are not17 creative rewrites,17 unchanged renders or a winning-probability claim. Root owns actual provider/AI actions; this reviewer inspected genuine source pixels, local receipt bytes, authored frames and the production composition. Local encode and public publication have separate statuses below.
 
-| Round | Review and completion evidence | Outcome |
+| Round | Criticism or verification → decision → actual evidence | Status |
 |---|---|---|
-| 1 | Opening establishes invented engagement, separate roles and purpose by 15 seconds. | Pending |
-| 2 | Every screenshot/control agrees with the actual demonstrated build and capture date. | Pending |
-| 3 | Every amount/currency is verified: 12 + 8 = 20 USD; only actual captured milestones called paid. | Pending |
-| 4 | AI proposal is real generated output with traceable source; no fake model status or wording. | Pending |
-| 5 | Manual criteria review, consent and delivery decisions visibly remain human actions. | Pending |
-| 6 | Counteroffer creates a new version, resets consents and precedes same-version dual consent. | Pending |
-| 7 | Inspect every source/cut for capability fragments, credentials, payer/account data and false identity claims. | Pending |
-| 8 | Actual change request blocks old acceptance; revised handoff precedes buyer acceptance. | Pending |
-| 9 | Genuine official SDK and server-created sandbox order have sanitized evidence, beyond a button click. | Pending |
-| 10 | Actual APPROVED state precedes explicit capture; approval is never labelled captured. | Pending |
-| 11 | Fresh order/capture invoice, USD amount, completed status and observation time match real proof. | Pending |
-| 12 | Actual final export bytes opened; original passes; earlier prefix matches; altered copy fails. | Pending |
-| 13 | Inspect all shot midpoints at full resolution for readable evidence, crop quality and no caption collision. | Pending |
-| 14 | Inspect every cut at -0.1/+0.2 seconds plus first/last frames; fix flashes, gaps and discontinuities. | Pending |
-| 15 | Silent captions have comfortable reading time and enough context; no unproduced narration/audio claim. | Pending |
-| 16 | Composition checks, Studio playback and delivered MP4 decode/metadata confirm actual duration/resolution/fps/endpoints. | Pending |
-| 17 | Final claims/source/live links/license/AI disclosures/judge access are accurate; publication and final entry separately authorized. | Pending |
+|1|Opening must identify a real use case without inventing a customer. Shot1 shows the actual agreement landing; permanent footer states one operator and Sandbox test funds. The caption calls the engagement invented. Inspected3s and opening/cut samples.|Verified locally|
+|2|Asset names alone cannot prove current UI. Inspected every adopted capture, including corrected shot11; recorded role/version/build limits in the ledger. Rejected the earlier pre-acceptance shot11 and used root's accepted replacement. No invented UTC camera time.|Fixed and reinspected|
+|3|Amounts must stay consistent. Editor close crops show12.00 and8.00; total20.00USD. Provider sources show only first milestone12.00 captured, second8.00 pending. Verified at9.5/33/90/99/117.5s against actual sources/receipts.|Verified locally|
+|4|AI claims require actual generated output. Shot4 uses the real two-milestone/three-question proposal from root's one inference. Shot3 is the actual brief. No fabricated model state, generated delivery or autonomous acceptance/payment claim.|Verified locally|
+|5|Generic criteria do not define a useful agreement. Shot5 shows the manually edited sections, Contact requirement and desktop/mobile handoff. Replaced unreadable tall-page fitting with two genuine close crops, each held about4seconds; reinspected33s.|Fixed and reinspected|
+|6|A counteroffer must invalidate previous consent. Actual v1 → buyer counteroffer → v2 reset → both accepted sequence inspected. Shot8 initially labelled both accepted while reset remained visible; delayed caption until after the real accepted-source cut at57s. Reviewed56.9/57.2s.|Fixed and reinspected|
+|7|Private access must not leak. Inspected all16 adopted raw screenshot files and sampled rendered cuts for capability links, credentials, browser chrome and account/payer data. None visible. Original .png names held JPEG bytes; froze accurate .jpg copies without recompression and checked all hashes. This is bounded artifact review, not a claim about operational logs.|Verified locally|
+|8|Acceptance must follow the actual correction. Shots9–11 show deliberately omitted Contact item, buyer change request, revised assertion and buyer acceptance. Corrected source11 is post-acceptance9events; earlier8event export is correctly labelled pre-acceptance. No file-quality judgment is invented.|Verified locally|
+|9|A ready button is not successful integration. Replaced unused SDK-ready source with actual server-created order/PAYER_ACTION_REQUIRED state. Root performed the SDK/server rehearsal; reviewer read actual proof files/screens. This verifies order evidence, not a successful v6 onApprove callback. Shot12's sliced disclaimer was fixed and90s reinspected.|Fixed and reinspected|
+|10|Approval is not capture. Actual APPROVED source remains unpaid/0.00 captured. Caption explicitly says stored-link approval and fresh server read. Root used a normal tab with the stored official Sandbox link; the film makes no successful popup callback claim.|Verified locally|
+|11|Capture must be explicit and freshly observed. Shot14 holds the genuine capture control before the action; shot15 shows actual COMPLETED/12.00 captured/0.00 remaining. Root's order4DS89752FA229423E and capture8KC15056HN484411T are recorded in sanitized proof. No fake cursor/click or irreversible-settlement claim.|Verified locally|
+|12|Receipt integrity needs byte-level evidence and a negative case. Independently recomputed hashes/sequence/head for5 genuine exports; final25events share the exact earlier5event prefix. Altering only first-event title fails event1. Actual UI sources16/17 show both verdicts. Trimmed shot17 crop cleanly before a cut-off paragraph;135.5s reinspected. RECEIPT-VERIFICATION.json records hashes and limits.|Fixed and reinspected|
+|13|Screenshot text must be usable at1080p. Two independent reviewers opened31 sample/source/cut images. All17 shot midpoints reviewed; evidence enlargement capped at1.35x with sharp external captions. Fixed tiny tall-editor crops and two sliced disclaimer edges. Four affected frames reinspected in .hyperframes/final-crop-retests.|Fixed and reinspected|
+|14|Cuts must retain the right state without foreign/black frames. Inspected56 snapshots:17 midpoints,16 scene boundary pairs, reset/endcard internal pairs, opening and final samples. Contact sheets3–7 inspected; sampled entrances are intentional opacity reveals, no foreign/black frame seen. Static samples alone do not certify continuous playback; see round16.|Verified samples|
+|15|Silent playback must communicate the whole story. Title, sharp caption and actual source have separate bands. All17 captions reviewed against the corresponding evidence. No SCRIPT/music/SFX or nonexistent narration is claimed. Contrast check25/25. Longest payment caption has5.2seconds; final source/live endcard holds4seconds.|Verified locally|
+|16|Technical checks cover real output. HyperFrames0.8.168 runtime/layout passed all17 midpoints; contrast25/25; final lint0errors/0warnings. Actual Studio loaded02:20, playback advanced, approval at100.326s and endcard136.069s were checked. Opening canvas screenshot worked; later screenshot calls timed out, so full continuous playback is not claimed. One final render exited0. ffprobe measured140.000s,1920×1080,H.264/yuv420p,24fps,3360frames,7,139,871bytes,noaudio. Full FFmpeg decode had no errors;20 decoded samples inspected, including all17 midpoints and actual endpoints. DELIVERY.json records metadata/SHA and limits.|Local delivery verified|
+|17|Final claims, rights and access must remain accurate. Local source/font/runtime hashes checked; Geist OFL and GSAP original license header retained. Endcard matches root-verified custom domain and public GitHub MIT app source. Local source/claims review complete. Public YouTube playback, publication terms and hackathon entry are separate root/user actions.|Local review complete; publication/entry pending|
 
-## Canonical inspection times
+## Evidence and scope
 
-17 shots, boundaries in seconds: 0, 6, 13, 21, 29, 37, 45, 53, 61, 70, 77, 86, 94, 104, 113, 122, 131, 140.
+Source provenance: shots1–11 repository2c123c0/deploy7b1231; genuine provider/receipt states repository83a7bbd/deploye1e21a37. Source images are real edited state sequences, not continuous screen-recorded clicks, two verified people, customer delivery proof or a production money flow. Test funds only. Hash consistency is not verified identity, signature, truth, latest completeness, immutable storage or irreversible settlement.
 
-Midpoints: 3, 9.5, 17, 25, 33, 41, 49, 57, 65.5, 73.5, 81.5, 90, 99, 108.5, 117.5, 126.5, 135.5.
+Frame run: .hyperframes/artifacts/snapshots/d0ff7074-4ed5-449c-ab00-fc3ff37a75db (56 snapshots). Final crop retests: .hyperframes/final-crop-retests (9.5,33,90,135.5seconds). Independent reviewers: REVIEW-A.md and REVIEW-B.md. The latter's two crop findings were fixed and independently reinspected; their historical report is preserved.
 
-Around every internal cut inspect boundary minus 0.1 and plus 0.2 seconds. Inspect opening frame and final decoded frame as well. This checklist does not create or render a frame. If actual edit timings change, recalculate the inspection times from the real timeline.
+Midpoints:3,9.5,17,25,33,41,49,57,65.5,73.5,81.5,90,99,108.5,117.5,126.5,135.5. Scene boundaries:0,6,13,21,29,37,45,53,61,70,77,86,94,104,113,122,131,140. Each internal scene cut was sampled at−0.1/+0.2seconds; internal reset at57 and endcard at136 were also sampled. Final frame sample139.958seconds.
 
-## Current hold
-
-Source-backed static composition slots1–12 now exist (94seconds, not the eventual140seconds). Static lint of13HTMLfiles passed with zero errors/warnings; that is a partial technical check, not round16 completion. No Studio/layout/frame/audio/video-decode review or final output exists. Provider13–17 remain unauthored; root is obtaining genuine authorized sandbox proof. The historical v1 video remains untouched.
+Final local artifact: settleproof-agreements.mp4, SHA-256 e847c2b7e7dc0171c7b4549472f876f2196cb3ea56e240195d493bfe581dca0a. HyperFrames reported one successful final encode in85.8seconds using hardware GPU/drawElement capture. MP4 decoded contact sheets are under .hyperframes/decoded. preview.png is a byte-copy of the actual decoded completed-capture frame, not a Studio screenshot. All remaining external publication/entry checks stay pending; these17 reviews do not guarantee judging results.

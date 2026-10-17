@@ -1,5 +1,7 @@
 # Agreements video preparation
 
+Current state: all17 genuine source states have now been supplied, inspected and authored for140seconds. This document retains the initial preparation protocol below as history. SCAFFOLD.md describes the replacement production assembly; FILM-REVIEW-17.md is the current completion record. No pending-provider statement in the historical preparation notes overrides the later actual proof.
+
 This directory is a new film; artifacts/video remains historical v1. The canonical shot plan is ../../docs/VIDEO-AGREEMENTS-STORYBOARD.md. BRIEF.md and frame.md fix the requested production direction; FILM-REVIEW-17.md records the review protocol; source-asset-ledger.schema.json defines the sanitized asset register. At the initial preparation commit, no ledger/composition/audio/render existed. Subsequent source inspection and the authorized incomplete technical assembly are described in ASSET-REVIEW.md and SCAFFOLD.md. They do not establish provider or final-film completion.
 
 The package starts from the existing locally verified HyperFrames 0.8.168 pin for reproducibility. Before first production command, check the latest supported CLI and update this new project's pin if warranted; verify any authored compositions after the bump. Do not upgrade or overwrite the historical v1 film. A package with scripts is not a scaffolded or runnable composition.

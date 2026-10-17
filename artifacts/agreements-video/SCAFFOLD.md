@@ -1,4 +1,10 @@
-# Working assembly — not a final film
+# Production assembly
+
+The incomplete94second scaffold described below is historical. It is superseded by build-video.mjs, index.html and seventeen scene sub-compositions totaling140seconds. Root has supplied all genuine provider and receipt proof. The current assembly uses16 byte-identical frozen .jpg source files, licensed local Geist and preserved GSAP3.14.2. See REPRODUCE.md and FILM-REVIEW-17.md for the actual current package and completion status. The old build-scaffold.mjs and twelve scaffold HTML files have been replaced.
+
+The film is an edited screenshot sequence, not continuous click footage. One operator demonstrates separate capability roles. Order, stored-link approval/fresh read, explicit capture and completed USD12 evidence are distinct; the second USD8 milestone stays pending. The actual retained-prefix check and rejected altered copy precede the final source/live endcard. Public YouTube playback and final hackathon entry remain separate root/user actions.
+
+## Historical initial working assembly
 
 Root explicitly authorized a source-backed composition scaffold while real provider work continues. The root duration is **94 seconds**, covering planned shots 1–12 only. The eventual target remains 17 shots /140 seconds. Shots13–17 have no HTML source, are not mounted, and cannot be mistaken for verified empty placeholders. No final render or public preview is claimed.
 

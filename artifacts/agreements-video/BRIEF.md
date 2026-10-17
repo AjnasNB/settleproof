@@ -12,7 +12,7 @@ length: 140s
 angle: genuine-product-workflow
 narration: no
 music: none
-status: source-scaffold-provider-evidence-pending
+status: source-backed-production-local-qa
 ---
 
 ## Intent
@@ -34,6 +34,6 @@ Root owns provider interactions and supplies sanitized captures and proof. No pr
 
 The user's explicit autonomous finish/create-video direction supplies the brief and local production scope. Root has separately authorized sandbox app setup and bounded USD20 fictitious tests and owns those actions. This preparation does not authorize financial actions by the video agent. No rooms, AI calls or payments are to be created by this agent.
 
-Root subsequently authorized a source-backed technical composition scaffold for shots1–12. Slots13–17 remain unauthored until genuine checkout/capture proof arrives; final production/rendering remains on hold. Record actual build and role/version/milestone sequence; do not invent UTC capture times that were not observed. Preserve the authority of actual evidence if the planned narrative differs.
+Root subsequently supplied all genuine authorized order, stored-link approval, explicit capture, fresh-read and final receipt evidence. All17 shots are authored for140seconds. The approval used a stored official Sandbox link in a normal browser tab, followed by a fresh APPROVED server read; no successful v6 onApprove callback is claimed. Record actual build and role/version/milestone sequence; do not invent UTC camera times from file modification times. Source provenance is retained in source-asset-ledger.json.
 
-Preview the complete film in Studio and inspect it before local rendering within the user's explicit authorization. Keep publication, YouTube terms and hackathon submission separate for root/user action; no entry before final. This file records preparation, not a completed/rendered film.
+Preview the complete film in Studio and inspect it before local rendering within the user's explicit authorization. Keep publication, YouTube terms and hackathon submission separate for root/user action; no entry before final. FILM-REVIEW-17.md records actual current delivery status.

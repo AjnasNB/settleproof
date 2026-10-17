@@ -1,23 +1,25 @@
 {
   "plannedDuration": 140,
-  "scaffoldDuration": 94,
-  "final": false,
-  "rendered": false,
+  "scaffoldDuration": 140,
+  "final": true,
+  "rendered": true,
   "shots": [
     {
       "number": 1,
       "start": 0,
       "duration": 6,
       "title": "Good work starts with a clear agreement.",
-      "source": "assets/01-landing.png",
+      "note": "An invented service engagement · Sandbox demonstration",
+      "source": "assets/frozen/01-landing.jpg",
+      "originalCapture": "assets/01-landing.png",
       "crop": [
         320,
         105,
         1260,
         430
       ],
-      "src": "compositions/frames/01-scaffold.html",
-      "status": "scaffolded-not-frame-reviewed",
+      "src": "compositions/frames/01-scene.html",
+      "status": "reviewed-local-delivery",
       "providerProof": false
     },
     {
@@ -25,15 +27,17 @@
       "start": 6,
       "duration": 7,
       "title": "Two milestones. Test funds. Clear expectations.",
-      "source": "assets/05-human-edited-terms.png",
+      "note": "Observed editor amounts: USD12.00 + USD8.00 = USD20.00",
+      "source": "assets/frozen/05-human-edited-terms.jpg",
+      "originalCapture": "assets/05-human-edited-terms.png",
       "crop": [
         390,
-        1100,
-        820,
-        820
+        1130,
+        810,
+        260
       ],
-      "src": "compositions/frames/02-scaffold.html",
-      "status": "scaffolded-not-frame-reviewed",
+      "src": "compositions/frames/02-scene.html",
+      "status": "reviewed-local-delivery",
       "providerProof": false
     },
     {
@@ -41,15 +45,17 @@
       "start": 13,
       "duration": 8,
       "title": "Start with the brief. Keep the amounts fixed.",
-      "source": "assets/03-ai-brief.png",
+      "note": "Invented brief · AI may propose criteria, never acceptance or payment",
+      "source": "assets/frozen/03-ai-brief.jpg",
+      "originalCapture": "assets/03-ai-brief.png",
       "crop": [
         390,
         990,
         810,
         300
       ],
-      "src": "compositions/frames/03-scaffold.html",
-      "status": "scaffolded-not-frame-reviewed",
+      "src": "compositions/frames/03-scene.html",
+      "status": "reviewed-local-delivery",
       "providerProof": false
     },
     {
@@ -57,15 +63,17 @@
       "start": 21,
       "duration": 8,
       "title": "AI proposes. People decide.",
-      "source": "assets/04-ai-proposal.png",
+      "note": "Generated proposal · Two milestones · Three questions · Human review required",
+      "source": "assets/frozen/04-ai-proposal.jpg",
+      "originalCapture": "assets/04-ai-proposal.png",
       "crop": [
         390,
         1330,
         810,
         400
       ],
-      "src": "compositions/frames/04-scaffold.html",
-      "status": "scaffolded-not-frame-reviewed",
+      "src": "compositions/frames/04-scene.html",
+      "status": "reviewed-local-delivery",
       "providerProof": false
     },
     {
@@ -73,15 +81,17 @@
       "start": 29,
       "duration": 8,
       "title": "Review every criterion before agreeing.",
-      "source": "assets/05-human-edited-terms.png",
+      "note": "Human-edited criteria name the sections and desktop/mobile handoff",
+      "source": "assets/frozen/05-human-edited-terms.jpg",
+      "originalCapture": "assets/05-human-edited-terms.png",
       "crop": [
         390,
-        1120,
+        1130,
         810,
-        710
+        260
       ],
-      "src": "compositions/frames/05-scaffold.html",
-      "status": "scaffolded-not-frame-reviewed",
+      "src": "compositions/frames/05-scene.html",
+      "status": "reviewed-local-delivery",
       "providerProof": false
     },
     {
@@ -89,15 +99,17 @@
       "start": 37,
       "duration": 8,
       "title": "Separate access roles. No identity claim.",
-      "source": "assets/06-seller-version-one.png",
+      "note": "Version1 · Seller view · Neither role has accepted",
+      "source": "assets/frozen/06-seller-version-one.jpg",
+      "originalCapture": "assets/06-seller-version-one.png",
       "crop": [
         360,
         565,
         1200,
         600
       ],
-      "src": "compositions/frames/06-scaffold.html",
-      "status": "scaffolded-not-frame-reviewed",
+      "src": "compositions/frames/06-scene.html",
+      "status": "reviewed-local-delivery",
       "providerProof": false
     },
     {
@@ -105,15 +117,17 @@
       "start": 45,
       "duration": 8,
       "title": "Either person can propose better terms.",
-      "source": "assets/07-buyer-counteroffer.png",
+      "note": "Buyer counteroffer adds a clearly labelled Contact call to action",
+      "source": "assets/frozen/07-buyer-counteroffer.jpg",
+      "originalCapture": "assets/07-buyer-counteroffer.png",
       "crop": [
         390,
         1480,
         810,
         300
       ],
-      "src": "compositions/frames/07-scaffold.html",
-      "status": "scaffolded-not-frame-reviewed",
+      "src": "compositions/frames/07-scene.html",
+      "status": "reviewed-local-delivery",
       "providerProof": false
     },
     {
@@ -121,15 +135,17 @@
       "start": 53,
       "duration": 8,
       "title": "Same terms. Same version. Two decisions.",
-      "source": "assets/08-both-accepted.png",
+      "note": "Version2 · Both roles accepted · One operator demonstrates separate roles",
+      "source": "assets/frozen/08-both-accepted.jpg",
+      "originalCapture": "assets/08-both-accepted.png",
       "crop": [
         360,
         640,
         1200,
         480
       ],
-      "src": "compositions/frames/08-scaffold.html",
-      "status": "scaffolded-not-frame-reviewed",
+      "src": "compositions/frames/08-scene.html",
+      "status": "reviewed-local-delivery",
       "providerProof": false
     },
     {
@@ -137,15 +153,17 @@
       "start": 61,
       "duration": 9,
       "title": "A handoff is a claim to review.",
-      "source": "assets/09-seller-handoff.png",
+      "note": "Delivered assertion deliberately omits the agreed Contact call to action",
+      "source": "assets/frozen/09-seller-handoff.jpg",
+      "originalCapture": "assets/09-seller-handoff.png",
       "crop": [
         385,
         20,
         820,
         355
       ],
-      "src": "compositions/frames/09-scaffold.html",
-      "status": "scaffolded-not-frame-reviewed",
+      "src": "compositions/frames/09-scene.html",
+      "status": "reviewed-local-delivery",
       "providerProof": false
     },
     {
@@ -153,15 +171,17 @@
       "start": 70,
       "duration": 7,
       "title": "Request changes before accepting the work.",
-      "source": "assets/10-changes-requested.png",
+      "note": "Buyer requests the missing item; revised seller handoff is required",
+      "source": "assets/frozen/10-changes-requested.jpg",
+      "originalCapture": "assets/10-changes-requested.png",
       "crop": [
         385,
         115,
         820,
         215
       ],
-      "src": "compositions/frames/10-scaffold.html",
-      "status": "scaffolded-not-frame-reviewed",
+      "src": "compositions/frames/10-scene.html",
+      "status": "reviewed-local-delivery",
       "providerProof": false
     },
     {
@@ -169,76 +189,125 @@
       "start": 77,
       "duration": 9,
       "title": "Acceptance stays a human decision.",
-      "source": "assets/11-handoff-accepted.png",
+      "note": "Revised handoff accepted · Nine human-workflow events · No payment proof",
+      "source": "assets/frozen/11-handoff-accepted.jpg",
+      "originalCapture": "assets/11-handoff-accepted.png",
       "crop": [
         385,
         60,
         820,
         425
       ],
-      "src": "compositions/frames/11-scaffold.html",
-      "status": "scaffolded-not-frame-reviewed",
+      "src": "compositions/frames/11-scene.html",
+      "status": "reviewed-local-delivery",
       "providerProof": false
     },
     {
       "number": 12,
       "start": 86,
       "duration": 8,
-      "title": "SDK ready. Payment proof pending.",
-      "source": "assets/12-sdk-ready.png",
+      "title": "An order is created. Payment is still unpaid.",
+      "note": "Observed PAYER_ACTION_REQUIRED · USD0.00 captured · USD12.00 remaining",
+      "source": "assets/frozen/12-order-unpaid.jpg",
+      "originalCapture": "assets/12-order-unpaid.png",
       "crop": [
         385,
-        320,
+        395,
         820,
-        255
+        295
       ],
-      "src": "compositions/frames/12-scaffold.html",
-      "status": "scaffolded-not-frame-reviewed",
-      "providerProof": false
+      "src": "compositions/frames/12-scene.html",
+      "status": "reviewed-local-delivery",
+      "providerProof": true
     },
     {
       "number": 13,
       "start": 94,
       "duration": 10,
-      "claim": "Genuine approval before capture",
-      "status": "awaiting-genuine-evidence",
-      "src": null,
-      "providerProof": false
+      "title": "PayPal approval is not a captured payment.",
+      "note": "Stored-link approval · Fresh server read APPROVED · USD0.00 captured",
+      "source": "assets/frozen/13-approved-not-captured.jpg",
+      "originalCapture": "assets/13-approved-not-captured.png",
+      "crop": [
+        385,
+        445,
+        820,
+        280
+      ],
+      "src": "compositions/frames/13-scene.html",
+      "status": "reviewed-local-delivery",
+      "providerProof": true
     },
     {
       "number": 14,
       "start": 104,
       "duration": 9,
-      "claim": "Explicit human capture",
-      "status": "awaiting-genuine-evidence",
-      "src": null,
-      "providerProof": false
+      "title": "Capture requires a separate human action.",
+      "note": "Actual capture control before the human action · Result shown next",
+      "source": "assets/frozen/13-approved-not-captured.jpg",
+      "originalCapture": "assets/13-approved-not-captured.png",
+      "crop": [
+        385,
+        235,
+        820,
+        190
+      ],
+      "src": "compositions/frames/14-scene.html",
+      "status": "reviewed-local-delivery",
+      "providerProof": true
     },
     {
       "number": 15,
       "start": 113,
       "duration": 9,
-      "claim": "Fresh matching provider evidence",
-      "status": "awaiting-genuine-evidence",
-      "src": null,
-      "providerProof": false
+      "title": "Fresh provider facts complete the payment receipt.",
+      "note": "Observed COMPLETED · USD12.00 captured · USD0.00 remaining · Second USD8.00 pending",
+      "source": "assets/frozen/15-capture-verified.jpg",
+      "originalCapture": "assets/15-capture-verified.png",
+      "crop": [
+        385,
+        450,
+        820,
+        280
+      ],
+      "src": "compositions/frames/15-scene.html",
+      "status": "reviewed-local-delivery",
+      "providerProof": true
     },
     {
       "number": 16,
       "start": 122,
       "duration": 9,
-      "claim": "Final export and retained-prefix verification",
-      "status": "awaiting-genuine-evidence",
-      "src": null,
-      "providerProof": false
+      "title": "A saved checkpoint still matches after later events.",
+      "note": "25 events checked · Earlier checkpoint at event 5 still matches",
+      "source": "assets/frozen/16-retained-prefix-verified.jpg",
+      "originalCapture": "assets/16-retained-prefix-verified.png",
+      "crop": [
+        355,
+        515,
+        870,
+        310
+      ],
+      "src": "compositions/frames/16-scene.html",
+      "status": "reviewed-local-delivery",
+      "providerProof": true
     },
     {
       "number": 17,
       "start": 131,
       "duration": 9,
-      "claim": "Real altered-copy failure and final end card",
-      "status": "awaiting-genuine-evidence",
-      "src": null,
+      "title": "Changes become detectable against your saved record.",
+      "note": "Inspectable history · No escrow, identity verification or settlement guarantee",
+      "source": "assets/frozen/17-tamper-rejected.jpg",
+      "originalCapture": "assets/17-tamper-rejected.png",
+      "crop": [
+        355,
+        615,
+        870,
+        246
+      ],
+      "src": "compositions/frames/17-scene.html",
+      "status": "reviewed-local-delivery",
       "providerProof": false
     }
   ]
