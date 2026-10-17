@@ -1,0 +1,311 @@
+{
+  "schemaVersion": 1,
+  "assets": [
+    {
+      "id": "ui-01-landing",
+      "path": "assets/01-landing.png",
+      "sha256": "72a269923d20cb57cbac601e1fcaa0094d5212b756a2afcfafb261ca89d26ae3",
+      "kind": "ui-screenshot",
+      "shots": [
+        1
+      ],
+      "source": {
+        "method": "cua-capture",
+        "description": "Root-supplied hosted SettleProof UI. Actual JPEG bytes, 1905x882; .png filename is a suffix mismatch only. Root confirms capture repository build 2c123c0 / deployed Worker build 7b1231, 17 October 2026.",
+        "role": "none",
+        "observedState": "Loaded landing, headline and three stages; default example title is not the later room identity.",
+        "syntheticInput": true,
+        "buildCommit": "2c123c0"
+      },
+      "rights": "Project-supplied original SettleProof UI capture; third-party marks retain their respective rights.",
+      "privacy": {
+        "reviewed": true,
+        "containsCapability": false,
+        "containsCredentials": false,
+        "containsPersonalAccountData": false,
+        "transforms": []
+      },
+      "evidenceStatus": "accepted",
+      "limitations": "Use header/stages; no opening placeholder. Does not show both milestone amounts. Exact UTC capture time was not recorded; file mtime is write-time only. Accepted as source evidence, not final-film QA."
+    },
+    {
+      "id": "ui-03-ai-brief",
+      "path": "assets/03-ai-brief.png",
+      "sha256": "cfe08527de5dcdfe4864dd9f948980fc7c01a68123033861418a062ce29286eb",
+      "kind": "ui-screenshot",
+      "shots": [
+        2,
+        3
+      ],
+      "source": {
+        "method": "cua-capture",
+        "description": "Root-supplied hosted SettleProof UI. Actual JPEG bytes, 1905x2522; .png filename is a suffix mismatch only. Root confirms capture repository build 2c123c0 / deployed Worker build 7b1231, 17 October 2026.",
+        "role": "none",
+        "observedState": "Invented studio brief before request; original manual amounts 12.00 and 8.00; total 20.00 USD.",
+        "syntheticInput": true,
+        "buildCommit": "2c123c0"
+      },
+      "rights": "Project-supplied original SettleProof UI capture; third-party marks retain their respective rights.",
+      "privacy": {
+        "reviewed": true,
+        "containsCapability": false,
+        "containsCredentials": false,
+        "containsPersonalAccountData": false,
+        "transforms": []
+      },
+      "evidenceStatus": "accepted",
+      "limitations": "Full-page2522px high; crop brief and amount fields separately. Focused skip-link at far left can be excluded. Exact UTC capture time was not recorded; file mtime is write-time only. Accepted as source evidence, not final-film QA."
+    },
+    {
+      "id": "ui-04-ai-proposal",
+      "path": "assets/04-ai-proposal.png",
+      "sha256": "3034dabaa518b9a044299656a4be68293da399c9d945f1ee07b32bcc7d236bb7",
+      "kind": "ui-screenshot",
+      "shots": [
+        4
+      ],
+      "source": {
+        "method": "cua-capture",
+        "description": "Root-supplied hosted SettleProof UI. Actual JPEG bytes, 1905x2980; .png filename is a suffix mismatch only. Root confirms capture repository build 2c123c0 / deployed Worker build 7b1231, 17 October 2026.",
+        "role": "none",
+        "observedState": "Actual generated proposal visible with two unchanged 12/8 amounts and three questions; nothing saved/accepted.",
+        "syntheticInput": true,
+        "buildCommit": "2c123c0"
+      },
+      "rights": "Project-supplied original SettleProof UI capture; third-party marks retain their respective rights.",
+      "privacy": {
+        "reviewed": true,
+        "containsCapability": false,
+        "containsCredentials": false,
+        "containsPersonalAccountData": false,
+        "transforms": []
+      },
+      "evidenceStatus": "accepted",
+      "limitations": "Root reports one real AI call. Image proves proposal state, not model internals; crop generated panel instead of fitting entire page. Exact UTC capture time was not recorded; file mtime is write-time only. Accepted as source evidence, not final-film QA."
+    },
+    {
+      "id": "ui-05-human-edited-terms",
+      "path": "assets/05-human-edited-terms.png",
+      "sha256": "c4e8a58d9e0f75149ea773e4e1dde863a48d62ac992ecd22efca756dcf7eaf83",
+      "kind": "ui-screenshot",
+      "shots": [
+        2,
+        5
+      ],
+      "source": {
+        "method": "cua-capture",
+        "description": "Root-supplied hosted SettleProof UI. Actual JPEG bytes, 1905x2356; .png filename is a suffix mismatch only. Root confirms capture repository build 2c123c0 / deployed Worker build 7b1231, 17 October 2026.",
+        "role": "none",
+        "observedState": "Applied proposal and manual criteria: labelled sections plus desktop/390px mobile/editable file/handoff note;12 + 8 = 20 USD.",
+        "syntheticInput": true,
+        "buildCommit": "2c123c0"
+      },
+      "rights": "Project-supplied original SettleProof UI capture; third-party marks retain their respective rights.",
+      "privacy": {
+        "reviewed": true,
+        "containsCapability": false,
+        "containsCredentials": false,
+        "containsPersonalAccountData": false,
+        "transforms": []
+      },
+      "evidenceStatus": "accepted",
+      "limitations": "Shows resulting edited terms, not a recorded typing action. Crop milestone fields and total. Exact UTC capture time was not recorded; file mtime is write-time only. Accepted as source evidence, not final-film QA."
+    },
+    {
+      "id": "ui-06-seller-version-one",
+      "path": "assets/06-seller-version-one.png",
+      "sha256": "ea36f7ca8850f15dd3dc2e99172656b6b8029d0c4198c93ceb0ec34a6377a59d",
+      "kind": "ui-screenshot",
+      "shots": [
+        6
+      ],
+      "source": {
+        "method": "cua-capture",
+        "description": "Root-supplied hosted SettleProof UI. Actual JPEG bytes, 1905x2597; .png filename is a suffix mismatch only. Root confirms capture repository build 2c123c0 / deployed Worker build 7b1231, 17 October 2026.",
+        "role": "seller",
+        "observedState": "Created version 1, seller role, neither party accepted; two 12/8 milestones; no invite fields visible.",
+        "syntheticInput": true,
+        "version": 1,
+        "buildCommit": "2c123c0"
+      },
+      "rights": "Project-supplied original SettleProof UI capture; third-party marks retain their respective rights.",
+      "privacy": {
+        "reviewed": true,
+        "containsCapability": false,
+        "containsCredentials": false,
+        "containsPersonalAccountData": false,
+        "transforms": []
+      },
+      "evidenceStatus": "accepted",
+      "limitations": "Full-page source; crop room identity/role and consent panel. Configured footer does not prove SDK success. Exact UTC capture time was not recorded; file mtime is write-time only. Accepted as source evidence, not final-film QA."
+    },
+    {
+      "id": "ui-07-buyer-counteroffer",
+      "path": "assets/07-buyer-counteroffer.png",
+      "sha256": "f247eb4d7cf81d3896bcfec2fba7ded8339facb29bb122189017f8bd9fd5d395",
+      "kind": "ui-screenshot",
+      "shots": [
+        7
+      ],
+      "source": {
+        "method": "cua-capture",
+        "description": "Root-supplied hosted SettleProof UI. Actual JPEG bytes, 1905x3950; .png filename is a suffix mismatch only. Root confirms capture repository build 2c123c0 / deployed Worker build 7b1231, 17 October 2026.",
+        "role": "buyer",
+        "observedState": "Buyer edits version 1 to require labelled Contact call to action; seller had accepted v1; Save as a new version is visible.",
+        "syntheticInput": true,
+        "version": 1,
+        "buildCommit": "2c123c0"
+      },
+      "rights": "Project-supplied original SettleProof UI capture; third-party marks retain their respective rights.",
+      "privacy": {
+        "reviewed": true,
+        "containsCapability": false,
+        "containsCredentials": false,
+        "containsPersonalAccountData": false,
+        "transforms": []
+      },
+      "evidenceStatus": "accepted",
+      "limitations": "Pre-save editor, not yetv2. Pair with consents-reset source for actual savedv2 outcome. Exact UTC capture time was not recorded; file mtime is write-time only. Accepted as source evidence, not final-film QA."
+    },
+    {
+      "id": "ui-08-consents-reset",
+      "path": "assets/08-consents-reset.png",
+      "sha256": "302473f62ed09f71a5161c4c9a55d628b130c44be646761d2843c15c28c59d1a",
+      "kind": "ui-screenshot",
+      "shots": [
+        8
+      ],
+      "source": {
+        "method": "cua-capture",
+        "description": "Root-supplied hosted SettleProof UI. Actual JPEG bytes, 1905x2932; .png filename is a suffix mismatch only. Root confirms capture repository build 2c123c0 / deployed Worker build 7b1231, 17 October 2026.",
+        "role": "buyer",
+        "observedState": "Saved version 2 with both consents reset, revised Contact criterion, history 3 events.",
+        "syntheticInput": true,
+        "version": 2,
+        "buildCommit": "2c123c0"
+      },
+      "rights": "Project-supplied original SettleProof UI capture; third-party marks retain their respective rights.",
+      "privacy": {
+        "reviewed": true,
+        "containsCapability": false,
+        "containsCredentials": false,
+        "containsPersonalAccountData": false,
+        "transforms": []
+      },
+      "evidenceStatus": "accepted",
+      "limitations": "Pair with both-accepted source; earlier acceptedv1 must not carry over. Exact UTC capture time was not recorded; file mtime is write-time only. Accepted as source evidence, not final-film QA."
+    },
+    {
+      "id": "ui-08-both-accepted",
+      "path": "assets/08-both-accepted.png",
+      "sha256": "2fbf53b0b7f656a7033f264a13e3362d3340d98d106f7917b4ef9068b798d26d",
+      "kind": "ui-screenshot",
+      "shots": [
+        8
+      ],
+      "source": {
+        "method": "cua-capture",
+        "description": "Root-supplied hosted SettleProof UI. Actual JPEG bytes, 1905x3450; .png filename is a suffix mismatch only. Root confirms capture repository build 2c123c0 / deployed Worker build 7b1231, 17 October 2026.",
+        "role": "seller",
+        "observedState": "Both roles accepted version 2; history 5 events, first 12 USD / second 8 USD both pending delivery.",
+        "syntheticInput": true,
+        "version": 2,
+        "buildCommit": "2c123c0"
+      },
+      "rights": "Project-supplied original SettleProof UI capture; third-party marks retain their respective rights.",
+      "privacy": {
+        "reviewed": true,
+        "containsCapability": false,
+        "containsCredentials": false,
+        "containsPersonalAccountData": false,
+        "transforms": []
+      },
+      "evidenceStatus": "accepted",
+      "limitations": "One operator demonstrates separate roles; not two verified identities. Full page must be cropped. Exact UTC capture time was not recorded; file mtime is write-time only. Accepted as source evidence, not final-film QA."
+    },
+    {
+      "id": "ui-09-seller-handoff",
+      "path": "assets/09-seller-handoff.png",
+      "sha256": "b9ef6df9b69b186139a42a0c0be1ae57cc1a647e462bd75dc486273b91525bfe",
+      "kind": "ui-screenshot",
+      "shots": [
+        9
+      ],
+      "source": {
+        "method": "cua-capture",
+        "description": "Root-supplied hosted SettleProof UI. Actual JPEG bytes, 1920x889; .png filename is a suffix mismatch only. Root confirms capture repository build 2c123c0 / deployed Worker build 7b1231, 17 October 2026.",
+        "role": "seller",
+        "observedState": "Milestone1 DELIVERED, incomplete invented assertion explicitly missing Contact call to action; history 6 events.",
+        "syntheticInput": true,
+        "version": 2,
+        "buildCommit": "2c123c0"
+      },
+      "rights": "Project-supplied original SettleProof UI capture; third-party marks retain their respective rights.",
+      "privacy": {
+        "reviewed": true,
+        "containsCapability": false,
+        "containsCredentials": false,
+        "containsPersonalAccountData": false,
+        "transforms": []
+      },
+      "evidenceStatus": "accepted",
+      "limitations": "Static delivered state, not screen recording of the click. Seller role comes from root flow; crop preserves criteria and assertion. Exact UTC capture time was not recorded; file mtime is write-time only. Accepted as source evidence, not final-film QA."
+    },
+    {
+      "id": "ui-10-changes-requested",
+      "path": "assets/10-changes-requested.png",
+      "sha256": "785ea81935114d8c11be1eb5847a87ff249d0513f6b9123b1bbe04cafb15d07d",
+      "kind": "ui-screenshot",
+      "shots": [
+        10
+      ],
+      "source": {
+        "method": "cua-capture",
+        "description": "Root-supplied hosted SettleProof UI. Actual JPEG bytes, 1905x882; .png filename is a suffix mismatch only. Root confirms capture repository build 2c123c0 / deployed Worker build 7b1231, 17 October 2026.",
+        "role": "buyer",
+        "observedState": "Buyer request explicitly names Contact call to action; waiting for revised seller handoff; history 7 events; second 8 USD pending.",
+        "syntheticInput": true,
+        "version": 2,
+        "buildCommit": "2c123c0"
+      },
+      "rights": "Project-supplied original SettleProof UI capture; third-party marks retain their respective rights.",
+      "privacy": {
+        "reviewed": true,
+        "containsCapability": false,
+        "containsCredentials": false,
+        "containsPersonalAccountData": false,
+        "transforms": []
+      },
+      "evidenceStatus": "accepted",
+      "limitations": "Top excludes first milestone title/status; request and waiting message are visible. Crop focuses this change request, not room header. Exact UTC capture time was not recorded; file mtime is write-time only. Accepted as source evidence, not final-film QA."
+    },
+    {
+      "id": "ui-11-handoff-accepted",
+      "path": "assets/11-handoff-accepted.png",
+      "sha256": "c2b78f1f26ccae8a55ed407b0d22240bd836c7ad7edffedbbeed7f18b1b72b39",
+      "kind": "ui-screenshot",
+      "shots": [
+        11
+      ],
+      "source": {
+        "method": "cua-capture",
+        "description": "Root-supplied hosted SettleProof UI. Actual JPEG bytes, 1905x882; .png filename is a suffix mismatch only. Root confirms capture repository build 2c123c0 / deployed Worker build 7b1231, 17 October 2026.",
+        "role": "buyer",
+        "observedState": "Replacement image: revised assertion, Handoff accepted by the buyer, Pay with PayPal Sandbox button; history 9 events; second 8 USD pending.",
+        "syntheticInput": true,
+        "version": 2,
+        "buildCommit": "2c123c0"
+      },
+      "rights": "Project-supplied original SettleProof UI capture; third-party marks retain their respective rights.",
+      "privacy": {
+        "reviewed": true,
+        "containsCapability": false,
+        "containsCredentials": false,
+        "containsPersonalAccountData": false,
+        "transforms": []
+      },
+      "evidenceStatus": "accepted",
+      "limitations": "Earlier8event image was rejected for acceptance claim. Current replacement proves human acceptance only; no SDK/order/approval/capture proof. Exact UTC capture time was not recorded; file mtime is write-time only. Accepted as source evidence, not final-film QA."
+    }
+  ]
+}
