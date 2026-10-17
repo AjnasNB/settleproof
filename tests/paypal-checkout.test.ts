@@ -2,6 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import type { PayPalV6Namespace } from '@paypal/paypal-js/sdk-v6';
 import { initializeSandboxCheckout, CheckoutInitializationError, type CheckoutPhase } from '../src/paypal-checkout';
+import { redirectFallbackAllowed, prepareRedirectApproval } from '../src/paypal-redirect';
 
 const tick = () => new Promise<void>(resolve => setImmediate(resolve));
 function fakeSdk(findEligibleMethods: () => Promise<{ isEligible: (method: string) => boolean }>, seen: unknown[] = []) {
@@ -44,4 +45,23 @@ test('checkout distinguishes ineligibility and sanitizes provider initialization
   await assert.rejects(initializeSandboxCheckout('synthetic', new AbortController().signal, () => {}, async () => fakeSdk(async () => ({ isEligible: () => false }))), /not eligible/);
   const sdk = { createInstance: async () => { throw new Error('private upstream response'); } } as unknown as PayPalV6Namespace;
   await assert.rejects(initializeSandboxCheckout('synthetic', new AbortController().signal, () => {}, async () => sdk), error => error instanceof CheckoutInitializationError && error.phase === 'initializing-sdk' && !error.message.includes('private upstream response'));
+});
+test('redirect fallback is offered only before eligibility, never after refusal or a ready payment session', () => {
+  for (const phase of ['loading-code', 'loading-sdk', 'initializing-sdk'] as const) assert.equal(redirectFallbackAllowed(phase), true);
+  for (const phase of ['checking-eligibility', 'preparing-button', 'ready'] as const) assert.equal(redirectFallbackAllowed(phase), false);
+});
+test('explicit redirect preparation calls only the existing server order callback', async () => {
+  let creates = 0;
+  const id = await prepareRedirectApproval(async () => { creates++; return 'ORDERTEST12345678'; }, () => true);
+  assert.equal(id, 'ORDERTEST12345678'); assert.equal(creates, 1);
+  await assert.rejects(prepareRedirectApproval(async () => 'https://arbitrary.invalid', () => true), /valid existing Sandbox order/);
+});
+test('redirect preparation does not start when stale and ignores a late result after unmount', async () => {
+  let creates = 0;
+  assert.equal(await prepareRedirectApproval(async () => { creates++; return 'ORDERTEST12345678'; }, () => false), null);
+  assert.equal(creates, 0);
+  let current = true, finish: ((value: string) => void) | undefined;
+  const pending = prepareRedirectApproval(() => new Promise(resolve => { finish = resolve; }), () => current);
+  current = false; finish?.('ORDERTEST12345678');
+  assert.equal(await pending, null);
 });

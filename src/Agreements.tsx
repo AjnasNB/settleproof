@@ -2,6 +2,8 @@ import { useEffect, useRef, useState, type FormEvent } from "react";
 import { ArrowRight, ArrowSquareOut, Check, CheckCircle, CircleNotch, Copy, DownloadSimple, FileText, Fingerprint, Handshake, LockSimple, Plus, Receipt, ShieldCheck, Sparkle, X } from "@phosphor-icons/react";
 import type { AgreementAction, AgreementConfig, AgreementCreateResponse, AgreementMilestone, AgreementResponse, AgreementRole, AgreementRoom, AgreementTerms, ReceiptPacket, ReceiptVerification } from "./agreements/types";
 import { prepareReceiptInput, RECEIPT_RAW_CHARACTER_LIMIT } from "./receipt-input";
+import type { CheckoutPhase } from "./paypal-checkout";
+import { prepareRedirectApproval, redirectFallbackAllowed } from "./paypal-redirect";
 
 type Access = { id: string; role: AgreementRole; cap: string };
 type Proposal = { status: "generated" | "unavailable" | "invalid"; model?: string; milestones?: { title: string; amount: string; criteria: string }[]; questions: string[]; message?: string };
@@ -72,18 +74,24 @@ function download(name: string, content: unknown) {
 function PayPalButton({ clientId, createOrder, onApprove, onCancel, onError }: { clientId: string; createOrder: () => Promise<string>; onApprove: () => Promise<void>; onCancel: () => void; onError: (message: string) => void }) {
   const container = useRef<HTMLDivElement>(null);
   const [attempt, setAttempt] = useState(0);
-  const [status, setStatus] = useState({ phase: 'loading' as 'loading' | 'ready' | 'unavailable', message: 'Preparing PayPal Sandbox Checkout…' });
+  const [status, setStatus] = useState({ phase: 'loading' as 'loading' | 'ready' | 'unavailable', message: 'Preparing PayPal Sandbox Checkout…', redirectAvailable: false });
+  const [preparingRedirect, setPreparingRedirect] = useState(false);
+  const redirectPending = useRef(false);
+  const lifecycle = useRef(0);
   const callbacks = useRef({ createOrder, onApprove, onCancel, onError });
   callbacks.current = { createOrder, onApprove, onCancel, onError };
   useEffect(() => {
     let active = true, cleanup: (() => void) | undefined;
+    lifecycle.current++;
+    let phase: CheckoutPhase | 'loading-code' = 'loading-code';
     let phaseLabel = 'loading the checkout module';
+    const fallbackAvailable = () => redirectFallbackAllowed(phase);
     const controller = new AbortController();
-    setStatus({ phase: 'loading', message: 'Preparing PayPal Sandbox Checkout…' });
+    setStatus({ phase: 'loading', message: 'Preparing PayPal Sandbox Checkout…', redirectAvailable: false });
     const timeout = window.setTimeout(() => {
       if (!active) return;
       controller.abort();
-      setStatus({ phase: 'unavailable', message: `PayPal Sandbox timed out while ${phaseLabel}. No order or capture was requested. Try loading Checkout again, or return later.` });
+      setStatus({ phase: 'unavailable', message: `PayPal's v6 checkout timed out while ${phaseLabel}. This initialization did not request an order or capture.`, redirectAvailable: fallbackAvailable() });
     }, 20_000);
     void import("./paypal-checkout").then(({ mountPayPalCheckout, checkoutPhaseMessage }) => {
       if (!active || controller.signal.aborted || !container.current) return;
@@ -91,9 +99,10 @@ function PayPalButton({ clientId, createOrder, onApprove, onCancel, onError }: {
         signal: controller.signal,
         onPhase: next => {
           if (!active || controller.signal.aborted) return;
+          phase = next;
           const message = checkoutPhaseMessage(next);
           phaseLabel = next === 'loading-sdk' ? "loading PayPal's Sandbox SDK" : next === 'initializing-sdk' ? 'initializing PayPal Sandbox' : next === 'checking-eligibility' ? 'checking PayPal payment availability' : 'preparing the PayPal approval button';
-          setStatus({ phase: next === 'ready' ? 'ready' : 'loading', message });
+          setStatus({ phase: next === 'ready' ? 'ready' : 'loading', message, redirectAvailable: false });
         },
         createOrder: () => callbacks.current.createOrder(), onApprove: () => callbacks.current.onApprove(),
         onCancel: () => callbacks.current.onCancel(), onError: (message: string) => callbacks.current.onError(message),
@@ -101,11 +110,22 @@ function PayPalButton({ clientId, createOrder, onApprove, onCancel, onError }: {
     }).then((value) => { if (active && !controller.signal.aborted) { cleanup = value; window.clearTimeout(timeout); } else value?.(); }).catch(cause => {
       window.clearTimeout(timeout);
       if (!active || controller.signal.aborted) return;
-      setStatus({ phase: 'unavailable', message: cause instanceof Error && cause.name === 'CheckoutInitializationError' ? cause.message : `PayPal Sandbox could not finish ${phaseLabel}. No order or capture was requested. Try loading Checkout again later.` });
+      setStatus({ phase: 'unavailable', message: cause instanceof Error && cause.name === 'CheckoutInitializationError' ? cause.message : `PayPal Sandbox could not finish ${phaseLabel}. No order or capture was requested. Try loading Checkout again later.`, redirectAvailable: fallbackAvailable() });
     });
-    return () => { active = false; controller.abort(); window.clearTimeout(timeout); cleanup?.(); };
+    return () => { active = false; lifecycle.current++; controller.abort(); window.clearTimeout(timeout); cleanup?.(); };
   }, [clientId, attempt]);
-  return <div aria-label="PayPal sandbox checkout"><p className={status.phase === 'unavailable' ? 'ag-caution' : 'ag-fine'} role="status" aria-live="polite">{status.phase === 'loading' && <CircleNotch className="ag-spin" size={16} />} {status.message}</p><div className="ag-paypal-mount" ref={container} aria-busy={status.phase === 'loading'} />{status.phase === 'unavailable' && <button type="button" className="ag-secondary" onClick={() => setAttempt(value => value + 1)}>Try loading PayPal again</button>}</div>;
+  async function prepareRedirect() {
+    if (redirectPending.current || !status.redirectAvailable) return;
+    redirectPending.current = true; setPreparingRedirect(true);
+    const ticket = lifecycle.current;
+    try {
+      const orderId = await prepareRedirectApproval(() => callbacks.current.createOrder(), () => lifecycle.current === ticket);
+      if (orderId && lifecycle.current === ticket) setStatus({ phase: 'unavailable', redirectAvailable: false, message: "PayPal's v6 checkout is still unavailable. The server prepared this milestone's Sandbox order. Use ‘Open stored sandbox approval’ below. Buyer approval and a separate capture are still required; this is not a paid result." });
+    } catch {
+      if (lifecycle.current === ticket) setStatus({ phase: 'unavailable', redirectAvailable: false, message: "The server could not confirm the Sandbox order result. Refresh this room and its existing payment evidence before trying again. No payment result is inferred." });
+    } finally { redirectPending.current = false; if (lifecycle.current === ticket) setPreparingRedirect(false); }
+  }
+  return <div aria-label="PayPal sandbox checkout"><p className={status.phase === 'unavailable' ? 'ag-caution' : 'ag-fine'} role="status" aria-live="polite">{status.phase === 'loading' && <CircleNotch className="ag-spin" size={16} />} {status.message}</p><div className="ag-paypal-mount" ref={container} aria-busy={status.phase === 'loading'} />{status.phase === 'unavailable' && <><button type="button" className="ag-secondary" disabled={preparingRedirect} onClick={() => setAttempt(value => value + 1)}>Try loading PayPal again</button>{status.redirectAvailable && <><p className="ag-fine">You can instead ask the server to prepare the same accepted milestone as a PayPal Sandbox checkout link. This creates or reuses its stored test order; it does not capture payment.</p><button type="button" className="ag-secondary" disabled={preparingRedirect} onClick={() => { void prepareRedirect(); }}>{preparingRedirect ? 'Preparing the Sandbox order…' : 'Prepare a Sandbox approval link'}</button></>}</>}</div>;
 }
 
 export default function Agreements() {
