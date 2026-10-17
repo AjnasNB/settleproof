@@ -170,7 +170,7 @@ test("configuration exposes capabilities, never credentials", async () => {
     paypalConfigured: true,
     aiConfigured: false,
     paypalEnvironment: "sandbox",
-    model: "@cf/meta/llama-3.1-8b-instruct-fp8",
+    model: "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
   });
   assert.ok(!JSON.stringify(body).includes("test-only"));
 });
@@ -720,15 +720,15 @@ test("explain sends the constrained schema and accepts valid directly returned J
       AI_BUDGET: budget,
       AI: {
         run: async (_model, input) => {
-          assert.equal(input.response_format?.type, "json_object");
+          assert.equal(input.response_format?.type, "json_schema");
           assert.deepEqual(
-            JSON.parse(input.messages!.at(-1)!.content).outputSchema.properties.outcome.enum,
-            ["partial"],
+            input.response_format?.json_schema,
+            explanationSchema(await analyze({ mode: "fixture", scenarioId: "partial" }, {})),
           );
           return {
             outcome: "partial",
-            text: "Captured 45.00 USD [result.paid]; remaining 75.00 USD [result.remaining].",
-            draft: "Review the remaining capture evidence [result.outcome].",
+            text: "Captured 45.00 USD; remaining 75.00 USD.",
+            draft: "Review the remaining capture evidence.",
             evidenceIds: ["result.paid", "result.remaining", "result.outcome"],
           };
         },
@@ -753,4 +753,20 @@ test("every deterministic total has citable evidence, including unknown balances
       assert.equal(e.source, "SettleProof deterministic rules");
     }
   }
+});
+test("validated source chips support prose without inline references", () => {
+  const result = validateExplanation({ outcome: "partial", text: "Captured 45.00 USD; remaining 75.00 USD.", draft: "Review the remaining evidence.", evidenceIds: ["result.paid", "result.remaining"] }, fx("partial"));
+  assert.equal(result.status, "generated");
+  assert.deepEqual(result.evidenceIds, ["result.paid", "result.remaining"]);
+});
+test("known optional inline sources merge into chips but unknown sources fail", () => {
+  const valid = { outcome: "partial", text: "The remaining amount is 75.00 USD [result.remaining].", draft: "Review the evidence [result.paid].", evidenceIds: ["result.paid"] };
+  const result = validateExplanation(valid, fx("partial"));
+  assert.equal(result.status, "generated");
+  assert.deepEqual(result.evidenceIds, ["result.paid", "result.remaining"]);
+  assert.equal(validateExplanation({ ...valid, text: "Review [fabricated.source]." }, fx("partial")).status, "invalid");
+});
+test("source chips still require valid evidence and authoritative payment facts", () => {
+  const valid = { outcome: "partial", text: "Captured 45.00 USD; remaining 75.00 USD.", draft: "", evidenceIds: ["result.paid", "result.remaining"] };
+  for (const bad of [{ ...valid, evidenceIds: [] }, { ...valid, evidenceIds: ["fabricated.source"] }, { ...valid, outcome: "paid" }, { ...valid, text: "Captured 999.00 USD." }, { ...valid, text: "The invoice is fully paid." }]) assert.equal(validateExplanation(bad, fx("partial")).status, "invalid");
 });

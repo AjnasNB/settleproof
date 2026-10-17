@@ -62,4 +62,4 @@ export type ExplainResponse = { analysis: Analysis; ai: AiExplanation };
 export type ExplainResult = ExplainResponse;
 // Verify this exact identifier against the current model catalog, not only the JSON Mode guide.
 export const MODEL =
-  "@cf/meta/llama-3.1-8b-instruct-fp8" as const satisfies keyof AiModels;
+  "@cf/meta/llama-3.3-70b-instruct-fp8-fast" as const satisfies keyof AiModels;

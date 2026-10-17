@@ -20,7 +20,7 @@ The AG Grid Community queue is part of the working workflow: filter and sort cas
 
 ## How we built it
 
-React, TypeScript, Vite and AG Grid Community on the frontend; a Cloudflare Worker for provider access, deterministic checks and the AI explanation boundary. PayPal REST OAuth stays server-side. The integration reads Orders v2 and current Payments v2 capture details through sandbox endpoints. Cloudflare Workers AI supplies `@cf/meta/llama-3.1-8b-instruct-fp8` explanations when explicitly enabled. A SQLite Durable Object atomically reserves at most 20 inference attempts per UTC day, including failed attempts; this limits attempts rather than monetary charges.
+React, TypeScript, Vite and AG Grid Community on the frontend; a Cloudflare Worker for provider access, deterministic checks and the AI explanation boundary. PayPal REST OAuth stays server-side. The integration reads Orders v2 and current Payments v2 capture details through sandbox endpoints. Cloudflare Workers AI supplies `@cf/meta/llama-3.3-70b-instruct-fp8-fast` explanations when explicitly enabled. A SQLite Durable Object atomically reserves at most 20 inference attempts per UTC day, including failed attempts; this limits attempts rather than monetary charges.
 
 SettleProof is new work begun on 17 October 2026. Earlier projects influenced the focus on payment evidence and cited context; this is not a claim that those projects were built during this event, nor a resubmission of their source or grant-funded deliverables. We claim no production customers or transaction volume.
 
@@ -32,7 +32,7 @@ This prototype is deliberately limited to sandbox observations, explicit synthet
 
 ## AI and tools disclosure
 
-Runtime AI: Cloudflare Workers AI, model `@cf/meta/llama-3.1-8b-instruct-fp8`, used to explain sanitized deterministic evidence and draft a proposed internal review note. An unavailable or invalid result is identified rather than presented as a successful model response. An accepted live inference has not yet been recorded in the current release evidence.
+Runtime AI: Cloudflare Workers AI, model `@cf/meta/llama-3.3-70b-instruct-fp8-fast`, used to explain sanitized deterministic evidence and draft a proposed internal review note. An unavailable or invalid result is identified rather than presented as a successful model response. An accepted live inference has not yet been recorded in the current release evidence.
 
 Development assistance: OpenAI Codex and cooperating coding agents assisted with planning, implementation, documentation and tests. Ajnas N B is the project owner and reviews the result. Do not claim the generated implementation was hand-written or that tests establish real-world adoption. The final release must name any additional model/tool actually used in its demo or development.
 

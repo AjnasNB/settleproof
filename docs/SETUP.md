@@ -10,7 +10,7 @@ For a hosted Worker, store both PayPal values as encrypted Worker secrets, follo
 
 ## Bounded AI configuration
 
-The configured model is `@cf/meta/llama-3.1-8b-instruct-fp8`; its [current model reference](https://developers.cloudflare.com/workers-ai/models/llama-3.1-8b-instruct-fp8/) documents `response_format`. Keep the checked-in/local `AI_ENABLED="false"` default until provider use is deliberately enabled. Configure the `AI` Workers AI binding and the `AI_BUDGET` SQLite Durable Object binding and migration from `wrangler.jsonc` together; the app requires the budget service before inference.
+The configured model is `@cf/meta/llama-3.3-70b-instruct-fp8-fast`; its [current model reference](https://developers.cloudflare.com/workers-ai/models/llama-3.3-70b-instruct-fp8-fast/) documents `response_format`. Keep the checked-in/local `AI_ENABLED="false"` default until provider use is deliberately enabled. Configure the `AI` Workers AI binding and the `AI_BUDGET` SQLite Durable Object binding and migration from `wrangler.jsonc` together; the app requires the budget service before inference.
 
 `AI_DAILY_LIMIT="20"` is a global maximum of 20 reserved inference attempts per UTC day, enforced atomically by the SQLite object. Lower configured limits are allowed; values above 20 cannot increase the hard ceiling. A reservation remains consumed when inference times out, fails or produces rejected output. The local SQLite tests cover concurrent requests, persistence and UTC reset. Do not rename/reset the object namespace or its administrative state to evade the cap. This is an attempt quota, not a monetary or neuron billing cap; per-request token limits and separate burst protections still apply.
 
