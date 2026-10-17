@@ -2,7 +2,7 @@ import { DurableObject } from "cloudflare:workers";
 import { ApiError, reconcile } from "../core/reconcile";
 import type { PaypalSecrets } from "../core/paypal";
 import { appendEvent, sha256, GENESIS } from "./receipt";
-import { sdkCreateOrder, sdkCaptureOrder, sdkReadOrder } from "./paypal-sdk";
+import { sdkCreateOrder, sdkCaptureOrder, sdkReadOrder, retainPayPalDiagnostic, type PayPalDiagnostic } from "./paypal-sdk";
 import { parseTerms, parseAction } from "./validation";
 import { MAX_RECEIPT_PACKET_BYTES, MAX_STORED_ROOM_BYTES, MAX_PAYMENT_ANALYSIS_BYTES, PENDING_RECEIPT_HEADROOM_BYTES, PENDING_ROOM_HEADROOM_BYTES, serializedBytes } from "./limits";
 import type { AgreementAction, AgreementCreateResponse, AgreementMilestone, AgreementResponse, AgreementRole, AgreementRoom, AgreementTerms, ReceiptPacket } from "./types";
@@ -26,6 +26,7 @@ const milestones = (terms: AgreementTerms, id: string, version: number): Agreeme
   id: `m${i + 1}`, invoiceId: `SP-${id.slice(0, 16)}-v${version}-m${i + 1}`, delivery: null, acceptanceStatus: "pending", payment: { status: "not-started" } }));
 const receiptPacket = (room: AgreementRoom): ReceiptPacket => ({ format: "settleproof-receipt-v1", room: { id: room.id, title: room.title, version: room.version, currency: "USD", expiresAt: room.expiresAt }, anchor: room.head, events: room.events });
 const capacityError = () => new ApiError(409, "RECEIPT_CAPACITY", "This room has insufficient receipt capacity for another sandbox operation. Export the existing history. No new provider request was started.");
+const SAFE_FAILURE_CODES = new Set(["PAYPAL_NOT_CONFIGURED", "PAYPAL_UNAVAILABLE", "APPROVAL_REQUIRED", "RECEIPT_CAPACITY", "CONFLICT"]);
 
 /** One bounded global demo store. SQL transactions reserve state before external I/O. */
 export class AgreementStore extends DurableObject<PaypalSecrets> {
@@ -206,9 +207,13 @@ export class AgreementStore extends DurableObject<PaypalSecrets> {
     });
     if (!operation || !expected) return { ...reserved, approvalUrl: reserved.room.milestones.find(item => item.id === action.milestoneId)?.payment.approvalUrl };
     const active = operation as Operation, binding = expected;
+    const diagnostics: PayPalDiagnostic[] = [];
+    const diagnostic = (value: PayPalDiagnostic) => retainPayPalDiagnostic(diagnostics, value);
+    let failureStage: "create" | "read" | "capture" | "completion" = kind === "create-order" ? "create" : kind === "capture" ? "capture" : "read";
     try {
-      const created = kind === "create-order" ? await sdkCreateOrder(this.env, binding.invoiceId, binding.amount, active.requestId, returnOrigin) : undefined;
-      const observation = kind === "capture" ? await sdkCaptureOrder(this.env, orderId!, active.requestId, binding) : kind === "refresh" ? await sdkReadOrder(this.env, orderId!) : undefined;
+      const created = kind === "create-order" ? await sdkCreateOrder(this.env, binding.invoiceId, binding.amount, active.requestId, returnOrigin, fetch, diagnostic) : undefined;
+      const observation = kind === "capture" ? await sdkCaptureOrder(this.env, orderId!, active.requestId, binding, fetch, diagnostic) : kind === "refresh" ? await sdkReadOrder(this.env, orderId!, fetch, diagnostic) : undefined;
+      failureStage = "completion";
       const analysis = observation ? reconcile(binding, observation, "paypal-sandbox", `sandbox-${orderId}`) : undefined;
       if (analysis && serializedBytes(analysis) > MAX_PAYMENT_ANALYSIS_BYTES) throw new ApiError(502, "PAYPAL_UNAVAILABLE", "Sandbox evidence exceeded the supported result size; the reserved failure record will be retained.");
       const completed = await this.change(id, capability, async stored => {
@@ -234,7 +239,9 @@ export class AgreementStore extends DurableObject<PaypalSecrets> {
         item.payment.status = approvalRequired ? "awaiting-approval" : "error";
         item.payment.error = approvalRequired ? "Buyer approval is required in the PayPal sandbox before capture." : "Sandbox result is unavailable or uncertain. Refresh this existing order before retrying. No payment status is inferred.";
         delete item.payment.analysis;
-        await this.event(stored, "sandbox-operation-unconfirmed", "system", { version: stored.room.version, milestoneId: item.id, kind, requestId: active.requestId, reason: approvalRequired ? "approval-required" : "unavailable-or-uncertain" });
+        await this.event(stored, "sandbox-operation-unconfirmed", "system", { version: stored.room.version, milestoneId: item.id, kind, requestId: active.requestId, reason: approvalRequired ? "approval-required" : "unavailable-or-uncertain",
+          stage: failureStage, ...(error instanceof ApiError && SAFE_FAILURE_CODES.has(error.code) ? { code: error.code } : {}), ...(diagnostics.length ? { diagnostics } : {}),
+        });
       });
     }
   }

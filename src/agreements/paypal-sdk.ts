@@ -17,6 +17,9 @@ export type PayPalDiagnostic = {
   httpStatus?: number; providerName?: string; issues?: string[]; debugId?: string;
 };
 export type PayPalDiagnosticSink = (diagnostic: PayPalDiagnostic) => void;
+export const MAX_RETAINED_PAYPAL_DIAGNOSTICS = 4;
+const DIAGNOSTIC_OPERATIONS: readonly PayPalDiagnosticOperation[] = ["oauth", "create-order", "get-order", "capture-order", "get-capture", "transport", "read-order"];
+const DIAGNOSTIC_REASONS: readonly PayPalDiagnosticReason[] = ["http-response", "http-error", "transport-policy", "transport-error", "response-unreadable", "response-validation", "arguments-validation", "invalid-order-response", "sdk-initialization", "sdk-error"];
 const defaultDiagnostic: PayPalDiagnosticSink = diagnostic => console.warn(diagnostic);
 const own = (value: unknown, key: string): unknown => value && typeof value === "object" ? Object.getOwnPropertyDescriptor(value, key)?.value : undefined;
 const code = (value: unknown): string | undefined => typeof value === "string" && /^[A-Z][A-Z0-9_]{1,79}$/.test(value) ? value : undefined;
@@ -47,6 +50,18 @@ export function sanitizePayPalDiagnostic(operation: PayPalDiagnosticOperation, r
   const correlation = debugId(own(body, "debug_id")) || debugId(own(headers, "paypal-debug-id")) || debugId(own(headers, "PayPal-Debug-Id"));
   if (correlation) result.debugId = correlation;
   return result;
+}
+/** Revalidate at the persistence boundary and retain only the most recent bounded entries. */
+export function retainPayPalDiagnostic(target: PayPalDiagnostic[], value: unknown): void {
+  const operation = own(value, "operation"), reason = own(value, "reason");
+  if (own(value, "event") !== "paypal-sandbox-diagnostic" || !DIAGNOSTIC_OPERATIONS.includes(operation as PayPalDiagnosticOperation) || !DIAGNOSTIC_REASONS.includes(reason as PayPalDiagnosticReason)) return;
+  const issues = own(value, "issues");
+  const providerName = own(value, "providerName");
+  const safe = sanitizePayPalDiagnostic(operation as PayPalDiagnosticOperation, reason as PayPalDiagnosticReason, { statusCode: own(value, "httpStatus"), body: {
+    name: providerName, error: providerName, debug_id: own(value, "debugId"), details: Array.isArray(issues) ? issues.slice(0, 3).map(issue => ({ issue })) : undefined,
+  } });
+  target.push(safe);
+  if (target.length > MAX_RETAINED_PAYPAL_DIAGNOSTICS) target.splice(0, target.length - MAX_RETAINED_PAYPAL_DIAGNOSTICS);
 }
 function reportDiagnostic(sink: PayPalDiagnosticSink, operation: PayPalDiagnosticOperation, reason: PayPalDiagnosticReason, source?: unknown) {
   try { sink(sanitizePayPalDiagnostic(operation, reason, source)); } catch { /* Diagnostics must not change payment behavior. */ }

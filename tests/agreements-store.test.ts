@@ -11,12 +11,13 @@ test("real Worker SQLite room store preserves consent, role checks, checkout res
   const bundle = await build({ entryPoints: ["src/agreements/store.ts"], bundle: true, write: false, format: "esm", platform: "browser", external: ["cloudflare:workers"], logLevel: "silent" });
   // Test-only provider transport: all PayPal calls stay in this isolate and use fictitious values.
   const script = `
-    const orders = new Map(); let capturePosts = 0; let now = '2026-10-17T12:00:00Z';
+    const orders = new Map(); let capturePosts = 0; let failNext = false; let now = '2026-10-17T12:00:00Z';
     const RealDate = Date; globalThis.Date = class extends RealDate { constructor(...args) { super(...(args.length ? args : [now])); } static now() { return new RealDate(now).getTime(); } };
     globalThis.fetch = async (input, init = {}) => {
       const url = new URL(String(input));
       if (url.origin !== 'https://api-m.sandbox.paypal.com') throw new Error('Unexpected test network target');
       const json = (value, status = 200) => Response.json(value, {status});
+      if (failNext) { failNext=false; return json({name:'UNPROCESSABLE_ENTITY',message:'PRIVATE-SERVER-SECRET customer@example.invalid',debug_id:'90957fca61718',details:[{issue:'MISSING_REQUIRED_PARAMETER',description:'PRIVATE-SERVER-SECRET',value:'customer@example.invalid'}]},422); }
       if (url.pathname === '/v1/oauth2/token') return json({access_token:'SYNTHETIC-TOKEN',token_type:'Bearer',expires_in:300});
       if (url.pathname === '/v2/checkout/orders' && init.method === 'POST') {
         const body = JSON.parse(init.body); const id = 'ORDERTEST' + String(orders.size + 1).padStart(8, '0');
@@ -40,6 +41,7 @@ test("real Worker SQLite room store preserves consent, role checks, checkout res
       const input = await request.json();
       if (input.test === 'approve') { for (const order of orders.values()) order.status='APPROVED'; return Response.json({ok:true}); }
       if (input.test === 'clock') { now=input.now; return Response.json({ok:true}); }
+      if (input.test === 'fail-next') { failNext=true; return Response.json({ok:true}); }
       if (input.test === 'counts') return Response.json({capturePosts,createPosts:orders.size});
       return Response.json(await env.AGREEMENTS.getByName('global-bounded-agreements-v1').dispatch(input));
     } };
@@ -88,7 +90,20 @@ test("real Worker SQLite room store preserves consent, role checks, checkout res
     const packet = success<ReceiptPacket>(await send({ operation: "export", id: created.room.id, capability: buyer })); assert.equal((await verifyReceipt(packet, earlier)).valid, true);
     success(await call(seller, { type: "deliver", version: 1, milestoneId: "m2", note: "Synthetic second milestone" }));
     success(await call(buyer, { type: "accept", version: 1, milestoneId: "m2" }));
+    await send({ test: "fail-next" });
+    const uncertain = success<AgreementResponse>(await call(buyer, { type: "create-order", version: 1, milestoneId: "m2" }));
+    assert.equal(uncertain.room.milestones[1].payment.status, "error");
+    assert.equal(uncertain.room.milestones[1].payment.orderId, undefined);
+    const failure = uncertain.room.events.at(-1)!;
+    assert.equal(failure.type, "sandbox-operation-unconfirmed"); assert.equal(failure.data.stage, "create"); assert.equal(failure.data.code, "PAYPAL_UNAVAILABLE");
+    const safeDiagnostics = failure.data.diagnostics as { httpStatus?: number; providerName?: string; issues?: string[] }[];
+    assert.ok(safeDiagnostics.length >= 1 && safeDiagnostics.length <= 4);
+    assert.ok(safeDiagnostics.some(value => value.httpStatus === 422 && value.providerName === "UNPROCESSABLE_ENTITY" && value.issues?.[0] === "MISSING_REQUIRED_PARAMETER"));
+    assert.equal(JSON.stringify(failure).includes("PRIVATE-SERVER-SECRET"), false); assert.equal(JSON.stringify(failure).includes("customer@"), false);
     success(await call(buyer, { type: "create-order", version: 1, milestoneId: "m2" }));
+    const afterRetry = success<AgreementResponse>(await send({ operation: "read", id: created.room.id, capability: buyer }));
+    const retryReservation = [...afterRetry.room.events].reverse().find(event => event.type === "sandbox-operation-reserved" && event.data.milestoneId === "m2");
+    assert.equal(retryReservation?.data.requestId, failure.data.requestId, "Failure telemetry must preserve the existing write idempotency identity.");
     success(await call(buyer, { type: "capture", version: 1, milestoneId: "m2" }));
     await send({ test: "clock", now: "2026-10-17T17:01:00Z" });
     await send({ test: "approve" });

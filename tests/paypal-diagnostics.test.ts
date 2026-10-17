@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { sanitizePayPalDiagnostic, sdkCreateOrder, type PayPalDiagnostic } from '../src/agreements/paypal-sdk';
+import { sanitizePayPalDiagnostic, sdkCreateOrder, retainPayPalDiagnostic, MAX_RETAINED_PAYPAL_DIAGNOSTICS, type PayPalDiagnostic } from '../src/agreements/paypal-sdk';
 import { build } from 'esbuild';
 import { Miniflare } from 'miniflare';
 
@@ -25,6 +25,16 @@ test('PayPal diagnostics reject malformed codes/status/debug IDs and never inspe
   assert.deepEqual(sanitizePayPalDiagnostic('oauth', 'sdk-error', inherited), { event: 'paypal-sandbox-diagnostic', operation: 'oauth', reason: 'sdk-error' });
   const safe = sanitizePayPalDiagnostic('create-order', 'http-error', { statusCode: 422.5, body: { name: 'ALICE_EXAMPLE', debug_id: privateText, details: [{ issue: 'person@example.invalid' }] }, headers: { 'paypal-debug-id': 'BearerSECRET' } });
   assert.deepEqual(safe, { event: 'paypal-sandbox-diagnostic', operation: 'create-order', reason: 'http-error' });
+});
+test('persisted diagnostic collector revalidates schema and keeps at most four recent safe entries', () => {
+  const retained: PayPalDiagnostic[] = [];
+  retainPayPalDiagnostic(retained, { event: 'paypal-sandbox-diagnostic', operation: privateText, reason: 'sdk-error' });
+  retainPayPalDiagnostic(retained, { event: 'paypal-sandbox-diagnostic', operation: 'create-order', reason: privateText });
+  assert.equal(retained.length, 0);
+  for (let i = 0; i < 10; i++) retainPayPalDiagnostic(retained, { event: 'paypal-sandbox-diagnostic', operation: 'create-order', reason: 'http-error', httpStatus: 400, providerName: 'INVALID_REQUEST', issues: ['MISSING_REQUIRED_PARAMETER', privateText], debugId: '90957fca61718', message: privateText, headers: { authorization: privateText }, url: privateText });
+  assert.equal(retained.length, MAX_RETAINED_PAYPAL_DIAGNOSTICS);
+  assert.equal(JSON.stringify(retained).includes('PRIVATE'), false);
+  assert.ok(retained.every(value => value.issues?.length === 1 && !Object.hasOwn(value, 'message') && !Object.hasOwn(value, 'url')));
 });
 test('SDK OAuth failure is distinguishable before order creation without logging credentials or provider descriptions', async () => {
   const diagnostics: PayPalDiagnostic[] = []; let calls = 0;
