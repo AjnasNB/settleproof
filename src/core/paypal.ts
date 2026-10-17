@@ -135,7 +135,9 @@ export async function readPaypalOrder(
   const request = async (path: string, init: RequestInit) => {
     const response = await fetcher(`${PAYPAL_ORIGIN}${path}`, {
       ...init,
-      redirect: "error",
+      // Manual mode works in the Worker runtime and never forwards credentials.
+      // All non-success responses, including redirects, are rejected below.
+      redirect: "manual",
       signal: AbortSignal.any([overallDeadline, AbortSignal.timeout(8000)]),
     });
     if (!response.ok) {

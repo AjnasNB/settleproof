@@ -11,15 +11,16 @@ const ORIGIN = "https://api-m.sandbox.paypal.com";
 const unavailable = () => new ApiError(502, "PAYPAL_UNAVAILABLE", "Fresh PayPal sandbox evidence is unavailable. Inspect the existing order before retrying; no payment conclusion can be made.");
 const validId = (value: unknown): value is string => typeof value === "string" && /^[A-Z0-9]{8,32}$/.test(value);
 export type PayPalDiagnosticOperation = "oauth" | "create-order" | "get-order" | "capture-order" | "get-capture" | "transport" | "read-order";
-export type PayPalDiagnosticReason = "http-response" | "http-error" | "transport-policy" | "transport-error" | "response-unreadable" | "response-validation" | "arguments-validation" | "invalid-order-response" | "sdk-initialization" | "sdk-error";
+export type PayPalDiagnosticReason = "http-response" | "http-error" | "transport-policy" | "transport-error" | "transport-data-type" | "transport-deadline" | "transport-cancelled" | "transport-fetch" | "redirect-rejected" | "response-unreadable" | "response-validation" | "arguments-validation" | "invalid-order-response" | "sdk-initialization" | "sdk-error";
 export type PayPalDiagnostic = {
   event: "paypal-sandbox-diagnostic"; operation: PayPalDiagnosticOperation; reason: PayPalDiagnosticReason;
-  httpStatus?: number; providerName?: string; issues?: string[]; debugId?: string;
+  httpStatus?: number; providerName?: string; issues?: string[]; debugId?: string; errorName?: string;
 };
 export type PayPalDiagnosticSink = (diagnostic: PayPalDiagnostic) => void;
 export const MAX_RETAINED_PAYPAL_DIAGNOSTICS = 4;
 const DIAGNOSTIC_OPERATIONS: readonly PayPalDiagnosticOperation[] = ["oauth", "create-order", "get-order", "capture-order", "get-capture", "transport", "read-order"];
-const DIAGNOSTIC_REASONS: readonly PayPalDiagnosticReason[] = ["http-response", "http-error", "transport-policy", "transport-error", "response-unreadable", "response-validation", "arguments-validation", "invalid-order-response", "sdk-initialization", "sdk-error"];
+const DIAGNOSTIC_REASONS: readonly PayPalDiagnosticReason[] = ["http-response", "http-error", "transport-policy", "transport-error", "transport-data-type", "transport-deadline", "transport-cancelled", "transport-fetch", "redirect-rejected", "response-unreadable", "response-validation", "arguments-validation", "invalid-order-response", "sdk-initialization", "sdk-error"];
+const ERROR_NAMES = new Set(["Error", "TypeError", "AbortError", "TimeoutError"]);
 const defaultDiagnostic: PayPalDiagnosticSink = diagnostic => console.warn(diagnostic);
 const own = (value: unknown, key: string): unknown => value && typeof value === "object" ? Object.getOwnPropertyDescriptor(value, key)?.value : undefined;
 const code = (value: unknown): string | undefined => typeof value === "string" && /^[A-Z][A-Z0-9_]{1,79}$/.test(value) ? value : undefined;
@@ -30,6 +31,8 @@ const PROVIDER_NAMES = new Set(["INVALID_REQUEST", "UNPROCESSABLE_ENTITY", "AUTH
 /** Select only protocol codes; SDK exceptions contain private request headers and bodies. */
 export function sanitizePayPalDiagnostic(operation: PayPalDiagnosticOperation, reason: PayPalDiagnosticReason, source: unknown): PayPalDiagnostic {
   const result: PayPalDiagnostic = { event: "paypal-sandbox-diagnostic", operation, reason };
+  const errorName = own(source, "errorName");
+  if (typeof errorName === "string" && ERROR_NAMES.has(errorName)) result.errorName = errorName;
   const status = own(source, "statusCode");
   if (typeof status === "number" && Number.isInteger(status) && status >= 100 && status <= 599) result.httpStatus = status;
   let body = own(source, "body");
@@ -57,7 +60,7 @@ export function retainPayPalDiagnostic(target: PayPalDiagnostic[], value: unknow
   if (own(value, "event") !== "paypal-sandbox-diagnostic" || !DIAGNOSTIC_OPERATIONS.includes(operation as PayPalDiagnosticOperation) || !DIAGNOSTIC_REASONS.includes(reason as PayPalDiagnosticReason)) return;
   const issues = own(value, "issues");
   const providerName = own(value, "providerName");
-  const safe = sanitizePayPalDiagnostic(operation as PayPalDiagnosticOperation, reason as PayPalDiagnosticReason, { statusCode: own(value, "httpStatus"), body: {
+  const safe = sanitizePayPalDiagnostic(operation as PayPalDiagnosticOperation, reason as PayPalDiagnosticReason, { statusCode: own(value, "httpStatus"), errorName: own(value, "errorName"), body: {
     name: providerName, error: providerName, debug_id: own(value, "debugId"), details: Array.isArray(issues) ? issues.slice(0, 3).map(issue => ({ issue })) : undefined,
   } });
   target.push(safe);
@@ -99,19 +102,30 @@ export function sandboxAdapter(fetcher: typeof fetch = fetch, deadline = AbortSi
     const abort = () => cancelled.abort();
     config.cancelToken?.subscribe?.(abort);
     let response: Response | undefined;
+    let failureReason: PayPalDiagnosticReason = "transport-fetch";
     try {
-      if (config.data !== undefined && typeof config.data !== "string") throw unavailable();
+      if (config.data !== undefined && typeof config.data !== "string") { failureReason = "transport-data-type"; throw unavailable(); }
       response = await fetcher(url, {
         method, headers, body: method === "GET" ? undefined : config.data as string | undefined,
-        redirect: "error", signal: AbortSignal.any([deadline, cancelled.signal]),
+        // Worker Request construction rejects "error" in the tested runtime. Manual
+        // mode returns redirects without forwarding credentials to another origin.
+        redirect: "manual", signal: AbortSignal.any([deadline, cancelled.signal]),
       });
+      if (response.status >= 300 && response.status < 400) {
+        failureReason = "redirect-rejected";
+        await response.body?.cancel();
+        throw unavailable();
+      }
+      failureReason = "response-unreadable";
       const value = await boundedJson(response, 128 * 1024);
       reportDiagnostic(diagnostic, operation, response.status >= 400 ? "http-error" : "http-response", { statusCode: response.status, body: value, headers: { "paypal-debug-id": response.headers.get("paypal-debug-id") } });
       // APIMatic explicitly disables Axios JSON transforms and parses this text itself.
       return { data: JSON.stringify(value), status: response.status, statusText: response.statusText,
         headers: Object.fromEntries(response.headers), config };
-    } catch {
-      reportDiagnostic(diagnostic, operation, response ? "response-unreadable" : "transport-error", response ? { statusCode: response.status, headers: { "paypal-debug-id": response.headers.get("paypal-debug-id") } } : undefined);
+    } catch (error) {
+      if (!response && failureReason !== "transport-data-type") failureReason = deadline.aborted ? "transport-deadline" : cancelled.signal.aborted ? "transport-cancelled" : "transport-fetch";
+      const errorName = error instanceof TypeError ? "TypeError" : own(error, "name") || (error instanceof Error ? "Error" : undefined);
+      reportDiagnostic(diagnostic, operation, failureReason, { errorName, ...(response ? { statusCode: response.status, headers: { "paypal-debug-id": response.headers.get("paypal-debug-id") } } : {}) });
       throw unavailable();
     }
     finally { config.cancelToken?.unsubscribe?.(abort); }

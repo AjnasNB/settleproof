@@ -1,6 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { sanitizePayPalDiagnostic, sdkCreateOrder, retainPayPalDiagnostic, MAX_RETAINED_PAYPAL_DIAGNOSTICS, type PayPalDiagnostic } from '../src/agreements/paypal-sdk';
+import { sandboxAdapter, sanitizePayPalDiagnostic, sdkCreateOrder, retainPayPalDiagnostic, MAX_RETAINED_PAYPAL_DIAGNOSTICS, type PayPalDiagnostic } from '../src/agreements/paypal-sdk';
+import { readPaypalOrder } from '../src/core/paypal';
 import { build } from 'esbuild';
 import { Miniflare } from 'miniflare';
 
@@ -23,7 +24,7 @@ test('PayPal diagnostics reject malformed codes/status/debug IDs and never inspe
   const inherited = Object.create({ statusCode: 401, body: { name: 'AUTHENTICATION_FAILURE' } });
   Object.defineProperty(inherited, 'headers', { get: () => { throw new Error(privateText); } });
   assert.deepEqual(sanitizePayPalDiagnostic('oauth', 'sdk-error', inherited), { event: 'paypal-sandbox-diagnostic', operation: 'oauth', reason: 'sdk-error' });
-  const safe = sanitizePayPalDiagnostic('create-order', 'http-error', { statusCode: 422.5, body: { name: 'ALICE_EXAMPLE', debug_id: privateText, details: [{ issue: 'person@example.invalid' }] }, headers: { 'paypal-debug-id': 'BearerSECRET' } });
+  const safe = sanitizePayPalDiagnostic('create-order', 'http-error', { statusCode: 422.5, errorName: privateText, cause: { code: privateText }, body: { name: 'ALICE_EXAMPLE', debug_id: privateText, details: [{ issue: 'person@example.invalid' }] }, headers: { 'paypal-debug-id': 'BearerSECRET' } });
   assert.deepEqual(safe, { event: 'paypal-sandbox-diagnostic', operation: 'create-order', reason: 'http-error' });
 });
 test('persisted diagnostic collector revalidates schema and keeps at most four recent safe entries', () => {
@@ -35,6 +36,8 @@ test('persisted diagnostic collector revalidates schema and keeps at most four r
   assert.equal(retained.length, MAX_RETAINED_PAYPAL_DIAGNOSTICS);
   assert.equal(JSON.stringify(retained).includes('PRIVATE'), false);
   assert.ok(retained.every(value => value.issues?.length === 1 && !Object.hasOwn(value, 'message') && !Object.hasOwn(value, 'url')));
+  retainPayPalDiagnostic(retained, { event: 'paypal-sandbox-diagnostic', operation: 'oauth', reason: 'transport-fetch', errorName: 'TypeError', message: privateText, cause: { code: privateText } });
+  assert.deepEqual(retained.at(-1), { event: 'paypal-sandbox-diagnostic', operation: 'oauth', reason: 'transport-fetch', errorName: 'TypeError' });
 });
 test('SDK OAuth failure is distinguishable before order creation without logging credentials or provider descriptions', async () => {
   const diagnostics: PayPalDiagnostic[] = []; let calls = 0;
@@ -62,8 +65,36 @@ test('SDK response-validation and transport failures use fixed reasons without p
   assert.ok(validation.some(value => value.reason === 'response-validation' && value.httpStatus === 200));
   const transport: PayPalDiagnostic[] = [];
   await assert.rejects(sdkCreateOrder(env, 'SP-SYNTHETIC-v1-m1', '12.00', 'same-persisted-request', 'https://settleproof.test', (async () => { throw new Error(privateText); }) as typeof fetch, value => transport.push(value)));
-  assert.ok(transport.some(value => value.operation === 'oauth' && value.reason === 'transport-error'));
+  assert.ok(transport.some(value => value.operation === 'oauth' && value.reason === 'transport-fetch' && value.errorName === 'Error'));
   assert.equal(JSON.stringify([...validation, ...transport]).includes('PRIVATE'), false);
+});
+
+test('SDK transport distinguishes unsupported data, deadline and cancellation without retaining abort reasons', async () => {
+  const config = { url: 'https://api-m.sandbox.paypal.com/v1/oauth2/token', method: 'POST', data: 'grant_type=client_credentials' };
+  const deadline = new AbortController(); deadline.abort(privateText);
+  for (const kind of ['data', 'deadline', 'cancelled'] as const) {
+    const diagnostics: PayPalDiagnostic[] = []; let calls = 0;
+    const fake = (async (_input, init) => { calls++; init?.signal?.throwIfAborted(); return json({}); }) as typeof fetch;
+    const adapter = sandboxAdapter(fake, kind === 'deadline' ? deadline.signal : new AbortController().signal, value => diagnostics.push(value));
+    await assert.rejects(adapter({ ...config, ...(kind === 'data' ? { data: { private: privateText } } : {}), ...(kind === 'cancelled' ? { cancelToken: { subscribe(abort: () => void) { abort(); } } } : {}) }));
+    assert.equal(diagnostics[0].reason, kind === 'data' ? 'transport-data-type' : kind === 'deadline' ? 'transport-deadline' : 'transport-cancelled');
+    assert.equal(calls, kind === 'data' ? 0 : 1);
+    assert.equal(JSON.stringify(diagnostics).includes('PRIVATE'), false);
+  }
+});
+
+test('SDK and evidence-read transports reject redirects without requesting their Location or retaining it', async () => {
+  for (const status of [301, 302, 303, 307, 308]) {
+    const diagnostics: PayPalDiagnostic[] = []; const modes: unknown[] = []; let calls = 0;
+    const fake = (async (_input, init) => { calls++; modes.push(init?.redirect); return new Response(privateText, { status, headers: { location: `https://private.invalid/${privateText}`, 'paypal-debug-id': '10398537340c8' } }); }) as typeof fetch;
+    await assert.rejects(sdkCreateOrder(env, 'SP-SYNTHETIC-v1-m1', '12.00', 'same-persisted-request', 'https://settleproof.test', fake, value => diagnostics.push(value)));
+    assert.equal(calls, 1); assert.deepEqual(modes, ['manual']);
+    assert.ok(diagnostics.some(value => value.operation === 'oauth' && value.reason === 'redirect-rejected' && value.httpStatus === status));
+    assert.equal(JSON.stringify(diagnostics).includes('PRIVATE'), false); assert.equal(JSON.stringify(diagnostics).includes('private.invalid'), false);
+    calls = 0; modes.length = 0;
+    await assert.rejects(readPaypalOrder('ORDERTEST12345678', env, fake));
+    assert.equal(calls, 1); assert.deepEqual(modes, ['manual']);
+  }
 });
 test('a failing diagnostic sink cannot change the SDK payment result', async () => {
   const orderId = 'ORDERTEST12345678';
@@ -84,13 +115,18 @@ test('SDK constructor failures produce a safe initialization diagnostic before a
   assert.equal(calls, 0);
   assert.deepEqual(diagnostics, [{ event: 'paypal-sandbox-diagnostic', operation: 'create-order', reason: 'sdk-initialization' }]);
 });
-test('real Worker SDK factory constructs with node compatibility without making a provider call', { timeout: 15000 }, async () => {
-  const bundle = await build({ stdin: { contents: `import {sdkControllers} from './src/agreements/paypal-sdk';
-    export default {fetch() { let calls=0; const controllers=sdkControllers({PAYPAL_CLIENT_ID:'SYNTHETIC-CLIENT',PAYPAL_CLIENT_SECRET:'SYNTHETIC-SECRET'}, async()=>{calls++; throw new Error('No provider call allowed');},()=>{}); return Response.json({constructed:!!controllers.orders && !!controllers.payments,calls,buffer:typeof Buffer,process:typeof process,navigator:typeof navigator}); }};`, resolveDir: process.cwd(), loader: 'ts' }, bundle: true, write: false, format: 'esm', platform: 'browser', logLevel: 'silent' });
+test('real Worker constructs SDK and REST requests with safe redirect settings and synthetic responses only', { timeout: 15000 }, async () => {
+  const bundle = await build({ stdin: { contents: `import {sdkControllers,sdkCreateOrder} from './src/agreements/paypal-sdk';
+    import {readPaypalOrder} from './src/core/paypal';
+    export default {async fetch() { let calls=0; const modes=[]; const env={PAYPAL_CLIENT_ID:'SYNTHETIC-CLIENT',PAYPAL_CLIENT_SECRET:'SYNTHETIC-SECRET'};
+      const fake=async(input,init)=>{const request=new Request(input,init); calls++; modes.push(request.redirect); if(new URL(request.url).origin!=='https://api-m.sandbox.paypal.com')throw new Error('Unexpected synthetic target'); return Response.json(request.url.endsWith('/oauth2/token')?{access_token:'SYNTHETIC-TOKEN',token_type:'Bearer',expires_in:300}:{id:'ORDERTEST12345678',status:'CREATED',purchase_units:[{invoice_id:'SP-SYNTHETIC-v1-m1',amount:{currency_code:'USD',value:'12.00'}}]});};
+      const controllers=sdkControllers(env,fake,()=>{}); const created=await sdkCreateOrder(env,'SP-SYNTHETIC-v1-m1','12.00','same-persisted-request','https://settleproof.test',fake,()=>{}); const read=await readPaypalOrder(created.orderId,env,fake);
+      return Response.json({constructed:!!controllers.orders && !!controllers.payments,calls,modes,created:created.orderId,read:read.status}); }};`, resolveDir: process.cwd(), loader: 'ts' }, bundle: true, write: false, format: 'esm', platform: 'browser', logLevel: 'silent' });
   const config = { name: 'sdk-factory-probe', compatibilityDate: '2026-10-17', compatibilityFlags: ['nodejs_compat'], manifest: { mainModule: 'index.js', modules: { 'index.js': { type: 'esm' as const, contents: bundle.outputFiles[0].text } } }, exports: { default: { type: 'worker' as const } } };
   const mf = new Miniflare({ cf: false, workers: [{ config }] });
   try {
-    const result = await (await mf.dispatchFetch('https://sdk-factory.test/')).json() as { constructed: boolean; calls: number };
-    assert.equal(result.constructed, true); assert.equal(result.calls, 0);
+    const result = await (await mf.dispatchFetch('https://sdk-factory.test/')).json() as { constructed: boolean; calls: number; modes: string[]; created: string; read: string };
+    assert.equal(result.constructed, true); assert.equal(result.calls, 4); assert.deepEqual(result.modes, Array(4).fill('manual'));
+    assert.equal(result.created, 'ORDERTEST12345678'); assert.equal(result.read, 'CREATED');
   } finally { await mf.dispose(); }
 });

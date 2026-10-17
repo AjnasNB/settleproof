@@ -341,7 +341,7 @@ test("sandbox adapter reads fresh captures, strips PII and never follows provide
     const url = String(input);
     calls.push({ url, method: init?.method || "GET" });
     assert.ok(url.startsWith(PAYPAL_ORIGIN));
-    assert.equal(init?.redirect, "error");
+    assert.equal(init?.redirect, "manual");
     if (url.endsWith("/token"))
       return Response.json({ access_token: "mock-provider-token" });
     if (url.includes("/checkout/orders/"))

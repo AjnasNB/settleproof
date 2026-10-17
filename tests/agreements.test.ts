@@ -72,7 +72,7 @@ test("official SDK create order uses sandbox OAuth, typed payload and stable ide
   assert.equal(seen.length, 2); assert.ok(seen.every(item => item.url.startsWith("https://api-m.sandbox.paypal.com/")));
   const create = seen[1]; assert.equal(new Headers(create.init?.headers).get("paypal-request-id"), "stable-request-123");
   const body = JSON.parse(String(create.init?.body)); assert.equal(body.purchase_units[0].amount.value, "12.00"); assert.equal(body.purchase_units[0].invoice_id, invoiceId);
-  assert.ok(seen.every(item => item.init?.redirect === "error"));
+  assert.ok(seen.every(item => item.init?.redirect === "manual"));
 });
 test("SDK fallback approval links require the exact sandbox origin and documented checkout path", async () => {
   for (const href of [`https://www.sandbox.paypal.com:444/checkoutnow?token=${orderId}`, `https://www.sandbox.paypal.com/other?token=${orderId}`, `https://www.sandbox.paypal.com/checkoutnow?token=${orderId}#unexpected`, `https://www.paypal.com/checkoutnow?token=${orderId}`]) {

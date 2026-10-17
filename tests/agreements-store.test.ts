@@ -14,6 +14,8 @@ test("real Worker SQLite room store preserves consent, role checks, checkout res
     const orders = new Map(); let capturePosts = 0; let failNext = false; let now = '2026-10-17T12:00:00Z';
     const RealDate = Date; globalThis.Date = class extends RealDate { constructor(...args) { super(...(args.length ? args : [now])); } static now() { return new RealDate(now).getTime(); } };
     globalThis.fetch = async (input, init = {}) => {
+      // Exercise real workerd Request validation before returning synthetic data.
+      new Request(input, init);
       const url = new URL(String(input));
       if (url.origin !== 'https://api-m.sandbox.paypal.com') throw new Error('Unexpected test network target');
       const json = (value, status = 200) => Response.json(value, {status});
