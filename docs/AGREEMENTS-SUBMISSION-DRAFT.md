@@ -1,6 +1,6 @@
-# SettleProof Agreements: candidate submission copy
+# SettleProof Agreements: submitted entry copy
 
-18 October 2026 publication checkpoint. **The [reviewed demo is public on YouTube](https://www.youtube.com/watch?v=VOR_Q7JEGXU); the Devpost entry remains pending final submission.** The implementation is deployed at https://settleproof.ajnasnb.com/ with https://settleproof.ajnasnb.workers.dev/ as fallback. Genuine AI drafting, human workflow, PayPal Sandbox approval/capture and receipt/tampering checks are complete. No award, customer traction or winning probability is claimed.
+18 October 2026 submission checkpoint. **The [reviewed demo is public on YouTube](https://www.youtube.com/watch?v=VOR_Q7JEGXU), and the [entry was submitted to the PayPal AI Hackathon](https://devpost.com/software/settleproof-agreements).** The implementation is deployed at https://settleproof.ajnasnb.com/ with https://settleproof.ajnasnb.workers.dev/ as fallback. Genuine AI drafting, human workflow, PayPal Sandbox approval/capture and receipt/tampering checks are complete. No award, customer traction or winning probability is claimed.
 
 ## Pitch
 
@@ -40,6 +40,6 @@ The prototype uses one controlled Sandbox merchant, invented data and capability
 
 New work began on 17 October 2026. Earlier context/evidence projects informed the problem selection; unrelated private source, customer records and assets were not copied. Project source is MIT; dependency notices retain their respective licenses.
 
-Development assistance: OpenAI Codex and cooperating coding agents for concept review, implementation, documentation and tests. Runtime AI: Cloudflare Workers AI model named above. Video assembly: HyperFrames with genuine application captures. The reviewed final export is 140 seconds, 1080p, 24fps, with English captions and no audio. The exact approved film is [published publicly](https://www.youtube.com/watch?v=VOR_Q7JEGXU), and actual watch-page playback was observed. Ajnas N B is the project owner. Exact prepared form copy, including the video URL, is in `devpost-prepared-entry.json`. No final Devpost submission receipt has been confirmed at this checkpoint.
+Development assistance: OpenAI Codex and cooperating coding agents for concept review, implementation, documentation and tests. Runtime AI: Cloudflare Workers AI model named above. Video assembly: HyperFrames with genuine application captures. The reviewed final export is 140 seconds, 1080p, 24fps, with English captions and no audio. The exact approved film is [published publicly](https://www.youtube.com/watch?v=VOR_Q7JEGXU), and actual watch-page playback was observed. Ajnas N B is the project owner. Submitted public form copy, including the video URL, is in `devpost-prepared-entry.json`. The actual “Project submitted!” and “SUBMITTED TO PayPal AI Hackathon” confirmation is recorded in [the sanitized receipt](../artifacts/devpost-submission.json).
 
-At the final endpoint attach the reviewed public source, runnable instructions or hosted build, and a public YouTube demo under three minutes showing genuine Sandbox functioning. Verify entrant eligibility and obtain the required action-time contract approval. Do not submit this unfinished draft or duplicate an earlier grant application.
+The final entry links the public source, hosted build and reviewed public YouTube demo. Submission ID1242650 was observed at2026-10-18T06:32:37.825Z. This confirms submission, not judging success, funding or payment. Earlier planning and publication-only checkpoints remain in Git history.

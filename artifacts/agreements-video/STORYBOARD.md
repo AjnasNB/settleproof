@@ -4,12 +4,12 @@ duration: 140s
 mode: autonomous
 music: none
 message: "Agree, review, connect payment evidence, retain the receipt"
-status: public-video-published-entry-pending
+status: public-video-published-entry-submitted
 ---
 
 # Agreements production storyboard
 
-All17 source-backed shots are mounted for140 seconds. Local render and full-decode/sample-frame review are complete. The exact approved film is public at https://www.youtube.com/watch?v=VOR_Q7JEGXU and root observed watch-page playback. Final Devpost entry remains pending.
+All17 source-backed shots are mounted for140 seconds. Local render and full-decode/sample-frame review are complete. The exact approved film is public at https://www.youtube.com/watch?v=VOR_Q7JEGXU and root observed watch-page playback. Final Devpost entry confirmed submitted: https://devpost.com/software/settleproof-agreements. This confirms an entry, not an award or payout.
 
 ## Video direction
 
