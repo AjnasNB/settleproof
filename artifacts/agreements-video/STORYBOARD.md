@@ -4,12 +4,12 @@ duration: 140s
 mode: autonomous
 music: none
 message: "Agree, review, connect payment evidence, retain the receipt"
-status: local-delivery-verified-publication-pending
+status: public-video-published-entry-pending
 ---
 
 # Agreements production storyboard
 
-All17 source-backed shots are mounted for140 seconds. Local render and full-decode/sample-frame review are complete; public upload/playback and entry remain separate pending actions.
+All17 source-backed shots are mounted for140 seconds. Local render and full-decode/sample-frame review are complete. The exact approved film is public at https://www.youtube.com/watch?v=VOR_Q7JEGXU and root observed watch-page playback. Final Devpost entry remains pending.
 
 ## Video direction
 

@@ -1,6 +1,6 @@
 # SettleProof Agreements: candidate submission copy
 
-17 October 2026. **Application copy ready for final review; public demo video and final submission remain pending.** The implementation is deployed at https://settleproof.ajnasnb.com/ with https://settleproof.ajnasnb.workers.dev/ as fallback. Genuine AI drafting, human workflow, PayPal Sandbox approval/capture and receipt/tampering checks are complete. No award, customer traction or winning probability is claimed.
+18 October 2026 publication checkpoint. **The [reviewed demo is public on YouTube](https://www.youtube.com/watch?v=VOR_Q7JEGXU); the Devpost entry remains pending final submission.** The implementation is deployed at https://settleproof.ajnasnb.com/ with https://settleproof.ajnasnb.workers.dev/ as fallback. Genuine AI drafting, human workflow, PayPal Sandbox approval/capture and receipt/tampering checks are complete. No award, customer traction or winning probability is claimed.
 
 ## Pitch
 
@@ -40,6 +40,6 @@ The prototype uses one controlled Sandbox merchant, invented data and capability
 
 New work began on 17 October 2026. Earlier context/evidence projects informed the problem selection; unrelated private source, customer records and assets were not copied. Project source is MIT; dependency notices retain their respective licenses.
 
-Development assistance: OpenAI Codex and cooperating coding agents for concept review, implementation, documentation and tests. Runtime AI: Cloudflare Workers AI model named above. Video assembly: HyperFrames with genuine application captures. The reviewed final local export is 140 seconds, 1080p, 24fps, with English captions and no audio; public publication is pending. Ajnas N B is the project owner. Exact prepared form copy is in `devpost-prepared-entry.json`.
+Development assistance: OpenAI Codex and cooperating coding agents for concept review, implementation, documentation and tests. Runtime AI: Cloudflare Workers AI model named above. Video assembly: HyperFrames with genuine application captures. The reviewed final export is 140 seconds, 1080p, 24fps, with English captions and no audio. The exact approved film is [published publicly](https://www.youtube.com/watch?v=VOR_Q7JEGXU), and actual watch-page playback was observed. Ajnas N B is the project owner. Exact prepared form copy, including the video URL, is in `devpost-prepared-entry.json`. No final Devpost submission receipt has been confirmed at this checkpoint.
 
 At the final endpoint attach the reviewed public source, runnable instructions or hosted build, and a public YouTube demo under three minutes showing genuine Sandbox functioning. Verify entrant eligibility and obtain the required action-time contract approval. Do not submit this unfinished draft or duplicate an earlier grant application.
